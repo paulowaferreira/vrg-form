@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'vr-react-form'`, () => {
+  it(`should have as title 'vrg-form'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('vr-react-form');
+    expect(app.title).toEqual('vrg-form');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('vr-react-form app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('vrg-form app is running!');
   });
 });

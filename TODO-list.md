@@ -1,0 +1,6 @@
+- Incluir o ng-content nos fields.
+- Verificar a possibilidade de escolher o lugar de inserir o ng-content.
+- Criar os fields para password, phone, dropdown, radio, checkbox, textaerea e file.
+- Criar um service facade que abstraia a criação do formGroup.
+- Criar outputs de eventos como keyup dentre outros.
+- Criar inputs para disparar eventos como focus.

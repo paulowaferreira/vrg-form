@@ -1,0 +1,27 @@
+<div [formGroup]="parentForm">
+  <ng-container *ngFor="let field of fields">
+    <ng-container [ngSwitch]="field.type">
+      <vrg-field-text
+        *ngSwitchCase="'text'"
+        [ngClass]="'vrg-field'"
+        [ngStyle]="{'background-color': 'red'}"
+        [name]="field.name"
+        [id]="field.id"
+        [controlName]="field.controlName"
+        [parentForm]="parentForm"
+        [placeholder]="'seu nome aqui'">
+      </vrg-field-text>
+
+      <vrg-field-number 
+        *ngSwitchCase="'number'"
+        [ngClass]="'vrg-field'"
+        [ngStyle]="{'background-color': 'blue'}"
+        [name]="field.name"
+        [id]="field.id"
+        [controlName]="field.controlName"
+        [step]="field.step"
+        [parentForm]="parentForm">
+      </vrg-field-number>
+    </ng-container>
+  </ng-container>
+</div>

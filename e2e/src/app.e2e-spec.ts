@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('vr-react-form app is running!');
+    expect(page.getTitleText()).toEqual('vrg-form app is running!');
   });
 
   afterEach(async () => {

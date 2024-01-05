@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "vr-react-form": {
+    "vrg-form": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -12,12 +12,12 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "vr",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/vr-react-form",
+            "outputPath": "dist/vrg-form",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "vr-react-form:build"
+            "browserTarget": "vrg-form:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "vr-react-form:build:production"
+              "browserTarget": "vrg-form:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "vr-react-form:build"
+            "browserTarget": "vrg-form:build"
           }
         },
         "test": {
@@ -115,15 +115,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "vr-react-form:serve"
+            "devServerTarget": "vrg-form:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "vr-react-form:serve:production"
+              "devServerTarget": "vrg-form:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "vr-react-form"
+  "defaultProject": "vrg-form"
 }
