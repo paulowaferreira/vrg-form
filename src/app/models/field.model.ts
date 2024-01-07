@@ -1,4 +1,4 @@
-import { FormControl } from '@angular/forms'
+import { FieldTypeEnum } from '../enums/field-type.enum'
 
 export interface FieldModel {
   autofocus?: boolean
@@ -11,6 +11,6 @@ export interface FieldModel {
   placeholder?: string
   size?: number
   step?: number
-  type: string
+  type: FieldTypeEnum
   value?: any
 }

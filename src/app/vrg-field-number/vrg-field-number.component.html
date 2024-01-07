@@ -1,6 +1,11 @@
-<div [formGroup]="parentForm">
+<div 
+  [formGroup]="parentForm"
+  class="vrg-field-number__container">
+  <ng-content select="[before]"></ng-content>
+
   <input
     type="number"
+    class="vrg-field-number__container--field"
     [ngClass]="ngClass"
     [ngStyle]="ngStyle"
     [autofocus]="autofocus"
@@ -9,4 +14,6 @@
     [step]="step"
     [placeholder]="placeholder"
     [formControlName]="controlName" />
+
+  <ng-content select="[after]"></ng-content>
 </div>

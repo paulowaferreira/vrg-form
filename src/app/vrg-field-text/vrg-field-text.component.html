@@ -1,11 +1,18 @@
-<div [formGroup]="parentForm">
+<div
+  [formGroup]="parentForm"
+  class="vrg-field-text__container">
+  <ng-content select="[before]"></ng-content>
+
   <input
+    type="text"
+    class="vrg-field-text__container--field"
     [ngClass]="ngClass"
     [ngStyle]="ngStyle"
-    type="text"
     [autofocus]="autofocus"
-    [name]="name"
+    [formControlName]="controlName"
     [id]="id"
-    [placeholder]="placeholder"
-    [formControlName]="controlName" />
+    [name]="name"
+    [placeholder]="placeholder"/>  
+
+  <ng-content select="[after]"></ng-content>
 </div>

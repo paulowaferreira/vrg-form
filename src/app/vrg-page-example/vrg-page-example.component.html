@@ -3,8 +3,6 @@
     <ng-container [ngSwitch]="field.type">
       <vrg-field-text
         *ngSwitchCase="'text'"
-        [ngClass]="'vrg-field'"
-        [ngStyle]="{'background-color': 'red'}"
         [name]="field.name"
         [id]="field.id"
         [controlName]="field.controlName"
@@ -12,10 +10,19 @@
         [placeholder]="'seu nome aqui'">
       </vrg-field-text>
 
+      <vrg-field-password
+        *ngSwitchCase="'password'"
+        [name]="field.name"
+        [id]="field.id"
+        [controlName]="field.controlName"
+        [parentForm]="parentForm"
+        [placeholder]="'senha'">
+      </vrg-field-password>
+
       <vrg-field-number 
         *ngSwitchCase="'number'"
         [ngClass]="'vrg-field'"
-        [ngStyle]="{'background-color': 'blue'}"
+        [ngStyle]="{}"
         [name]="field.name"
         [id]="field.id"
         [controlName]="field.controlName"
