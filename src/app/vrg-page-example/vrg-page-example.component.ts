@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms'
 
-import { FieldModel } from '../models/field.model'
+import { FieldPropertiesModel } from '../models/field-properties.model'
 import { FieldTypeEnum } from '../enums/field-type.enum'
 
 @Component({
@@ -16,7 +16,7 @@ import { FieldTypeEnum } from '../enums/field-type.enum'
 })
 export class VrgPageExampleComponent implements OnInit {
   parentForm: FormGroup
-  fields: FieldModel[]
+  fields: FieldPropertiesModel[]
   fieldType = FieldTypeEnum
 
   constructor(private fb: FormBuilder) {}

@@ -1,6 +1,6 @@
 import { FieldTypeEnum } from '../enums/field-type.enum'
 
-export interface FieldModel {
+export interface FieldPropertiesModel {
   autofocus?: boolean
   autocomplete?: boolean
   disabled?: boolean
@@ -12,5 +12,4 @@ export interface FieldModel {
   size?: number
   step?: number
   type: FieldTypeEnum
-  value?: any
 }
