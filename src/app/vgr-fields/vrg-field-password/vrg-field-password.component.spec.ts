@@ -27,4 +27,30 @@ describe(`${VrgFieldPasswordComponent.name}`, () => {
   it('should create', () => {
     expect(component).toBeTruthy()
   })
+
+  it('should have default value set to an empty string', () => {
+    expect(component.value).toBe('')
+  })
+
+  it('should have default type set to FieldTypeEnum', () => {
+    expect(component.type).toBeDefined()
+  })
+
+  it('should have default showPassword set to false', () => {
+    expect(component.showPassword).toBe(false)
+  })
+
+  it('should have default passwordShowText set to "mostrar"', () => {
+    expect(component.passwordShowText).toBe('mostrar')
+  })
+
+  it('should toggle showPassword and update passwordShowText on onShowPassword', () => {
+    component.onShowPassword()
+    expect(component.showPassword).toBe(true)
+    expect(component.passwordShowText).toBe('esconder')
+
+    component.onShowPassword()
+    expect(component.showPassword).toBe(false)
+    expect(component.passwordShowText).toBe('mostrar')
+  })
 })

@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core"
 
-import { VrgFieldBase } from "../base-class/vrg-field-base.class";
+import { VrgFieldBase } from "../base-class/vrg-field-base.class"
 
 @Component({
   selector: "vrg-field-number",
@@ -8,8 +8,8 @@ import { VrgFieldBase } from "../base-class/vrg-field-base.class";
   styleUrls: ["./vrg-field-number.component.scss"],
 })
 export class VrgFieldNumberComponent extends VrgFieldBase implements OnInit {
-  @Input() value = 0;
-  @Input() step: number;
+  @Input() value = 0
+  @Input() step: number
 
   ngOnInit() {
     this.checkPlaceholder()

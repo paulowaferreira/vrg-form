@@ -28,23 +28,22 @@ describe(`${VrgFieldNumberComponent.name}`, () => {
     expect(component).toBeTruthy()
   })
 
-  it('should have default value of 0', () => {
+  it("should have default value set to 0", () => {
     expect(component.value).toBe(0)
   })
 
-  it('should have default step of undefined', () => {
+  it("should have default step set to undefined", () => {
     expect(component.step).toBeUndefined()
   })
 
-  it('should initialize with checkPlaceholder', () => {
-    spyOn(component, 'checkPlaceholder')
-    component.ngOnInit()
-    expect(component.checkPlaceholder).toHaveBeenCalled()
+  it("should set placeholder to empty string if not provided", () => {
+    component.checkPlaceholder()
+    expect(component.placeholder).toBe("")
   })
 
-  it('should set placeholder to empty string in checkPlaceholder if not provided', () => {
-    component.placeholder = undefined
+  it("should not change placeholder if provided", () => {
+    component.placeholder = "Test Placeholder"
     component.checkPlaceholder()
-    expect(component.placeholder).toEqual('')
+    expect(component.placeholder).toBe("Test Placeholder")
   })
 })

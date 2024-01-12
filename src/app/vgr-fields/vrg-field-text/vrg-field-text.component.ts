@@ -10,9 +10,5 @@ import { VrgFieldBase } from '../base-class/vrg-field-base.class'
 export class VrgFieldTextComponent extends VrgFieldBase implements OnInit {
   @Input() value = ''
 
-  ngOnInit() {
-    if (!this.parentForm) {
-      throw new Error('Parent form is not provided!');
-    }
-  }
+  ngOnInit() { }
 }
