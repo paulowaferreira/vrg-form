@@ -1,3 +1,4 @@
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms'
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
 import { VrgFieldPasswordComponent } from './vrg-field-password.component'
@@ -8,7 +9,8 @@ describe(`${VrgFieldPasswordComponent.name}`, () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VrgFieldPasswordComponent ]
+      declarations: [ VrgFieldPasswordComponent ],
+      imports: [ ReactiveFormsModule ]
     })
     .compileComponents()
   }))
@@ -16,6 +18,9 @@ describe(`${VrgFieldPasswordComponent.name}`, () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(VrgFieldPasswordComponent)
     component = fixture.componentInstance
+    component.parentForm = new FormGroup({
+      [component.controlName]: new FormControl(),
+    })
     fixture.detectChanges()
   })
 

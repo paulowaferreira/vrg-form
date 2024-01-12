@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
-import { ReactiveFormsModule } from '@angular/forms'
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms'
 
 import { VrgFieldNumberComponent } from './vrg-field-number.component'
 
@@ -9,8 +9,8 @@ describe(`${VrgFieldNumberComponent.name}`, () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule],
-      declarations: [ VrgFieldNumberComponent ]
+      declarations: [ VrgFieldNumberComponent ],
+      imports: [ ReactiveFormsModule ]
     })
     .compileComponents()
   }))
@@ -18,6 +18,9 @@ describe(`${VrgFieldNumberComponent.name}`, () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(VrgFieldNumberComponent)
     component = fixture.componentInstance
+    component.parentForm = new FormGroup({
+      [component.controlName]: new FormControl(),
+    })
     fixture.detectChanges()
   })
 

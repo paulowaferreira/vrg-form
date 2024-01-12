@@ -1,4 +1,4 @@
-<div [formGroup]="parentForm">
+<form [formGroup]="parentForm">
   <ng-container *ngFor="let field of fields">
     <ng-container [ngSwitch]="field.type">
       <vrg-field-text
@@ -8,9 +8,10 @@
         [controlName]="field.controlName"
         [parentForm]="parentForm"
         [placeholder]="'seu nome aqui'">
+        <label before>Nome</label>
       </vrg-field-text>
 
-      <!-- <vrg-field-password
+      <vrg-field-password
         *ngSwitchCase="'password'"
         [name]="field.name"
         [id]="field.id"
@@ -28,7 +29,8 @@
         [controlName]="field.controlName"
         [step]="field.step"
         [parentForm]="parentForm">
-      </vrg-field-number> -->
+        <label after>telefone</label>
+      </vrg-field-number>
     </ng-container>
   </ng-container>
-</div>
+</form>

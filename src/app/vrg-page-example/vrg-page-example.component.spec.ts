@@ -1,3 +1,5 @@
+import { ReactiveFormsModule } from '@angular/forms';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { VrgPageExampleComponent } from './vrg-page-example.component';
@@ -8,7 +10,9 @@ describe('VrReactExemploComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VrgPageExampleComponent ]
+      declarations: [ VrgPageExampleComponent ],
+      imports: [ReactiveFormsModule],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));
