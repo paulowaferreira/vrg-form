@@ -1,11 +1,12 @@
 import { EventEmitter, Input, Output } from '@angular/core'
+
 import { FormGroup } from '@angular/forms'
 
 export class VrgFieldBase {
   @Input() autocomplete: string
   @Input() autofocus: boolean
-  @Input() controlName: string
   @Input() disabled: boolean
+  @Input() controlName: string
   @Input() id: string
   @Input() name: string
   @Input() ngClass: string

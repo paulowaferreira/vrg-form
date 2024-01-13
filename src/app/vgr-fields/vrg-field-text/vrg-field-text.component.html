@@ -1,5 +1,4 @@
-<form
-  [formGroup]="parentForm"
+<form [formGroup]="parentForm"
   class="vrg-field-text__container">
   <ng-content select="[before]"></ng-content>
 
@@ -11,7 +10,7 @@
     [autofocus]="autofocus"
     [formControlName]="controlName"
     [id]="id"
-    [name]="name"
+    [name]="controlName"
     [placeholder]="placeholder"
     (blur)="onBlur($event)"
     (change)="onChange($event)"

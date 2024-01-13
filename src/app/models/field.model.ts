@@ -1,16 +1,7 @@
-import { FieldTypeEnum } from '../enums/field-type.enum'
+import { FieldControlModel } from "./field-control.model"
+import { FieldPropertiesModel } from "./field-properties.model"
 
 export interface FieldModel {
-  autofocus?: boolean
-  autocomplete?: boolean
-  disabled?: boolean
-  controlName: string
-  id?: string
-  name: string
-  pattern?: string
-  placeholder?: string
-  size?: number
-  step?: number
-  type: FieldTypeEnum
-  value?: any
+  control?: FieldControlModel
+  properties?: FieldPropertiesModel
 }
