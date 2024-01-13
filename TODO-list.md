@@ -2,12 +2,12 @@
 - Verificar a possibilidade de escolher o lugar de inserir o ng-content. Ok
 - Criar os fields para:
     - password ok
-    - phone
+    - phone ok
+    - textaerea ok
     - dropdown
     - radio
     - checkbox
-    - textaerea
     - file
-- Criar um service facade que abstraia a criação do formGroup.
-- Criar outputs de eventos como keyup dentre outros.
-- Criar inputs para disparar eventos como focus.
+- Criar um service facade que abstraia a criação do formGroup. ok
+- Criar outputs de eventos como keyup dentre outros. ok
+- Criar inputs para disparar eventos como focus. ok

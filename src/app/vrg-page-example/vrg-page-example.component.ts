@@ -23,12 +23,12 @@ export class VrgPageExampleComponent implements OnInit {
 
   onChange() {
     this.reactiveForm.parentForm.valueChanges.subscribe(values => {
-      console.log(values, this.reactiveForm.parentForm.valid)
+      console.log(this.reactiveForm.parentForm.controls, this.reactiveForm.parentForm.valid);
     })
   }
 
   createForm() {
-    this.reactiveForm = this.vrgFormService.buildReactiveForm([
+    this.reactiveForm = this.vrgFormService.createForm([
       {
         control: {
           name: 'name',
@@ -43,6 +43,7 @@ export class VrgPageExampleComponent implements OnInit {
           autofocus: true,
           controlName: 'name',
           id: 'name',
+          placeholder: 'seu nome aqui',
           type: this.fieldType.TEXT,
         }
       },
@@ -79,6 +80,44 @@ export class VrgPageExampleComponent implements OnInit {
           id: 'age',
           step: 5,
           type: this.fieldType.NUMBER,
+        }
+      },
+      {
+        control: {
+          name: 'phone',
+          initialValue: '',
+          validators: {
+            required: true,
+            minLength: 11,
+            maxLength: 11,
+          },
+        },
+        properties: {
+          autofocus: false,
+          controlName: 'phone',
+          id: 'phone',
+          placeholder: 'Celular',
+          type: this.fieldType.TEL,
+        }
+      },
+      {
+        control: {
+          name: 'about',
+          initialValue: '',
+          validators: {
+            required: true,
+            min: 1,
+            max: 10,
+          },
+        },
+        properties: {
+          autofocus: false,
+          controlName: 'about',
+          cols: 20,
+          id: 'about',
+          placeholder: 'Escreva um pouco sobre voce',
+          rows: 2,
+          type: this.fieldType.TEXTAREA,
         }
       }
     ])

@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core'
-import { FormGroup } from '@angular/forms'
 
 import { FieldTypeEnum } from '../../enums/field-type.enum'
 import { VrgFieldBase } from '../base-class/vrg-field-base.class'
@@ -10,11 +9,11 @@ import { VrgFieldBase } from '../base-class/vrg-field-base.class'
   styleUrls: ['./vrg-field-password.component.scss'],
 })
 export class VrgFieldPasswordComponent extends VrgFieldBase implements OnInit {
-  @Input() value = ''
+  @Input() value: string = ''
 
   type = FieldTypeEnum
-  showPassword = false
-  passwordShowText = ''
+  showPassword: boolean = false
+  passwordShowText: string = ''
 
   ngOnInit() {
     this.handlePasswordVisibilityText()
