@@ -1,13 +1,8 @@
 import { Component, OnInit } from '@angular/core'
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms'
 
-import { FieldPropertiesModel } from '../models/field-properties.model'
 import { FieldTypeEnum } from '../enums/field-type.enum'
+import { ReactiveFormModel } from '../models/reactive-form.model'
+import { VrgFormService } from '../services/vrg-form-service/vrg-form-service.service'
 
 @Component({
   selector: 'vrg-page-example',
@@ -15,69 +10,77 @@ import { FieldTypeEnum } from '../enums/field-type.enum'
   styleUrls: ['./vrg-page-example.component.scss'],
 })
 export class VrgPageExampleComponent implements OnInit {
-  parentForm: FormGroup
-  fields: FieldPropertiesModel[]
+  reactiveForm: ReactiveFormModel
   fieldType = FieldTypeEnum
 
-  constructor(private fb: FormBuilder) {}
-
+  constructor(private vrgFormService: VrgFormService) {
+  }
+  
   ngOnInit() {
-    this.createFields()
     this.createForm()
     this.onChange()
   }
 
   onChange() {
-    this.parentForm.valueChanges.subscribe(values => {
-      console.log(values)
-      console.log(this.parentForm.valid)
+    this.reactiveForm.parentForm.valueChanges.subscribe(values => {
+      console.log(values, this.reactiveForm.parentForm.valid)
     })
-  }
-
-  private createFields() {
-    this.fields = [
-      {
-        autofocus: true,
-        name: 'name',
-        controlName: 'name',
-        type: this.fieldType.TEXT,
-        id: 'name',
-      },
-      {
-        autofocus: false,
-        name: 'password',
-        controlName: 'password',
-        type: this.fieldType.PASSWORD,
-        id: 'password',
-      },
-      {
-        autofocus: false,
-        name: 'age',
-        controlName: 'age',
-        type: this.fieldType.NUMBER,
-        id: 'age',
-        step: 5,
-      },
-    ]
   }
 
   createForm() {
-    this.parentForm = this.fb.group({
-      name: new FormControl('', [
-        Validators['required'],
-        Validators['minLength'](3),
-        Validators['maxLength'](16),
-      ]),
-      password: new FormControl('', [
-        Validators['required'],
-        Validators['minLength'](8),
-        Validators['maxLength'](20),
-      ]),
-      age: new FormControl(0, [
-        Validators.required,
-        Validators.min(0),
-        Validators.max(100),
-      ]),
-    })
+    this.reactiveForm = this.vrgFormService.buildReactiveForm([
+      {
+        control: {
+          name: 'name',
+          initialValue: '',
+          validators: {
+            required: true,
+            maxLength: 50,
+            minLength: 4
+          }
+        },
+        properties: {
+          autofocus: true,
+          controlName: 'name',
+          id: 'name',
+          type: this.fieldType.TEXT,
+        }
+      },
+      {
+        control: {
+          name: 'password',
+          initialValue: '',
+          validators: {
+            required: true,
+            minLength: 8,
+            maxLength: 20,
+          }
+        },
+        properties: {
+          autofocus: false,
+          controlName: 'password',
+          id: 'password',
+          type: this.fieldType.PASSWORD,
+        }
+      },
+      {
+        control: {
+          name: 'age',
+          initialValue: 0,
+          validators: {
+            required: true,
+            min: 1,
+            max: 150,
+          },
+        },
+        properties: {
+          autofocus: false,
+          controlName: 'age',
+          id: 'age',
+          step: 5,
+          type: this.fieldType.NUMBER,
+        }
+      }
+    ])
   }
 }

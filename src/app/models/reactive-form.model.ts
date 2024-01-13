@@ -1,7 +1,7 @@
-import { FieldControlModel } from "./field-control.model"
-import { FieldPropertiesModel } from "./field-properties.model"
+import { FormGroup } from "@angular/forms";
+import { FieldPropertiesModel } from "./field-properties.model";
 
 export interface ReactiveFormModel {
-  properties?: FieldPropertiesModel,
-  control?: FieldControlModel
+  parentForm?: FormGroup
+  fieldProperties?: FieldPropertiesModel[]
 }

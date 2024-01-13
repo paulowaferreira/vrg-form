@@ -4,9 +4,8 @@ export interface FieldPropertiesModel {
   autofocus?: boolean
   autocomplete?: boolean
   disabled?: boolean
-  controlName: string
+  controlName?: string
   id?: string
-  name: string
   pattern?: string
   placeholder?: string
   size?: number

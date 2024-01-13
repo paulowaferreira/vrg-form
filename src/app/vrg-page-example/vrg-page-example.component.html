@@ -1,35 +1,35 @@
-<form [formGroup]="parentForm">
-  <ng-container *ngFor="let field of fields">
+<form [formGroup]="reactiveForm?.parentForm">
+  <ng-container *ngFor="let field of reactiveForm.fieldProperties">
     <ng-container [ngSwitch]="field.type">
       <vrg-field-text
         *ngSwitchCase="'text'"
-        [name]="field.name"
-        [id]="field.id"
+        [autofocus]="field.autofocus"
         [controlName]="field.controlName"
-        [parentForm]="parentForm"
+        [id]="field.id"
+        [name]="field.controlName"
+        [parentForm]="reactiveForm.parentForm"
         [placeholder]="'seu nome aqui'">
         <label before>Nome</label>
       </vrg-field-text>
 
       <vrg-field-password
         *ngSwitchCase="'password'"
-        [name]="field.name"
         [id]="field.id"
         [controlName]="field.controlName"
-        [parentForm]="parentForm"
+        [parentForm]="reactiveForm.parentForm"
         [placeholder]="'senha'">
+        <label [for]="field.controlName" before>senha</label>
       </vrg-field-password>
 
       <vrg-field-number 
         *ngSwitchCase="'number'"
         [ngClass]="'vrg-field'"
         [ngStyle]="{}"
-        [name]="field.name"
         [id]="field.id"
         [controlName]="field.controlName"
         [step]="field.step"
-        [parentForm]="parentForm">
-        <label after>telefone</label>
+        [parentForm]="reactiveForm.parentForm">
+        <label [for]="field.controlName" before>idade</label>
       </vrg-field-number>
     </ng-container>
   </ng-container>
