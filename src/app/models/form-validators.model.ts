@@ -4,4 +4,5 @@ export interface FormValidatorsModel {
   maxLength?: number
   min?: number
   max?: number
+  disabled?: boolean
 }

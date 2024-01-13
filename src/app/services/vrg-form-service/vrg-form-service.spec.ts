@@ -1,5 +1,9 @@
 import { TestBed } from '@angular/core/testing'
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms'
+import { 
+  FormBuilder,
+  FormControl,
+  ReactiveFormsModule
+} from '@angular/forms'
 
 import { VrgFormService } from './vrg-form-service.service'
 import { FieldModel } from '../../models/field.model'
@@ -22,67 +26,30 @@ describe(`${VrgFormService.name}`, () => {
     expect(service).toBeTruthy()
   })
 
-  it('should build reactive form correctly', () => {
-    const fieldModel: FieldModel[] = [
+  it('should create a form with disabled field', () => {
+    const formModel: FieldModel[] = [
       {
         control: {
-          name: 'name',
+          name: 'testControl',
           initialValue: '',
-          validators: {
-            required: true,
-            maxLength: 50,
-            minLength: 4
-          }
+          validators: { required: true },
         },
         properties: {
-          autofocus: true,
-          controlName: 'name',
-          id: 'name',
+          disabled: true,
           type: FieldTypeEnum.TEXT,
-        }
-      },
-      {
-        control: {
-          name: 'password',
-          initialValue: '',
-          validators: {
-            required: true,
-            minLength: 8,
-            maxLength: 20,
-          }
         },
-        properties: {
-          autofocus: false,
-          controlName: 'password',
-          id: 'password',
-          type: FieldTypeEnum.PASSWORD,
-        }
       },
-      {
-        control: {
-          name: 'age',
-          initialValue: 0,
-          validators: {
-            required: true,
-            min: 1,
-            max: 150,
-          },
-        },
-        properties: {
-          autofocus: false,
-          controlName: 'age',
-          id: 'age',
-          step: 5,
-          type: FieldTypeEnum.NUMBER,
-        }
-      }
     ]
 
-    const reactiveForm = service.buildReactiveForm(fieldModel)
+    const reactiveForm = service.createForm(formModel)
+    const formControl = reactiveForm.parentForm.get('testControl')
 
-    expect(reactiveForm.parentForm.get('name')).toBeTruthy()
-    expect(reactiveForm.parentForm.get('age')).toBeTruthy()
-    expect(reactiveForm.parentForm.get('password')).toBeTruthy()
-    expect(reactiveForm.fieldProperties.length).toBe(3)
+    expect(formControl.disabled).toBeTruthy()
+  })
+
+  it('should disable a field', () => {
+    const formControl = new FormControl()
+    service.disableField(formControl)
+    expect(formControl.disabled).toBeTruthy()
   })
 })

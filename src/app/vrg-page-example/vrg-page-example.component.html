@@ -8,7 +8,7 @@
         [id]="field.id"
         [name]="field.controlName"
         [parentForm]="reactiveForm.parentForm"
-        [placeholder]="'seu nome aqui'">
+        [placeholder]="field.placeholder">
         <label before>Nome</label>
       </vrg-field-text>
 
@@ -31,6 +31,29 @@
         [parentForm]="reactiveForm.parentForm">
         <label [for]="field.controlName" before>idade</label>
       </vrg-field-number>
+
+      <vrg-field-phone 
+        *ngSwitchCase="'tel'"
+        [ngClass]="'vrg-field'"
+        [ngStyle]="{}"
+        [id]="field.id"
+        [controlName]="field.controlName"
+        [parentForm]="reactiveForm.parentForm"
+        [placeholder]="field.placeholder">
+        <label [for]="field.controlName" before>Celular</label>
+      </vrg-field-phone>
+
+      <vrg-field-textarea
+        *ngSwitchCase="'textarea'"
+        [autocomplete]="field.autocomplete"
+        [cols]="field.cols"
+        [controlName]="field.controlName"
+        [id]="field.id"
+        [parentForm]="reactiveForm.parentForm"
+        [placeholder]="field.placeholder"
+        [rows]="field.rows">
+        <label [for]="field.controlName" before>Sobre mim</label>
+      </vrg-field-textarea>
     </ng-container>
   </ng-container>
 </form>

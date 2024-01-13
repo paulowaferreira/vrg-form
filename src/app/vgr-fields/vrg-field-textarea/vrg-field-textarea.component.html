@@ -1,0 +1,35 @@
+<form
+  [formGroup]="parentForm"
+  class="vrg-field-textarea__container">
+  <ng-content select="[before]"></ng-content>
+
+  <textarea
+    class="vrg-field-textarea__container--field"
+    [autofocus]="autofocus"
+    [cols]="cols"
+    [formControlName]="controlName"
+    [id]="id"
+    [name]="controlName"
+    [ngClass]="ngClass"
+    [ngStyle]="ngStyle"
+    [placeholder]="placeholder"
+    [rows]="rows"
+    [value]="value"
+    (blur)="onBlur($event)"
+    (change)="onChange($event)"
+    (focus)="onFocus($event)"
+    (input)="onInput($event)"
+    (keyup)="onKeyup($event)"
+    (search)="onSearch($event)"
+    (click)="onClick($event)"
+    (submit)="onSubmit($event)"
+    (click)="onClick($event)"
+    (dblclick)="onDoubleClick($event)"
+    (mouseover)="onMouseOver($event)"
+    (mouseout)="onMouseOut($event)"
+    (mouseenter)="onMouseEnter($event)"
+    (mouseleave)="onMouseLeave($event)">
+  </textarea>
+
+    <ng-content select="[after]"></ng-content>
+</form>
