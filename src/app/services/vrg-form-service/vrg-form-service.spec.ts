@@ -42,7 +42,7 @@ describe(`${VrgFormService.name}`, () => {
     ]
 
     const reactiveForm = service.createForm(formModel)
-    const formControl = reactiveForm.parentForm.get('testControl')
+    const formControl = reactiveForm.reactiveForm.get('testControl')
 
     expect(formControl.disabled).toBeTruthy()
   })

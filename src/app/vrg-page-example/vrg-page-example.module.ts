@@ -8,6 +8,7 @@ import { VrgFieldNumberModule } from '../vgr-fields/vrg-field-number/vrg-field-n
 import { VrgFieldPasswordModule } from '../vgr-fields/vrg-field-password/vrg-field-password.module'
 import { VrgFieldTextareaModule } from '../vgr-fields/vrg-field-textarea/vrg-field-textarea.module'
 import { VrgFieldPhoneModule } from '../vgr-fields/vrg-field-phone/vrg-field-phone.module'
+import { VrgFieldEmailModule } from '../vgr-fields/vrg-field-email/vrg-field-email.module'
 
 @NgModule({
   declarations: [VrgPageExampleComponent],
@@ -18,7 +19,8 @@ import { VrgFieldPhoneModule } from '../vgr-fields/vrg-field-phone/vrg-field-pho
     VrgFieldNumberModule,
     VrgFieldPasswordModule,
     VrgFieldPhoneModule,
-    VrgFieldTextareaModule
+    VrgFieldTextareaModule,
+    VrgFieldEmailModule
   ],
   exports: [VrgPageExampleComponent],
 })

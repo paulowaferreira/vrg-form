@@ -3,4 +3,4 @@ export { FieldPropertiesModel as FieldPropertiesModel } from "./field-properties
 export { FieldModel } from "./field.model";
 export { FormValidatorsModel } from "./form-validators.model";
 export { ReactiveFormValidatorModel } from "./reactive-form-validator.model";
-export { ReactiveFormModel } from "./reactive-form.model";
+export { VrgFormModel as ReactiveFormModel } from "./reactive-form.model";

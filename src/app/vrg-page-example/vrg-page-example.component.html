@@ -1,59 +1,70 @@
-<form [formGroup]="reactiveForm?.parentForm">
-  <ng-container *ngFor="let field of reactiveForm.fieldProperties">
+<form [formGroup]="vrgForm.reactiveForm">
+  <ng-container *ngFor="let field of vrgForm.fieldProperties">
     <ng-container [ngSwitch]="field.type">
       <vrg-field-text
-        *ngSwitchCase="'text'"
+        *ngSwitchCase="fieldType.TEXT"
         [autofocus]="field.autofocus"
         [controlName]="field.controlName"
         [id]="field.id"
         [name]="field.controlName"
-        [parentForm]="reactiveForm.parentForm"
+        [parentForm]="vrgForm.reactiveForm"
         [placeholder]="field.placeholder">
         <label before>Nome</label>
       </vrg-field-text>
 
       <vrg-field-password
-        *ngSwitchCase="'password'"
+        *ngSwitchCase="fieldType.PASSWORD"
         [id]="field.id"
         [controlName]="field.controlName"
-        [parentForm]="reactiveForm.parentForm"
+        [parentForm]="vrgForm.reactiveForm"
         [placeholder]="'senha'">
         <label [for]="field.controlName" before>senha</label>
       </vrg-field-password>
 
       <vrg-field-number 
-        *ngSwitchCase="'number'"
+        *ngSwitchCase="fieldType.NUMBER"
         [ngClass]="'vrg-field'"
         [ngStyle]="{}"
         [id]="field.id"
         [controlName]="field.controlName"
         [step]="field.step"
-        [parentForm]="reactiveForm.parentForm">
+        [parentForm]="vrgForm.reactiveForm">
         <label [for]="field.controlName" before>idade</label>
       </vrg-field-number>
 
       <vrg-field-phone 
-        *ngSwitchCase="'tel'"
+        *ngSwitchCase="fieldType.TEL"
         [ngClass]="'vrg-field'"
         [ngStyle]="{}"
         [id]="field.id"
         [controlName]="field.controlName"
-        [parentForm]="reactiveForm.parentForm"
+        [parentForm]="vrgForm.reactiveForm"
         [placeholder]="field.placeholder">
         <label [for]="field.controlName" before>Celular</label>
       </vrg-field-phone>
 
       <vrg-field-textarea
-        *ngSwitchCase="'textarea'"
+        *ngSwitchCase="fieldType.TEXTAREA"
         [autocomplete]="field.autocomplete"
         [cols]="field.cols"
         [controlName]="field.controlName"
         [id]="field.id"
-        [parentForm]="reactiveForm.parentForm"
+        [parentForm]="vrgForm.reactiveForm"
         [placeholder]="field.placeholder"
         [rows]="field.rows">
         <label [for]="field.controlName" before>Sobre mim</label>
       </vrg-field-textarea>
+
+      <vrg-field-email 
+        *ngSwitchCase="fieldType.EMAIL"
+        [ngClass]="'vrg-field'"
+        [ngStyle]="{}"
+        [id]="field.id"
+        [controlName]="field.controlName"
+        [parentForm]="vrgForm.reactiveForm"
+        [placeholder]="field.placeholder">
+        <label [for]="field.controlName" before>Email</label>
+      </vrg-field-email>
     </ng-container>
   </ng-container>
 </form>

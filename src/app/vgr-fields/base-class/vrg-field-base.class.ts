@@ -52,6 +52,10 @@ export class VrgFieldBase {
     this.keyup.emit(event)
   }
 
+  onKeyDown(event: KeyboardEvent) {
+    this.keyup.emit(event)
+  }
+
   onSearch(event: Event) {
     this.search.emit(event)
   }
