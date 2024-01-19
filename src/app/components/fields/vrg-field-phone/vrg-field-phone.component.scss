@@ -1,5 +1,10 @@
-.vrg-field-text__container {
-  &--field {
+.vrg-field-phone {
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__field {
     width: 380px;
     height: 40px;
     flex-shrink: 0;

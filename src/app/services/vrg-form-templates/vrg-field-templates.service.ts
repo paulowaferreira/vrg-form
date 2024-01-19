@@ -6,6 +6,7 @@ import { VrgFieldPasswordService } from '../vrg-fields-templates/vrg-field-passw
 import { VrgFieldTextareaService } from '../vrg-fields-templates/vrg-field-textarea/vrg-field-textarea.service'
 import { VrgFieldPhoneService } from '../vrg-fields-templates/vrg-field-phone/vrg-field-phone.service'
 import { VrgFieldEmailService } from '../vrg-fields-templates/vrg-field-email/vrg-field-email.service'
+import { VrgFieldRadioService } from '../vrg-fields-templates/vrg-field-radio/vrg-field-radio.service'
 import { PropsModel } from '../../models'
 
 @Injectable({ providedIn: 'root' })
@@ -18,6 +19,7 @@ export class VrgFieldTemplatesService {
     private textareaService: VrgFieldTextareaService,
     private phoneService: VrgFieldPhoneService,
     private emailService: VrgFieldEmailService,
+    private radioService: VrgFieldRadioService
   ) {}
 
   getFormDefaultValues(): PropsModel[] {
@@ -68,6 +70,16 @@ export class VrgFieldTemplatesService {
         id: 'email',
         name: 'email',
         placeholder: 'seuemail@dominio.com',
+      },
+      {
+        ...this.radioService.getDefaultValues(),
+        controlName: 'question',
+        id: 'question',
+        name: 'question',
+        options: [
+          { label: 'Sim', value: true},
+          { label: 'Não', value: false}
+        ]
       }
     ]
   }

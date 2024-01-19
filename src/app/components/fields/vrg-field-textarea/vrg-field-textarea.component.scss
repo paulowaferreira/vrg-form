@@ -1,5 +1,10 @@
-.vrg-field-radio__container {
-  &--field {
+.vrg-field-textarea {
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__field {
     width: 380px;
     height: 40px;
     flex-shrink: 0;

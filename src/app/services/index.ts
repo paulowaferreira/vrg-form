@@ -5,4 +5,5 @@ export { VrgFieldTextareaService } from './vrg-fields-templates/vrg-field-textar
 export { VrgFieldPhoneService } from './vrg-fields-templates/vrg-field-phone/vrg-field-phone.service'
 export { VrgFieldEmailService } from './vrg-fields-templates/vrg-field-email/vrg-field-email.service'
 export { VrgFieldTemplatesService } from './vrg-form-templates/vrg-field-templates.service'
-export { VrgFormBuilder as VrgFormService } from './vrg-form-builder/vrg-form-builder.service'
+export { VrgFieldRadioService } from './vrg-fields-templates/vrg-field-radio/vrg-field-radio.service'
+export { VrgFormBuilder } from './vrg-form-builder/vrg-form-builder.service'

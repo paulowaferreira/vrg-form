@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core'
 
 import { FieldTypeEnum } from '../enums'
 import { VrgFormModel } from '../models'
-import { VrgFieldTemplatesService, VrgFormService } from '../services'
+import { VrgFieldTemplatesService, VrgFormBuilder } from '../services'
 
 @Component({
   selector: 'vrg-page-example',
@@ -14,7 +14,7 @@ export class VrgPageExampleComponent implements OnInit {
   fieldType = FieldTypeEnum
 
   constructor(
-    private formService: VrgFormService,
+    private formService: VrgFormBuilder,
     private fieldService: VrgFieldTemplatesService
   ) { }
 

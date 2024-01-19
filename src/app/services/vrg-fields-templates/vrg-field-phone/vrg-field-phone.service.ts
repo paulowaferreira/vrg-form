@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { ValidatorFn, Validators } from '@angular/forms'
 
-import { FieldTypeEnum } from '../../../enums/field-type.enum'
+import { FieldTypeEnum } from '../../../enums/'
 import { PropsModel } from '../../../models'
 
 @Injectable({ providedIn: 'root' })

@@ -1,8 +1,10 @@
-.vrg-field-textarea__container {
-  display: flex;
-  align-items: center;
+.vrg-field-email {
+  &__container {
+    display: flex;
+    align-items: center;
+  }
 
-  &--field {
+  &__field {
     width: 380px;
     height: 40px;
     flex-shrink: 0;

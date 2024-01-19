@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core'
 
-import { VrgFieldBase } from '../base-class/vrg-field-base.class'
+import { VrgFieldBase } from '../../base-class/vrg-field-base.class'
 
 @Component({
   selector: 'vrg-field-phone',

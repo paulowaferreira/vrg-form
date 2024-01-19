@@ -1,4 +1,5 @@
-import { FieldTypeEnum } from "../enums/field-type.enum"
+import { FieldTypeEnum } from '../enums/'
+import { FieldRadioOptionsModel } from "./field-radio-options.model"
 
 export interface FieldModel {
   autofocus?: boolean
@@ -8,6 +9,7 @@ export interface FieldModel {
   id?: string
   name?: string
   placeholder?: string
+  options?: FieldRadioOptionsModel[]
   rows?: number
   size?: number
   step?: number

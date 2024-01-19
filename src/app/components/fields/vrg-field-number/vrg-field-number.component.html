@@ -1,11 +1,11 @@
-<form
+<form 
   [formGroup]="reactiveController"
-  class="vrg-field-email__container">
+  class="vrg-field-number__container">
   <ng-content select="[before]"></ng-content>
 
   <input
-    class="vrg-field-email__container--field"
-    type="email"
+    type="number"
+    class="vrg-field-number__field"
     [autofocus]="autofocus"
     [formControlName]="controlName"
     [id]="id"
@@ -13,7 +13,8 @@
     [ngClass]="ngClass"
     [ngStyle]="ngStyle"
     [placeholder]="placeholder"
-    [value]="value"
+    [step]="step"
+    [(value)]="value"
     (blur)="onBlur($event)"
     (change)="onChange($event)"
     (focus)="onFocus($event)"
@@ -29,5 +30,5 @@
     (mouseenter)="onMouseEnter($event)"
     (mouseleave)="onMouseLeave($event)"/>
 
-    <ng-content select="[after]"></ng-content>
+  <ng-content select="[after]"></ng-content>
 </form>

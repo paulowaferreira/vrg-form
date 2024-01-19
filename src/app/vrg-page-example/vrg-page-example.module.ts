@@ -10,7 +10,8 @@ import {
   VrgFieldPhoneModule,
   VrgFieldTextModule,
   VrgFieldTextareaModule,
-} from '../components'
+  VrgFieldRadioModule
+} from '../components/fields'
 
 @NgModule({
   declarations: [VrgPageExampleComponent],
@@ -23,6 +24,7 @@ import {
     VrgFieldPhoneModule,
     VrgFieldTextareaModule,
     VrgFieldEmailModule,
+    VrgFieldRadioModule
   ],
   exports: [VrgPageExampleComponent],
 })

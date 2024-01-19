@@ -7,8 +7,8 @@ import {
 } from '@angular/forms'
 
 import { VrgFormBuilder } from './vrg-form-builder.service'
-import { FieldModel } from '../../models/props.model'
-import { FieldTypeEnum } from '../../enums/field-type.enum'
+import { PropsModel } from '../../models'
+import { FieldTypeEnum } from './../../enums/'
 
 describe(`${VrgFormBuilder.name}`, () => {
   let service: VrgFormBuilder
@@ -28,7 +28,7 @@ describe(`${VrgFormBuilder.name}`, () => {
   })
 
   it('should create a form with disabled field', () => {
-    const formModel: FieldModel[] = [
+    const formModel: PropsModel[] = [
       {
         name: 'testControl',
         initialValue: '',

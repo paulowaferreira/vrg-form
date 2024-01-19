@@ -5,7 +5,7 @@ import { FieldTypeEnum } from '../../../enums/'
 import { PropsModel } from '../../../models'
 
 @Injectable({ providedIn: 'root' })
-export class VrgFieldEmailService {
+export class VrgFieldRadioService {
 
   getDefaultValues(): PropsModel {
     return {
@@ -16,16 +16,12 @@ export class VrgFieldEmailService {
 
   getDefaulProps(): PropsModel {
     return {
-      initialValue: '',
-      type: FieldTypeEnum.EMAIL,
+      initialValue: null,
+      type: FieldTypeEnum.RADIO,
     }
   }
 
   getDefaultValidators(): ValidatorFn[] {
-    return [
-        Validators.required,
-        Validators.minLength(1),
-        Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com\.br|com)')
-      ]
+    return [ Validators.required ]
   }
 }

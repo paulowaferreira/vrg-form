@@ -1,19 +1,18 @@
 <form
   [formGroup]="reactiveController"
-  class="vrg-field-textarea__container">
+  class="vrg-field-email__container">
   <ng-content select="[before]"></ng-content>
 
-  <textarea
-    class="vrg-field-textarea__container--field"
+  <input
+    class="vrg-field-email__field"
+    type="email"
     [autofocus]="autofocus"
-    [cols]="cols"
     [formControlName]="controlName"
     [id]="id"
     [name]="controlName"
     [ngClass]="ngClass"
     [ngStyle]="ngStyle"
     [placeholder]="placeholder"
-    [rows]="rows"
     [value]="value"
     (blur)="onBlur($event)"
     (change)="onChange($event)"
@@ -28,8 +27,7 @@
     (mouseover)="onMouseOver($event)"
     (mouseout)="onMouseOut($event)"
     (mouseenter)="onMouseEnter($event)"
-    (mouseleave)="onMouseLeave($event)">
-  </textarea>
+    (mouseleave)="onMouseLeave($event)"/>
 
     <ng-content select="[after]"></ng-content>
 </form>

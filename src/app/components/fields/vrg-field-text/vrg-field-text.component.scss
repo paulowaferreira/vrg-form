@@ -1,5 +1,8 @@
-.vrg-field-number__container {
-  &--field {
+.vrg-field-text {
+  &__container {
+  }
+
+  &__field {
     width: 380px;
     height: 40px;
     flex-shrink: 0;

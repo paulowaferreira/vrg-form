@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core'
 
-import { FieldTypeEnum } from '../../enums/field-type.enum'
-import { VrgFieldBase } from '../base-class/vrg-field-base.class'
+import { FieldTypeEnum } from '../../../enums/'
+import { VrgFieldBase } from '../../base-class/vrg-field-base.class'
 
 @Component({
   selector: 'vrg-field-password',

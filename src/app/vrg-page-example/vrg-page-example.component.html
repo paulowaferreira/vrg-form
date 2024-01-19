@@ -18,7 +18,7 @@
         [controlName]="field.controlName"
         [reactiveController]="vrgForm.reactiveController"
         [placeholder]="'senha'">
-        <label [for]="field.controlName" before>senha</label>
+        <label [for]="field.controlName" before>Senha</label>
       </vrg-field-password>
 
       <vrg-field-number 
@@ -29,7 +29,7 @@
         [controlName]="field.controlName"
         [step]="field.step"
         [reactiveController]="vrgForm.reactiveController">
-        <label [for]="field.controlName" before>idade</label>
+        <label [for]="field.controlName" before>Idade</label>
       </vrg-field-number>
 
       <vrg-field-phone 
@@ -65,6 +65,18 @@
         [placeholder]="field.placeholder">
         <label [for]="field.controlName" before>Email</label>
       </vrg-field-email>
+
+      <vrg-field-radio
+      *ngSwitchCase="fieldType.RADIO"
+      [ngClass]=""
+      [ngStyle]="{}"
+      [id]="field.id"
+      [options]="field.options"
+      [controlName]="field.controlName"
+      [reactiveController]="vrgForm.reactiveController"
+      [placeholder]="field.placeholder">
+      <label [for]="field.controlName" before>Está ficando bom?</label>
+    </vrg-field-radio>
     </ng-container>
   </ng-container>
 </form>

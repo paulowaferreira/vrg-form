@@ -1,17 +1,13 @@
-.vrg-field-password__container {
-  display: flex;
-  align-items: center;
+.vrg-field-number {
+  &__container {
+  }
 
-  &--field {
+  &__field {
     width: 380px;
     height: 40px;
     flex-shrink: 0;
     border-radius: 2px;
     border: 1px solid #a7b6be;
     background: #fff;
-  }
-
-  &--show-password {
-    cursor: pointer;
   }
 }

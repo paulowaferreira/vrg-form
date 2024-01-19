@@ -4,4 +4,4 @@ export { VrgFieldPasswordModule } from './vrg-field-password/vrg-field-password.
 export { VrgFieldPhoneModule } from './vrg-field-phone/vrg-field-phone.module'
 export { VrgFieldTextModule } from './vrg-field-text/vrg-field-text.module'
 export { VrgFieldTextareaModule } from './vrg-field-textarea/vrg-field-textarea.module'
-// export {} from './vrg-field-radio'
+export { VrgFieldRadioModule } from './vrg-field-radio/vrg-field-radio.module'

@@ -1,18 +1,20 @@
-<form 
+<form
   [formGroup]="reactiveController"
-  class="vrg-field-radio__container">
+  class="vrg-field-textarea__container">
   <ng-content select="[before]"></ng-content>
 
-  <input
-    type="radio"
-    class="vrg-field-radio__container--field"
-    [ngClass]="ngClass"
-    [ngStyle]="ngStyle"
+  <textarea
+    class="vrg-field-textarea__field"
     [autofocus]="autofocus"
+    [cols]="cols"
     [formControlName]="controlName"
     [id]="id"
     [name]="controlName"
+    [ngClass]="ngClass"
+    [ngStyle]="ngStyle"
     [placeholder]="placeholder"
+    [rows]="rows"
+    [value]="value"
     (blur)="onBlur($event)"
     (change)="onChange($event)"
     (focus)="onFocus($event)"
@@ -26,7 +28,8 @@
     (mouseover)="onMouseOver($event)"
     (mouseout)="onMouseOut($event)"
     (mouseenter)="onMouseEnter($event)"
-    (mouseleave)="onMouseLeave($event)"/>  
+    (mouseleave)="onMouseLeave($event)">
+  </textarea>
 
-  <ng-content select="[after]"></ng-content>
+    <ng-content select="[after]"></ng-content>
 </form>
