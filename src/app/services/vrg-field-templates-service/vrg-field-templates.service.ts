@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core'
-import {
-  VrgFieldEmailService,
-  VrgFieldNumberService,
-  VrgFieldPasswordService,
-  VrgFieldPhoneService,
-  VrgFieldTextService,
-  VrgFieldTextareaService,
-} from '../vrg-fields'
+
+import { VrgFieldTextService } from '../vrg-fields/vrg-field-text/vrg-field-text.service'
+import { VrgFieldNumberService } from '../vrg-fields/vrg-field-number/vrg-field-number.service'
+import { VrgFieldPasswordService } from '../vrg-fields/vrg-field-password/vrg-field-password.service'
+import { VrgFieldTextareaService } from '../vrg-fields/vrg-field-textarea/vrg-field-textarea.service'
+import { VrgFieldPhoneService } from '../vrg-fields/vrg-field-phone/vrg-field-phone.service'
+import { VrgFieldEmailService } from '../vrg-fields/vrg-field-email/vrg-field-email.service'
 
 @Injectable({ providedIn: 'root' })
 export class VrgFieldTemplatesService {

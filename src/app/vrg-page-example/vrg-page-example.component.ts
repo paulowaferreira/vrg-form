@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 
-import { FieldTypeEnum } from '../enums/field-type.enum'
-import { VrgFormModel } from '../models/reactive-form.model'
-import { VrgFormService } from '../services/vrg-form-service/vrg-form-service.service'
-import { VrgFieldTemplatesService } from '../services/vrg-field-templates-service/vrg-field-templates.service'
-import { FormControl, Validators } from '@angular/forms'
-import { VrgFieldTextService } from '../services/vrg-fields'
-import { FormControllerItemModel } from '../models/form-controller-item.model'
+import { FieldTypeEnum } from '../enums'
+import { VrgFormModel } from '../models'
+import { VrgFieldTemplatesService, VrgFormService } from '../services'
 
 @Component({
   selector: 'vrg-page-example',
@@ -16,12 +12,10 @@ import { FormControllerItemModel } from '../models/form-controller-item.model'
 export class VrgPageExampleComponent implements OnInit {
   vrgForm: VrgFormModel
   fieldType = FieldTypeEnum
-  control: FormControllerItemModel
 
   constructor(
     private formService: VrgFormService,
-    private fieldService: VrgFieldTemplatesService,
-    private textService: VrgFieldTextService
+    private fieldService: VrgFieldTemplatesService
   ) {
   }
   
@@ -39,6 +33,5 @@ export class VrgPageExampleComponent implements OnInit {
   createForm() {
     this.vrgForm = 
       this.formService.createForm(this.fieldService.getFormDefault())
-    this.vrgForm.fields[0].placeholder = 'teste aqui'
   }
 }

@@ -1,0 +1,33 @@
+<form 
+  *ngIf="parentForm"
+  [formGroup]="parentForm"
+  class="vrg-field-radio__container">
+  <ng-content select="[before]"></ng-content>
+
+  <input
+    type="radio"
+    class="vrg-field-radio__container--field"
+    [ngClass]="ngClass"
+    [ngStyle]="ngStyle"
+    [autofocus]="autofocus"
+    [formControlName]="controlName"
+    [id]="id"
+    [name]="controlName"
+    [placeholder]="placeholder"
+    (blur)="onBlur($event)"
+    (change)="onChange($event)"
+    (focus)="onFocus($event)"
+    (input)="onInput($event)"
+    (keyup)="onKeyup($event)"
+    (search)="onSearch($event)"
+    (click)="onClick($event)"
+    (submit)="onSubmit($event)"
+    (click)="onClick($event)"
+    (dblclick)="onDoubleClick($event)"
+    (mouseover)="onMouseOver($event)"
+    (mouseout)="onMouseOut($event)"
+    (mouseenter)="onMouseEnter($event)"
+    (mouseleave)="onMouseLeave($event)"/>  
+
+  <ng-content select="[after]"></ng-content>
+</form>
