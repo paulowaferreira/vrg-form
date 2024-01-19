@@ -7,7 +7,7 @@ describe(`${VrgFieldBase.name}`, () => {
 
   beforeEach(() => {
     vrgFieldBase = new VrgFieldBase();
-    vrgFieldBase.parentForm = new FormBuilder().group({})
+    vrgFieldBase.reactiveController = new FormBuilder().group({})
   })
 
   it('should create', () => {
@@ -160,10 +160,10 @@ describe(`${VrgFieldBase.name}`, () => {
     expect(vrgFieldBase.ngStyle).toEqual(value)
   })
 
-  it('should set and get parentForm property', () => {
+  it('should set and get reactiveController property', () => {
     const value = new FormBuilder().group({})
-    vrgFieldBase.parentForm = value
-    expect(vrgFieldBase.parentForm).toEqual(value)
+    vrgFieldBase.reactiveController = value
+    expect(vrgFieldBase.reactiveController).toEqual(value)
   })
 
   it('should set and get placeholder property', () => {

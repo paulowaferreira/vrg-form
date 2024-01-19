@@ -11,7 +11,7 @@ export class VrgFieldBase {
   @Input() name: string
   @Input() ngClass: string
   @Input() ngStyle: string
-  @Input() parentForm: FormGroup
+  @Input() reactiveController: FormGroup
   @Input() placeholder: string
   @Input() readOnly: boolean
   @Input() spellcheck: boolean

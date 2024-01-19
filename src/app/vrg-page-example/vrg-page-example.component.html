@@ -7,7 +7,7 @@
         [controlName]="field.controlName"
         [id]="field.id"
         [name]="field.controlName"
-        [parentForm]="vrgForm.reactiveController"
+        [reactiveController]="vrgForm.reactiveController"
         [placeholder]="field.placeholder">
         <label before>Nome</label>
       </vrg-field-text>
@@ -16,7 +16,7 @@
         *ngSwitchCase="fieldType.PASSWORD"
         [id]="field.id"
         [controlName]="field.controlName"
-        [parentForm]="vrgForm.reactiveController"
+        [reactiveController]="vrgForm.reactiveController"
         [placeholder]="'senha'">
         <label [for]="field.controlName" before>senha</label>
       </vrg-field-password>
@@ -28,7 +28,7 @@
         [id]="field.id"
         [controlName]="field.controlName"
         [step]="field.step"
-        [parentForm]="vrgForm.reactiveController">
+        [reactiveController]="vrgForm.reactiveController">
         <label [for]="field.controlName" before>idade</label>
       </vrg-field-number>
 
@@ -38,7 +38,7 @@
         [ngStyle]="{}"
         [id]="field.id"
         [controlName]="field.controlName"
-        [parentForm]="vrgForm.reactiveController"
+        [reactiveController]="vrgForm.reactiveController"
         [placeholder]="field.placeholder">
         <label [for]="field.controlName" before>Celular</label>
       </vrg-field-phone>
@@ -49,7 +49,7 @@
         [cols]="field.cols"
         [controlName]="field.controlName"
         [id]="field.id"
-        [parentForm]="vrgForm.reactiveController"
+        [reactiveController]="vrgForm.reactiveController"
         [placeholder]="field.placeholder"
         [rows]="field.rows">
         <label [for]="field.controlName" before>Sobre mim</label>
@@ -61,7 +61,7 @@
         [ngStyle]="{}"
         [id]="field.id"
         [controlName]="field.controlName"
-        [parentForm]="vrgForm.reactiveController"
+        [reactiveController]="vrgForm.reactiveController"
         [placeholder]="field.placeholder">
         <label [for]="field.controlName" before>Email</label>
       </vrg-field-email>

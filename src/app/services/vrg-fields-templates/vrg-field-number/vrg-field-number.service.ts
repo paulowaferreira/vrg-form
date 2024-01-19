@@ -2,19 +2,19 @@ import { Injectable } from '@angular/core'
 import { ValidatorFn, Validators } from '@angular/forms'
 
 import { FieldTypeEnum } from '../../../enums/field-type.enum'
-import { FieldModel } from 'src/app/models/field.model'
+import { PropsModel } from '../../../models'
 
 @Injectable({ providedIn: 'root' })
 export class VrgFieldNumberService {
 
-  getDefaultValues(): FieldModel {
+  getDefaultValues(): PropsModel {
     return {
-    ...this.getPropsDefault(),
-    validators: this.getValidatorsDefault()
+    ...this.getDefaulProps(),
+    validators: this.getDefaultValidators()
     }
   }
 
-  getPropsDefault(): FieldModel {
+  getDefaulProps(): PropsModel {
     return {
       initialValue: 0,
       step: 1,
@@ -22,7 +22,7 @@ export class VrgFieldNumberService {
     }
   }
 
-  getValidatorsDefault(): ValidatorFn[] {
+  getDefaultValidators(): ValidatorFn[] {
     return [
         Validators.required,
         Validators.min(1),

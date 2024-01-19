@@ -2,26 +2,26 @@ import { Injectable } from '@angular/core'
 import { ValidatorFn, Validators } from '@angular/forms'
 
 import { FieldTypeEnum } from '../../../enums/field-type.enum'
-import { FieldModel } from 'src/app/models/field.model'
+import { PropsModel } from '../../../models'
 
 @Injectable({ providedIn: 'root' })
 export class VrgFieldTextService {
 
-  getDefaultValues(): FieldModel {
+  getDefaultValues(): PropsModel {
     return {
-      ...this.getPropsDefault(),
-      validators: this.getValidatorsDefault(),
+      ...this.getDefaultProps(),
+      validators: this.getDefaultValidators(),
     }
   }
 
-  getPropsDefault(): FieldModel {
+  getDefaultProps(): PropsModel {
     return {
       initialValue: '',
       type: FieldTypeEnum.TEXT,
     }
   }
 
-  getValidatorsDefault(): ValidatorFn[] {
+  getDefaultValidators(): ValidatorFn[] {
     return [
       Validators.required,
       Validators.maxLength(50),

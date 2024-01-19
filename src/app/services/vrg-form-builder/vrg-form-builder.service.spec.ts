@@ -6,20 +6,20 @@ import {
   Validators
 } from '@angular/forms'
 
-import { VrgFormService } from './vrg-form-service.service'
-import { FieldModel } from '../../models/field.model'
+import { VrgFormBuilder } from './vrg-form-builder.service'
+import { FieldModel } from '../../models/props.model'
 import { FieldTypeEnum } from '../../enums/field-type.enum'
 
-describe(`${VrgFormService.name}`, () => {
-  let service: VrgFormService
+describe(`${VrgFormBuilder.name}`, () => {
+  let service: VrgFormBuilder
   let formBuilder: FormBuilder
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule],
-      providers: [VrgFormService, FormBuilder],
+      providers: [VrgFormBuilder, FormBuilder],
     })
-    service = TestBed.get(VrgFormService)
+    service = TestBed.get(VrgFormBuilder)
     formBuilder = TestBed.get(FormBuilder)
   })
 
@@ -38,7 +38,7 @@ describe(`${VrgFormService.name}`, () => {
       }
     ]
 
-    const reactiveForm = service.createForm(formModel)
+    const reactiveForm = service.createReactiveForm(formModel)
     const formControl = reactiveForm.reactiveController.get('testControl')
 
     expect(formControl.disabled).toBe(true)

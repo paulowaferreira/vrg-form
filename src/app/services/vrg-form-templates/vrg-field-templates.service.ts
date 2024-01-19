@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core'
 
-import { VrgFieldTextService } from '../vrg-fields/vrg-field-text/vrg-field-text.service'
-import { VrgFieldNumberService } from '../vrg-fields/vrg-field-number/vrg-field-number.service'
-import { VrgFieldPasswordService } from '../vrg-fields/vrg-field-password/vrg-field-password.service'
-import { VrgFieldTextareaService } from '../vrg-fields/vrg-field-textarea/vrg-field-textarea.service'
-import { VrgFieldPhoneService } from '../vrg-fields/vrg-field-phone/vrg-field-phone.service'
-import { VrgFieldEmailService } from '../vrg-fields/vrg-field-email/vrg-field-email.service'
+import { VrgFieldTextService } from '../vrg-fields-templates/vrg-field-text/vrg-field-text.service'
+import { VrgFieldNumberService } from '../vrg-fields-templates/vrg-field-number/vrg-field-number.service'
+import { VrgFieldPasswordService } from '../vrg-fields-templates/vrg-field-password/vrg-field-password.service'
+import { VrgFieldTextareaService } from '../vrg-fields-templates/vrg-field-textarea/vrg-field-textarea.service'
+import { VrgFieldPhoneService } from '../vrg-fields-templates/vrg-field-phone/vrg-field-phone.service'
+import { VrgFieldEmailService } from '../vrg-fields-templates/vrg-field-email/vrg-field-email.service'
+import { PropsModel } from '../../models'
 
 @Injectable({ providedIn: 'root' })
 export class VrgFieldTemplatesService {
@@ -19,7 +20,7 @@ export class VrgFieldTemplatesService {
     private emailService: VrgFieldEmailService,
   ) {}
 
-  getFormDefault() {
+  getFormDefaultValues(): PropsModel[] {
     return [
       {
         ...this.textService.getDefaultValues(),

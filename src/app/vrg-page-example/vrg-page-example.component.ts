@@ -16,9 +16,8 @@ export class VrgPageExampleComponent implements OnInit {
   constructor(
     private formService: VrgFormService,
     private fieldService: VrgFieldTemplatesService
-  ) {
-  }
-  
+  ) { }
+
   ngOnInit() {
     this.createForm()
     this.onChange()
@@ -32,6 +31,8 @@ export class VrgPageExampleComponent implements OnInit {
 
   createForm() {
     this.vrgForm = 
-      this.formService.createForm(this.fieldService.getFormDefault())
+      this.formService.createReactiveForm(
+        this.fieldService.getFormDefaultValues()
+      )
   }
 }

@@ -1,8 +1,8 @@
 import { FormControl } from '@angular/forms'
 
-import { FieldModel } from './field.model'
+import { FieldModel } from '../models'
 
-export interface FormControllerItemModel {
-  field: FieldModel
+export interface FormControlItemModel {
+  fields: FieldModel
   control: FormControl
 }

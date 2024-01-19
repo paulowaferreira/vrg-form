@@ -18,7 +18,7 @@ describe(`${VrgFieldPasswordComponent.name}`, () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(VrgFieldPasswordComponent)
     component = fixture.componentInstance
-    component.parentForm = new FormGroup({
+    component.reactiveController = new FormGroup({
       [component.controlName]: new FormControl(),
     })
     fixture.detectChanges()
