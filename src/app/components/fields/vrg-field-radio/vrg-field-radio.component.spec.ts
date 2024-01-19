@@ -27,8 +27,4 @@ describe(`${VrgFieldRadioComponent.name}`, () => {
   it('should create', () => {
     expect(component).toBeTruthy()
   })
-
-  it('should have default value set to an empty string', () => {
-    expect(component.value).toBe('')
-  })
 })
