@@ -7,6 +7,7 @@ import { VrgFieldTextareaService } from '../vrg-fields-templates/vrg-field-texta
 import { VrgFieldPhoneService } from '../vrg-fields-templates/vrg-field-phone/vrg-field-phone.service'
 import { VrgFieldEmailService } from '../vrg-fields-templates/vrg-field-email/vrg-field-email.service'
 import { VrgFieldRadioService } from '../vrg-fields-templates/vrg-field-radio/vrg-field-radio.service'
+import { VrgFieldDropdownService } from '../vrg-fields-templates/vrg-field-dropdown/vrg-field-dropdown.service'
 import { PropsModel } from '../../models'
 
 @Injectable({ providedIn: 'root' })
@@ -19,7 +20,8 @@ export class VrgFieldTemplatesService {
     private textareaService: VrgFieldTextareaService,
     private phoneService: VrgFieldPhoneService,
     private emailService: VrgFieldEmailService,
-    private radioService: VrgFieldRadioService
+    private radioService: VrgFieldRadioService,
+    private dropdownService: VrgFieldDropdownService
   ) {}
 
   getFormDefaultValues(): PropsModel[] {
@@ -79,6 +81,18 @@ export class VrgFieldTemplatesService {
         options: [
           { label: 'Sim', value: true},
           { label: 'Não', value: false}
+        ]
+      },
+      {
+        ...this.dropdownService.getDefaultValues(),
+        controlName: 'rating',
+        id: 'rating',
+        name: 'rating',
+        options: [
+          { label: 'Excelente', value: 4},
+          { label: 'Bom', value: 3},
+          { label: 'Regular', value: 2},
+          { label: 'Ruim', value: 1}
         ]
       }
     ]

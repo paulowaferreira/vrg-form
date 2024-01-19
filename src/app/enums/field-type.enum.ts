@@ -1,4 +1,5 @@
 export enum FieldTypeEnum {
+    DROPDOWN = 'dropdown',
     EMAIL = 'email',
     NUMBER = 'number',
     PASSWORD = 'password',

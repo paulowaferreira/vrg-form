@@ -4,8 +4,8 @@
     - password ok
     - phone ok
     - textaerea ok
-    - dropdown
-    - radio
+    - dropdown ok
+    - radio ok
     - checkbox
     - file
 - Criar um service facade que abstraia a criação do formGroup. ok

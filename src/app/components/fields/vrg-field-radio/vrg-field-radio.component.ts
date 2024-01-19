@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 
 import { VrgFieldBase } from '../../base-class/vrg-field-base.class'
+import { FieldOptionsModel } from '../../../models'
 
 @Component({
   selector: 'vrg-field-radio',
@@ -9,7 +10,7 @@ import { VrgFieldBase } from '../../base-class/vrg-field-base.class'
 })
 export class VrgFieldRadioComponent extends VrgFieldBase implements OnInit {
   @Input() value: any
-  @Input() options: { label: string, value: any }
+  @Input() options: FieldOptionsModel[]
 
   ngOnInit() { }
 }

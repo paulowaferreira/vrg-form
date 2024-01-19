@@ -67,16 +67,28 @@
       </vrg-field-email>
 
       <vrg-field-radio
-      *ngSwitchCase="fieldType.RADIO"
-      [ngClass]=""
-      [ngStyle]="{}"
-      [id]="field.id"
-      [options]="field.options"
-      [controlName]="field.controlName"
-      [reactiveController]="vrgForm.reactiveController"
-      [placeholder]="field.placeholder">
-      <label [for]="field.controlName" before>Está ficando bom?</label>
-    </vrg-field-radio>
+        *ngSwitchCase="fieldType.RADIO"
+        [ngClass]=""
+        [ngStyle]="{}"
+        [id]="field.id"
+        [options]="field.options"
+        [controlName]="field.controlName"
+        [reactiveController]="vrgForm.reactiveController"
+        [placeholder]="field.placeholder">
+        <label [for]="field.controlName" before>Está ficando bom?</label>
+      </vrg-field-radio>
+      
+      <vrg-field-dropdown
+        *ngSwitchCase="fieldType.DROPDOWN"
+        [ngClass]=""
+        [ngStyle]="{}"
+        [id]="field.id"
+        [options]="field.options"
+        [controlName]="field.controlName"
+        [reactiveController]="vrgForm.reactiveController"
+        [placeholder]="field.placeholder">
+        <label [for]="field.controlName" before>Qual sua nota para o novo form?</label>
+      </vrg-field-dropdown>
     </ng-container>
   </ng-container>
 </form>

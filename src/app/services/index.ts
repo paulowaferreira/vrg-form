@@ -6,4 +6,5 @@ export { VrgFieldPhoneService } from './vrg-fields-templates/vrg-field-phone/vrg
 export { VrgFieldEmailService } from './vrg-fields-templates/vrg-field-email/vrg-field-email.service'
 export { VrgFieldTemplatesService } from './vrg-form-templates/vrg-field-templates.service'
 export { VrgFieldRadioService } from './vrg-fields-templates/vrg-field-radio/vrg-field-radio.service'
+export { VrgFieldDropdownService } from './vrg-fields-templates/vrg-field-dropdown/vrg-field-dropdown.service'
 export { VrgFormBuilder } from './vrg-form-builder/vrg-form-builder.service'
