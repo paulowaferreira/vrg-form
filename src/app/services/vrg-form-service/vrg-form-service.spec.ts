@@ -2,7 +2,8 @@ import { TestBed } from '@angular/core/testing'
 import { 
   FormBuilder,
   FormControl,
-  ReactiveFormsModule
+  ReactiveFormsModule,
+  Validators
 } from '@angular/forms'
 
 import { VrgFormService } from './vrg-form-service.service'
@@ -29,20 +30,16 @@ describe(`${VrgFormService.name}`, () => {
   it('should create a form with disabled field', () => {
     const formModel: FieldModel[] = [
       {
-        control: {
-          name: 'testControl',
-          initialValue: '',
-          validators: { required: true },
-        },
-        properties: {
-          disabled: true,
-          type: FieldTypeEnum.TEXT,
-        },
-      },
+        name: 'testControl',
+        initialValue: '',
+        validators: [Validators.required ],
+        disabled: true,
+        type: FieldTypeEnum.TEXT,
+      }
     ]
 
     const reactiveForm = service.createForm(formModel)
-    const formControl = reactiveForm.reactiveForm.get('testControl')
+    const formControl = reactiveForm.reactiveController.get('testControl')
 
     expect(formControl.disabled).toBeTruthy()
   })

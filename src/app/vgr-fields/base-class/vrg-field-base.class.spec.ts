@@ -49,6 +49,13 @@ describe(`${VrgFieldBase.name}`, () => {
     expect(spy).toHaveBeenCalledWith(event)
   })
 
+  it('should emit keydown event', () => {
+    const spy = spyOn(vrgFieldBase.keyup, 'emit')
+    const event = {} as KeyboardEvent
+    vrgFieldBase.onKeyDown(event)
+    expect(spy).toHaveBeenCalledWith(event)
+  });
+
   it('should emit search event', () => {
     const spy = spyOn(vrgFieldBase.search, 'emit')
     const event = {} as Event

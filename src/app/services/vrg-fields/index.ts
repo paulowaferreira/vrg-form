@@ -1,0 +1,6 @@
+export { VrgFieldTextService } from './vrg-field-text/vrg-field-text.service'
+export { VrgFieldNumberService } from './vrg-field-number/vrg-field-number.service'
+export { VrgFieldPasswordService } from './vrg-field-password/vrg-field-password.service'
+export { VrgFieldTextareaService } from './vrg-field-textarea/vrg-field-textarea.service'
+export { VrgFieldPhoneService } from './vrg-field-phone/vrg-field-phone.service'
+export { VrgFieldEmailService } from './vrg-field-email/vrg-field-email.service'

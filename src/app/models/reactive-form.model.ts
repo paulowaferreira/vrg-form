@@ -1,8 +1,8 @@
 import { FormGroup } from "@angular/forms";
 
-import { FieldPropertiesModel } from "./field-properties.model";
+import { FieldModel } from "./field.model";
 
 export interface VrgFormModel {
-  reactiveForm?: FormGroup
-  fieldProperties?: FieldPropertiesModel[]
+  reactiveController?: FormGroup
+  fields: FieldModel[]
 }

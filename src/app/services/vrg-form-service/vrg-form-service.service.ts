@@ -2,17 +2,11 @@ import { Injectable } from '@angular/core'
 import {
   FormBuilder,
   FormControl,
-  ValidatorFn,
-  Validators,
+  ValidatorFn
 } from '@angular/forms'
 
-import {
-  FieldControlModel,
-  FieldModel,
-  FormValidatorsModel,
-  ReactiveFormModel,
-  ReactiveFormValidatorModel,
-} from '../../models'
+import { FieldModel, VrgFormModel } from '../../models/'
+import { FormControllerItemModel } from 'src/app/models/form-controller-item.model'
 
 @Injectable({
   providedIn: 'root',
@@ -20,44 +14,52 @@ import {
 export class VrgFormService {
   constructor(private formBuilder: FormBuilder) {}
 
-  createForm(formModel: FieldModel[]): ReactiveFormModel {
-    const reactiveForm: ReactiveFormModel = this.buildNewReactiveForm()
+  createForm(fields: FieldModel[]): VrgFormModel  {
+    const form = this.buildInitialForm()
 
-    formModel.forEach(({ control, properties }) => {
-      const newFormControl = this.buildNewFormControl(control)
-
-      if (properties.disabled) this.disableField(newFormControl)
-
-      reactiveForm.reactiveForm.addControl(control.name, newFormControl)
-      reactiveForm.fieldProperties.push(properties)
+    fields.forEach(field => {
+      const { control, field: newField } = this.buildFormItem(field)
+      if (field.disabled) this.disableField(control)
+      this.setReactiveControllerInForm(form, newField, control)
     })
 
-    return reactiveForm
+    return form
   }
 
-  disableField(formControl: FormControl) {
+  private buildControl(initialValue: any, validators?: ValidatorFn[]): FormControl {
+    return new FormControl(initialValue, validators)
+  }
+  
+  private buildFormItem(field: FieldModel): FormControllerItemModel {
+    const { disabled, initialValue, name, validators } = field
+    const control = this.buildControl(initialValue, validators)
+    
+    if (disabled) this.disableField(control)
+    
+    this.deleteUnecessaryProperties(field)
+    return { field, control }
+  }
+  
+  private buildInitialForm(): VrgFormModel {
+    return { reactiveController: this.formBuilder.group({}), fields: [] }
+  }
+
+  private deleteUnecessaryProperties(field): void {
+    delete field.disabled
+    delete field.initialValue
+    delete field.validators
+  }
+
+  private disableField(formControl: FormControl): void {
     formControl.disable()
   }
 
-  private buildValidators(validators: ReactiveFormValidatorModel[]): ValidatorFn[] {
-    return validators.map(({ key, value }) => {
-      return ['required'].includes(key)
-        ? Validators[key]
-        : Validators[key](value)
-    })
-  }
-
-  private buildNewFormControl(control: FieldControlModel): FormControl {
-    const validatorsArray = this.getValidatorsArrayConverted(control.validators)
-    const validators = this.buildValidators(validatorsArray)
-    return new FormControl(control.initialValue, validators)
-  }
-
-  private buildNewReactiveForm(): ReactiveFormModel {
-    return { reactiveForm: this.formBuilder.group({}), fieldProperties: [] }
-  }
-
-  private getValidatorsArrayConverted(validators: FormValidatorsModel): ReactiveFormValidatorModel[] {
-    return Object.entries(validators).map(([key, value]) => ({ key, value }))
+  private setReactiveControllerInForm(
+    form: VrgFormModel,
+    field: FieldModel,
+    control: FormControl
+  ): void {
+    form.reactiveController.addControl(field.name, control)
+    form.fields.push(field)
   }
 }
