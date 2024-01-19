@@ -5,8 +5,11 @@ import {
   ValidatorFn
 } from '@angular/forms'
 
-import { FieldModel, VrgFormModel } from '../../models/'
-import { FormControllerItemModel } from 'src/app/models/form-controller-item.model'
+import {
+  FieldModel,
+  FormControllerItemModel,
+  VrgFormModel
+} from '../../models/'
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +22,6 @@ export class VrgFormService {
 
     fields.forEach(field => {
       const { control, field: newField } = this.buildFormItem(field)
-      if (field.disabled) this.disableField(control)
       this.setReactiveControllerInForm(form, newField, control)
     })
 

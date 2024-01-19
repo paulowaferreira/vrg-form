@@ -32,7 +32,7 @@ describe(`${VrgFormService.name}`, () => {
       {
         name: 'testControl',
         initialValue: '',
-        validators: [Validators.required ],
+        validators: [ Validators.required ],
         disabled: true,
         type: FieldTypeEnum.TEXT,
       }
@@ -41,12 +41,6 @@ describe(`${VrgFormService.name}`, () => {
     const reactiveForm = service.createForm(formModel)
     const formControl = reactiveForm.reactiveController.get('testControl')
 
-    expect(formControl.disabled).toBeTruthy()
-  })
-
-  it('should disable a field', () => {
-    const formControl = new FormControl()
-    service.disableField(formControl)
-    expect(formControl.disabled).toBeTruthy()
+    expect(formControl.disabled).toBe(true)
   })
 })
