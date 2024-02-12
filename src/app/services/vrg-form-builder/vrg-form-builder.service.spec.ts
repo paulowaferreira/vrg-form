@@ -1,14 +1,9 @@
 import { TestBed } from '@angular/core/testing'
-import { 
-  FormBuilder,
-  FormControl,
-  ReactiveFormsModule,
-  Validators
-} from '@angular/forms'
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms'
 
-import { VrgFormBuilder } from './vrg-form-builder.service'
 import { PropsModel } from '../../models'
 import { FieldTypeEnum } from './../../enums/'
+import { VrgFormBuilder } from './vrg-form-builder.service'
 
 describe(`${VrgFormBuilder.name}`, () => {
   let service: VrgFormBuilder
@@ -17,7 +12,7 @@ describe(`${VrgFormBuilder.name}`, () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule],
-      providers: [VrgFormBuilder, FormBuilder],
+      providers: [VrgFormBuilder, FormBuilder]
     })
     service = TestBed.get(VrgFormBuilder)
     formBuilder = TestBed.get(FormBuilder)
@@ -32,9 +27,9 @@ describe(`${VrgFormBuilder.name}`, () => {
       {
         name: 'testControl',
         initialValue: '',
-        validators: [ Validators.required ],
+        validators: [Validators.required],
         disabled: true,
-        type: FieldTypeEnum.TEXT,
+        type: FieldTypeEnum.TEXT
       }
     ]
 

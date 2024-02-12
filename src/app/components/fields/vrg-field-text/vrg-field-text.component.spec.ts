@@ -9,17 +9,16 @@ describe(`${VrgFieldTextComponent.name}`, () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VrgFieldTextComponent ],
-      imports: [ ReactiveFormsModule ]
-    })
-    .compileComponents()
+      declarations: [VrgFieldTextComponent],
+      imports: [ReactiveFormsModule]
+    }).compileComponents()
   }))
 
   beforeEach(() => {
     fixture = TestBed.createComponent(VrgFieldTextComponent)
     component = fixture.componentInstance
     component.reactiveController = new FormGroup({
-      [component.controlName]: new FormControl(),
+      [component.controlName]: new FormControl()
     })
     fixture.detectChanges()
   })

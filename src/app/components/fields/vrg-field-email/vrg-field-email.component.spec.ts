@@ -9,17 +9,16 @@ describe(`${VrgFieldEmailComponent.name}`, () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VrgFieldEmailComponent ],
-      imports: [ ReactiveFormsModule ]
-    })
-    .compileComponents()
+      declarations: [VrgFieldEmailComponent],
+      imports: [ReactiveFormsModule]
+    }).compileComponents()
   }))
 
   beforeEach(() => {
     fixture = TestBed.createComponent(VrgFieldEmailComponent)
     component = fixture.componentInstance
     component.reactiveController = new FormGroup({
-      [component.controlName]: new FormControl(),
+      [component.controlName]: new FormControl()
     })
     fixture.detectChanges()
   })
@@ -31,5 +30,4 @@ describe(`${VrgFieldEmailComponent.name}`, () => {
   it('should have default value set to an empty string', () => {
     expect(component.value).toBe('')
   })
-
 })

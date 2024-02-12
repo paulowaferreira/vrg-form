@@ -4,8 +4,8 @@ import { FormGroup } from '@angular/forms'
 
 export class VrgFieldBase {
   @Input() autocomplete: string
-  @Input() autofocus: boolean
-  @Input() disabled: boolean
+  @Input() autofocus: boolean = false
+  @Input() disabled: boolean = false
   @Input() controlName: string
   @Input() id: string
   @Input() name: string
@@ -13,7 +13,7 @@ export class VrgFieldBase {
   @Input() ngStyle: string
   @Input() reactiveController: FormGroup
   @Input() placeholder: string
-  @Input() readOnly: boolean
+  @Input() readOnly: boolean = false
   @Input() spellcheck: boolean
   @Input() tabindex: number
   @Input() value: any
@@ -29,8 +29,7 @@ export class VrgFieldBase {
   @Output() click: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>()
   @Output() doubleClick: EventEmitter<MouseEvent> =
     new EventEmitter<MouseEvent>()
-  @Output() mouseOver: EventEmitter<MouseEvent> =
-    new EventEmitter<MouseEvent>()
+  @Output() mouseOver: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>()
   @Output() mouseOut: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>()
   @Output() mouseEnter: EventEmitter<MouseEvent> =
     new EventEmitter<MouseEvent>()

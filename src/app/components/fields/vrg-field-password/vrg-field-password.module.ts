@@ -6,10 +6,7 @@ import { VrgFieldPasswordComponent } from './vrg-field-password.component'
 
 @NgModule({
   declarations: [VrgFieldPasswordComponent],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ],
-  exports: [VrgFieldPasswordComponent],
+  imports: [CommonModule, ReactiveFormsModule],
+  exports: [VrgFieldPasswordComponent]
 })
-export class VrgFieldPasswordModule { }
+export class VrgFieldPasswordModule {}

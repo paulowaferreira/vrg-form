@@ -1,5 +1,5 @@
 import { FieldTypeEnum } from '../enums/'
-import { FieldOptionsModel } from "./field-options.model"
+import { FieldOptionsModel } from './field-options.model'
 
 export interface FieldModel {
   autofocus?: boolean

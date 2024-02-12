@@ -2,7 +2,9 @@
   <ng-container *ngFor="let field of vrgForm.fields">
     <ng-container [ngSwitch]="field.type">
       <vrg-field-text
+        class="batata"
         *ngSwitchCase="fieldType.TEXT"
+        [ngStyle]="{'background-color': 'red'}"
         [autofocus]="field.autofocus"
         [controlName]="field.controlName"
         [id]="field.id"

@@ -6,10 +6,7 @@ import { VrgFieldPhoneComponent } from './vrg-field-phone.component'
 
 @NgModule({
   declarations: [VrgFieldPhoneComponent],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ],
-  exports: [VrgFieldPhoneComponent],
+  imports: [CommonModule, ReactiveFormsModule],
+  exports: [VrgFieldPhoneComponent]
 })
-export class VrgFieldPhoneModule { }
+export class VrgFieldPhoneModule {}

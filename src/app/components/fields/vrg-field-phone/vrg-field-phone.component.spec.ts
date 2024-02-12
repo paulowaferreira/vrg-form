@@ -9,17 +9,16 @@ describe(`${VrgFieldPhoneComponent.name}`, () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VrgFieldPhoneComponent ],
-      imports: [ ReactiveFormsModule ]
-    })
-    .compileComponents()
+      declarations: [VrgFieldPhoneComponent],
+      imports: [ReactiveFormsModule]
+    }).compileComponents()
   }))
 
   beforeEach(() => {
     fixture = TestBed.createComponent(VrgFieldPhoneComponent)
     component = fixture.componentInstance
     component.reactiveController = new FormGroup({
-      [component.controlName]: new FormControl(),
+      [component.controlName]: new FormControl()
     })
     fixture.detectChanges()
   })
@@ -31,5 +30,4 @@ describe(`${VrgFieldPhoneComponent.name}`, () => {
   it('should have default value set to an empty string', () => {
     expect(component.value).toBe('')
   })
-
 })

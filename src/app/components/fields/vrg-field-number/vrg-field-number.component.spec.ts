@@ -9,17 +9,16 @@ describe(`${VrgFieldNumberComponent.name}`, () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VrgFieldNumberComponent ],
-      imports: [ ReactiveFormsModule ]
-    })
-    .compileComponents()
+      declarations: [VrgFieldNumberComponent],
+      imports: [ReactiveFormsModule]
+    }).compileComponents()
   }))
 
   beforeEach(() => {
     fixture = TestBed.createComponent(VrgFieldNumberComponent)
     component = fixture.componentInstance
     component.reactiveController = new FormGroup({
-      [component.controlName]: new FormControl(),
+      [component.controlName]: new FormControl()
     })
     fixture.detectChanges()
   })
@@ -28,22 +27,22 @@ describe(`${VrgFieldNumberComponent.name}`, () => {
     expect(component).toBeTruthy()
   })
 
-  it("should have default value set to 0", () => {
+  it('should have default value set to 0', () => {
     expect(component.value).toBe(0)
   })
 
-  it("should have default step set to undefined", () => {
+  it('should have default step set to undefined', () => {
     expect(component.step).toBeUndefined()
   })
 
-  it("should set placeholder to empty string if not provided", () => {
+  it('should set placeholder to empty string if not provided', () => {
     component.checkPlaceholder()
-    expect(component.placeholder).toBe("")
+    expect(component.placeholder).toBe('')
   })
 
-  it("should not change placeholder if provided", () => {
-    component.placeholder = "Test Placeholder"
+  it('should not change placeholder if provided', () => {
+    component.placeholder = 'Test Placeholder'
     component.checkPlaceholder()
-    expect(component.placeholder).toBe("Test Placeholder")
+    expect(component.placeholder).toBe('Test Placeholder')
   })
 })

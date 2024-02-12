@@ -3,10 +3,10 @@ import { FormBuilder } from '@angular/forms'
 import { VrgFieldBase } from './vrg-field-base.class'
 
 describe(`${VrgFieldBase.name}`, () => {
-  let vrgFieldBase: VrgFieldBase;
+  let vrgFieldBase: VrgFieldBase
 
   beforeEach(() => {
-    vrgFieldBase = new VrgFieldBase();
+    vrgFieldBase = new VrgFieldBase()
     vrgFieldBase.reactiveController = new FormBuilder().group({})
   })
 
@@ -54,7 +54,7 @@ describe(`${VrgFieldBase.name}`, () => {
     const event = {} as KeyboardEvent
     vrgFieldBase.onKeyDown(event)
     expect(spy).toHaveBeenCalledWith(event)
-  });
+  })
 
   it('should emit search event', () => {
     const spy = spyOn(vrgFieldBase.search, 'emit')

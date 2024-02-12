@@ -6,10 +6,7 @@ import { VrgFieldEmailComponent } from './vrg-field-email.component'
 
 @NgModule({
   declarations: [VrgFieldEmailComponent],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ],
-  exports: [VrgFieldEmailComponent],
+  imports: [CommonModule, ReactiveFormsModule],
+  exports: [VrgFieldEmailComponent]
 })
-export class VrgFieldEmailModule { }
+export class VrgFieldEmailModule {}

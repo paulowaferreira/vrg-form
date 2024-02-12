@@ -1,9 +1,9 @@
-<form 
+<form
   [formGroup]="reactiveController"
   class="vrg-field-dropdown__container">
   <ng-content select="[before]"></ng-content>
 
-  <select 
+  <select
     class="vrg-field-dropdown__button"
     [formControlName]="controlName"
     [ngClass]="ngClass"
@@ -24,8 +24,16 @@
     (mouseout)="onMouseOut($event)"
     (mouseenter)="onMouseEnter($event)"
     (mouseleave)="onMouseLeave($event)">
-    <option disabled selected>Opções</option>
-    <option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>
+    <option
+      disabled
+      selected>
+      Opções
+    </option>
+    <option
+      *ngFor="let option of options"
+      [value]="option.value">
+      {{ option.label }}
+    </option>
   </select>
 
   <ng-content select="[after]"></ng-content>

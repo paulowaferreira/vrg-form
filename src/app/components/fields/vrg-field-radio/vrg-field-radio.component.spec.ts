@@ -9,17 +9,16 @@ describe(`${VrgFieldRadioComponent.name}`, () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VrgFieldRadioComponent ],
-      imports: [ ReactiveFormsModule ]
-    })
-    .compileComponents()
+      declarations: [VrgFieldRadioComponent],
+      imports: [ReactiveFormsModule]
+    }).compileComponents()
   }))
 
   beforeEach(() => {
     fixture = TestBed.createComponent(VrgFieldRadioComponent)
     component = fixture.componentInstance
     component.reactiveController = new FormGroup({
-      [component.controlName]: new FormControl(),
+      [component.controlName]: new FormControl()
     })
     fixture.detectChanges()
   })
