@@ -10,11 +10,13 @@ import {
   providedIn: 'root'
 })
 export class VrgFormBuilder {
+  private propsToRemove: string[] = ['disabled', 'initialValue', 'validators']
+
   constructor(private formBuilder: FormBuilder) {}
 
-  createReactiveForm(fields: VrgField[]): VrgReactiveForm {
+  createForm(fields: VrgField[]): VrgReactiveForm {
     const form = this.buildInitialForm()
-    fields.forEach(field => this.setControl(form, this.configField(field)))
+    fields.forEach(field => this.setControl(form, this.prepareField(field)))
     return form
   }
 
@@ -25,14 +27,14 @@ export class VrgFormBuilder {
     return new FormControl(initialValue, validators)
   }
 
-  private configField(field: VrgField): VrgField {
+  private prepareField(field: VrgField): VrgField {
     const { disabled, initialValue, validators } = field
     const control = this.buildControl(initialValue, validators)
 
     if (disabled) control.disable()
 
     return {
-      ...this.deleteUnecessaryProperties(field), 
+      ...this.deleteUnecessaryProps(field, ...this.propsToRemove),
       control
     }
   }
@@ -41,10 +43,11 @@ export class VrgFormBuilder {
     return { controller: this.formBuilder.group({}), fields: [] }
   }
 
-  private deleteUnecessaryProperties(field: VrgField): VrgField {
-    delete field.disabled
-    delete field.initialValue
-    delete field.validators
+  private deleteUnecessaryProps(
+    field: VrgField, 
+    ...propNames: string[]
+  ): VrgField {
+    propNames.forEach(propName => delete field[propName])
     return field
   }
 
@@ -54,5 +57,6 @@ export class VrgFormBuilder {
   ): void {
     form.controller.addControl(field.name, field.control)
     form.fields.push(field)
+    this.deleteUnecessaryProps(field, 'control')
   }
 }

@@ -33,7 +33,7 @@ describe(`${VrgFormBuilder.name}`, () => {
       }
     ]
 
-    const reactiveForm = service.createReactiveForm(formModel)
+    const reactiveForm = service.createForm(formModel)
     const formControl = reactiveForm.controller.get('testControl')
 
     expect(formControl.disabled).toBe(true)

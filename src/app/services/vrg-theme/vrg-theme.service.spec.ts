@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ThemeServiceService } from './theme-service.service';
+import { VrgThemeService } from './vrg-theme.service';
 
-describe(`${ThemeServiceService.name}`, () => {
+describe(`${VrgThemeService.name}`, () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: ThemeServiceService = TestBed.get(ThemeServiceService);
+    const service: VrgThemeService = TestBed.get(VrgThemeService);
     expect(service).toBeTruthy();
   });
 });

@@ -29,6 +29,6 @@ export class VrgPageExampleComponent implements OnInit {
 
   createForm() {
     this.vrgForm = 
-      this.formService.createReactiveForm(TEMPLATE_FORM_DATA)
+      this.formService.createForm(TEMPLATE_FORM_DATA)
   }
 }
