@@ -1,9 +1,9 @@
 import { ValidatorFn, Validators } from '@angular/forms'
 
 import { VrgFieldType } from 'src/app/enums'
-import { VrgFieldProps } from 'src/app/interfaces'
+import { VrgField } from 'src/app/interfaces'
 
-export const DEFAULT_PHONE_PROPS: VrgFieldProps = {
+export const DEFAULT_PHONE_PROPS: VrgField = {
   initialValue: '',
   type: VrgFieldType.TEL
 }

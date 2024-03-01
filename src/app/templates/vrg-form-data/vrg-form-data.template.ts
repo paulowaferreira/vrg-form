@@ -1,4 +1,4 @@
-import { VrgFieldProps } from 'src/app/interfaces'
+import { VrgField } from 'src/app/interfaces'
 import {
   DEFAULT_DROPDOWN_PROPS,
   DEFAULT_DROPDOWN_VALIDATORS,
@@ -18,7 +18,7 @@ import {
   DEFAULT_TEXT_VALIDATORS
 } from 'src/app/templates'
 
-export const TEMPLATE_FORM_DATA: VrgFieldProps[] = [
+export const TEMPLATE_FORM_DATA: VrgField[] = [
   {
     ...DEFAULT_TEXT_PROPS,
     validators: DEFAULT_TEXT_VALIDATORS,

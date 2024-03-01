@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing'
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms'
 
-import { VrgFieldProps } from 'src/app/interfaces'
+import { VrgField } from 'src/app/interfaces'
 import { VrgFieldType } from 'src/app/enums'
 import { VrgFormBuilder } from './vrg-form-builder.service'
 
@@ -23,7 +23,7 @@ describe(`${VrgFormBuilder.name}`, () => {
   })
 
   it('should create a form with disabled field', () => {
-    const formModel: VrgFieldProps[] = [
+    const formModel: VrgField[] = [
       {
         name: 'testControl',
         initialValue: '',

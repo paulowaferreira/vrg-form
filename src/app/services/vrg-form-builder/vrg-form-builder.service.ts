@@ -3,7 +3,6 @@ import { FormBuilder, FormControl, ValidatorFn } from '@angular/forms'
 
 import {
   VrgField,
-  VrgFieldProps,
   VrgReactiveForm
 } from 'src/app/interfaces'
 
@@ -13,9 +12,9 @@ import {
 export class VrgFormBuilder {
   constructor(private formBuilder: FormBuilder) {}
 
-  createReactiveForm(propsList: VrgFieldProps[]): VrgReactiveForm {
+  createReactiveForm(fields: VrgField[]): VrgReactiveForm {
     const form = this.buildInitialForm()
-    propsList.forEach(props => this.setControl(form, this.buildField(props)))
+    fields.forEach(field => this.setControl(form, this.configField(field)))
     return form
   }
 
@@ -26,31 +25,34 @@ export class VrgFormBuilder {
     return new FormControl(initialValue, validators)
   }
 
-  private buildField(props: VrgFieldProps): VrgField {
-    const { disabled, initialValue, validators } = props
+  private configField(field: VrgField): VrgField {
+    const { disabled, initialValue, validators } = field
     const control = this.buildControl(initialValue, validators)
 
     if (disabled) control.disable()
 
-    return { control, props: this.deleteUnecessaryProperties(props) }
+    return {
+      ...this.deleteUnecessaryProperties(field), 
+      control
+    }
   }
 
   private buildInitialForm(): VrgReactiveForm {
     return { controller: this.formBuilder.group({}), fields: [] }
   }
 
-  private deleteUnecessaryProperties(props: VrgFieldProps): VrgFieldProps {
-    delete props.disabled
-    delete props.initialValue
-    delete props.validators
-    return props
+  private deleteUnecessaryProperties(field: VrgField): VrgField {
+    delete field.disabled
+    delete field.initialValue
+    delete field.validators
+    return field
   }
 
   private setControl(
     form: VrgReactiveForm,
     field: VrgField
   ): void {
-    form.controller.addControl(field.props.name, field.control)
-    form.fields.push(field.props)
+    form.controller.addControl(field.name, field.control)
+    form.fields.push(field)
   }
 }
