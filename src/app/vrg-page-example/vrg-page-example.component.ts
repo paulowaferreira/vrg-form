@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core'
 
-import { FieldTypeEnum } from '../enums'
-import { VrgFormModel } from '../models'
+import { VrgFieldType } from '../enums'
+import { VrgReactiveForm } from '../interfaces'
 import { VrgFormBuilder } from '../services/vrg-form-builder/vrg-form-builder.service'
-import { EXAMPLE_DEFAULT_FORM_DATA } from './config/vrg-page-example-form-data.config'
+import { TEMPLATE_FORM_DATA } from '../templates/vrg-form-data/vrg-form-data.template'
 
 @Component({
   selector: 'vrg-page-example',
@@ -11,8 +11,8 @@ import { EXAMPLE_DEFAULT_FORM_DATA } from './config/vrg-page-example-form-data.c
   styleUrls: ['./vrg-page-example.component.scss']
 })
 export class VrgPageExampleComponent implements OnInit {
-  vrgForm: VrgFormModel
-  fieldType = FieldTypeEnum
+  vrgForm: VrgReactiveForm
+  fieldType = VrgFieldType
 
   constructor(private formService: VrgFormBuilder) {}
 
@@ -22,14 +22,13 @@ export class VrgPageExampleComponent implements OnInit {
   }
 
   onChange() {
-    this.vrgForm.reactiveController.valueChanges.subscribe(values => {
-      console.log(values, this.vrgForm.reactiveController.valid)
+    this.vrgForm.controller.valueChanges.subscribe(values => {
+      console.log(values, this.vrgForm.controller.valid)
     })
   }
 
   createForm() {
-    this.vrgForm = this.formService.createReactiveForm(
-      EXAMPLE_DEFAULT_FORM_DATA
-    )
+    this.vrgForm = 
+      this.formService.createReactiveForm(TEMPLATE_FORM_DATA)
   }
 }

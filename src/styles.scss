@@ -1,15 +1,1 @@
-/* You can add global styles to this file, and also import other style files */
-.vrg-field {
-  font-size: 14px;
-  line-height: 1.5;
-
-  &:focus {
-    border-color: #00b11d;
-    box-shadow: none;
-  }
-}
-
-
-.batata {
-  background-color: yellow;
-}
+@import './styles/themes/legacy/variables.scss';

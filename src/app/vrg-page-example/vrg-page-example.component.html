@@ -1,15 +1,13 @@
-<form [formGroup]="vrgForm.reactiveController">
+<form [formGroup]="vrgForm.controller">
   <ng-container *ngFor="let field of vrgForm.fields">
     <ng-container [ngSwitch]="field.type">
       <vrg-field-text
-        class="batata"
         *ngSwitchCase="fieldType.TEXT"
-        [ngStyle]="{'background-color': 'red'}"
         [autofocus]="field.autofocus"
-        [controlName]="field.controlName"
+        [fieldControlName]="field.fieldControlName"
         [id]="field.id"
-        [name]="field.controlName"
-        [reactiveController]="vrgForm.reactiveController"
+        [name]="field.fieldControlName"
+        [controller]="vrgForm.controller"
         [placeholder]="field.placeholder">
         <label before>Nome</label>
       </vrg-field-text>
@@ -17,10 +15,10 @@
       <vrg-field-password
         *ngSwitchCase="fieldType.PASSWORD"
         [id]="field.id"
-        [controlName]="field.controlName"
-        [reactiveController]="vrgForm.reactiveController"
+        [fieldControlName]="field.fieldControlName"
+        [controller]="vrgForm.controller"
         [placeholder]="'senha'">
-        <label [for]="field.controlName" before>Senha</label>
+        <label [for]="field.fieldControlName" before>Senha</label>
       </vrg-field-password>
 
       <vrg-field-number 
@@ -28,10 +26,10 @@
         [ngClass]="'vrg-field'"
         [ngStyle]="{}"
         [id]="field.id"
-        [controlName]="field.controlName"
+        [fieldControlName]="field.fieldControlName"
         [step]="field.step"
-        [reactiveController]="vrgForm.reactiveController">
-        <label [for]="field.controlName" before>Idade</label>
+        [controller]="vrgForm.controller">
+        <label [for]="field.fieldControlName" before>Idade</label>
       </vrg-field-number>
 
       <vrg-field-phone 
@@ -39,22 +37,22 @@
         [ngClass]="'vrg-field'"
         [ngStyle]="{}"
         [id]="field.id"
-        [controlName]="field.controlName"
-        [reactiveController]="vrgForm.reactiveController"
+        [fieldControlName]="field.fieldControlName"
+        [controller]="vrgForm.controller"
         [placeholder]="field.placeholder">
-        <label [for]="field.controlName" before>Celular</label>
+        <label [for]="field.fieldControlName" before>Celular</label>
       </vrg-field-phone>
 
       <vrg-field-textarea
         *ngSwitchCase="fieldType.TEXTAREA"
         [autocomplete]="field.autocomplete"
         [cols]="field.cols"
-        [controlName]="field.controlName"
+        [fieldControlName]="field.fieldControlName"
         [id]="field.id"
-        [reactiveController]="vrgForm.reactiveController"
+        [controller]="vrgForm.controller"
         [placeholder]="field.placeholder"
         [rows]="field.rows">
-        <label [for]="field.controlName" before>Sobre mim</label>
+        <label [for]="field.fieldControlName" before>Sobre mim</label>
       </vrg-field-textarea>
 
       <vrg-field-email 
@@ -62,10 +60,10 @@
         [ngClass]="'vrg-field'"
         [ngStyle]="{}"
         [id]="field.id"
-        [controlName]="field.controlName"
-        [reactiveController]="vrgForm.reactiveController"
+        [fieldControlName]="field.fieldControlName"
+        [controller]="vrgForm.controller"
         [placeholder]="field.placeholder">
-        <label [for]="field.controlName" before>Email</label>
+        <label [for]="field.fieldControlName" before>Email</label>
       </vrg-field-email>
 
       <vrg-field-radio
@@ -74,10 +72,10 @@
         [ngStyle]="{}"
         [id]="field.id"
         [options]="field.options"
-        [controlName]="field.controlName"
-        [reactiveController]="vrgForm.reactiveController"
+        [fieldControlName]="field.fieldControlName"
+        [controller]="vrgForm.controller"
         [placeholder]="field.placeholder">
-        <label [for]="field.controlName" before>Está ficando bom?</label>
+        <label [for]="field.fieldControlName" before>Está ficando bom?</label>
       </vrg-field-radio>
       
       <vrg-field-dropdown
@@ -86,10 +84,10 @@
         [ngStyle]="{}"
         [id]="field.id"
         [options]="field.options"
-        [controlName]="field.controlName"
-        [reactiveController]="vrgForm.reactiveController"
+        [fieldControlName]="field.fieldControlName"
+        [controller]="vrgForm.controller"
         [placeholder]="field.placeholder">
-        <label [for]="field.controlName" before>Qual sua nota para o novo form?</label>
+        <label [for]="field.fieldControlName" before>Qual sua nota para o novo form?</label>
       </vrg-field-dropdown>
     </ng-container>
   </ng-container>

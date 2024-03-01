@@ -30,3 +30,4 @@ export {
   DEFAULT_TEXT_PROPS,
   DEFAULT_TEXT_VALIDATORS
 } from './vrg-field-text/default.template'
+export { TEMPLATE_FORM_DATA } from './vrg-form-data/vrg-form-data.template'

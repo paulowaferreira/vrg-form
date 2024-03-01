@@ -2,11 +2,10 @@ import { Injectable } from '@angular/core'
 import { FormBuilder, FormControl, ValidatorFn } from '@angular/forms'
 
 import {
-  PropsModel,
-  FieldModel,
-  FormControlItemModel,
-  VrgFormModel
-} from '../../models'
+  VrgField,
+  VrgFieldProps,
+  VrgReactiveForm
+} from 'src/app/interfaces'
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +13,9 @@ import {
 export class VrgFormBuilder {
   constructor(private formBuilder: FormBuilder) {}
 
-  createReactiveForm(props: PropsModel[]): VrgFormModel {
+  createReactiveForm(propsList: VrgFieldProps[]): VrgReactiveForm {
     const form = this.buildInitialForm()
-    props.forEach(item =>
-      this.setControlInForm(form, this.buildControlAndField(item))
-    )
+    propsList.forEach(props => this.setControl(form, this.buildField(props)))
     return form
   }
 
@@ -29,31 +26,31 @@ export class VrgFormBuilder {
     return new FormControl(initialValue, validators)
   }
 
-  private buildControlAndField(props: PropsModel): FormControlItemModel {
+  private buildField(props: VrgFieldProps): VrgField {
     const { disabled, initialValue, validators } = props
     const control = this.buildControl(initialValue, validators)
 
     if (disabled) control.disable()
 
-    return { control, fields: this.deleteUnecessaryProperties(props) }
+    return { control, props: this.deleteUnecessaryProperties(props) }
   }
 
-  private buildInitialForm(): VrgFormModel {
-    return { reactiveController: this.formBuilder.group({}), fields: [] }
+  private buildInitialForm(): VrgReactiveForm {
+    return { controller: this.formBuilder.group({}), fields: [] }
   }
 
-  private deleteUnecessaryProperties(props: PropsModel): FieldModel {
+  private deleteUnecessaryProperties(props: VrgFieldProps): VrgFieldProps {
     delete props.disabled
     delete props.initialValue
     delete props.validators
     return props
   }
 
-  private setControlInForm(
-    form: VrgFormModel,
-    item: FormControlItemModel
+  private setControl(
+    form: VrgReactiveForm,
+    field: VrgField
   ): void {
-    form.reactiveController.addControl(item.fields.name, item.control)
-    form.fields.push(item.fields)
+    form.controller.addControl(field.props.name, field.control)
+    form.fields.push(field.props)
   }
 }

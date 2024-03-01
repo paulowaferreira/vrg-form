@@ -1,0 +1,33 @@
+<form
+  [formGroup]="controller"
+  class="">
+  <ng-content select="[before]"></ng-content>
+
+  <input
+    class=""
+    type="email"
+    [autofocus]="autofocus"
+    [formControlName]="fieldControlName"
+    [id]="id"
+    [name]="fieldControlName"
+    [ngClass]="ngClass"
+    [ngStyle]="ngStyle"
+    [placeholder]="placeholder"
+    [value]="value"
+    (blur)="onBlur($event)"
+    (change)="onChange($event)"
+    (focus)="onFocus($event)"
+    (input)="onInput($event)"
+    (keyup)="onKeyup($event)"
+    (search)="onSearch($event)"
+    (click)="onClick($event)"
+    (submit)="onSubmit($event)"
+    (click)="onClick($event)"
+    (dblclick)="onDoubleClick($event)"
+    (mouseover)="onMouseOver($event)"
+    (mouseout)="onMouseOut($event)"
+    (mouseenter)="onMouseEnter($event)"
+    (mouseleave)="onMouseLeave($event)" />
+
+  <ng-content select="[after]"></ng-content>
+</form>

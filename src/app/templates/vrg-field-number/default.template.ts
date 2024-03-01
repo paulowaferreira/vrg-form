@@ -1,11 +1,12 @@
 import { ValidatorFn } from '@angular/forms'
-import { FieldTypeEnum } from 'src/app/enums'
-import { PropsModel } from 'src/app/models'
 
-export const DEFAULT_NUMBER_PROPS: PropsModel = {
+import { VrgFieldType } from 'src/app/enums'
+import { VrgFieldProps } from 'src/app/interfaces'
+
+export const DEFAULT_NUMBER_PROPS: VrgFieldProps = {
   initialValue: 0,
   step: 1,
-  type: FieldTypeEnum.NUMBER
+  type: VrgFieldType.NUMBER
 }
 
 export const DEFAULT_NUMBER_VALIDATORS: ValidatorFn[] = []

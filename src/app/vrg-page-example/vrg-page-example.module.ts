@@ -12,7 +12,7 @@ import {
   VrgFieldTextareaModule,
   VrgFieldRadioModule,
   VrgFieldDropdownModule
-} from '../components/fields'
+} from '../vrg-fields'
 
 
 @NgModule({

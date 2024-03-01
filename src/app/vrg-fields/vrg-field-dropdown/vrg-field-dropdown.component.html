@@ -1,0 +1,40 @@
+<form
+  [formGroup]="controller"
+  class="">
+  <ng-content select="[before]"></ng-content>
+
+  <select
+    class=""
+    [formControlName]="fieldControlName"
+    [ngClass]="ngClass"
+    [ngStyle]="ngStyle"
+    [id]="id"
+    [name]="fieldControlName"
+    (blur)="onBlur($event)"
+    (change)="onChange($event)"
+    (focus)="onFocus($event)"
+    (input)="onInput($event)"
+    (keyup)="onKeyup($event)"
+    (search)="onSearch($event)"
+    (click)="onClick($event)"
+    (submit)="onSubmit($event)"
+    (click)="onClick($event)"
+    (dblclick)="onDoubleClick($event)"
+    (mouseover)="onMouseOver($event)"
+    (mouseout)="onMouseOut($event)"
+    (mouseenter)="onMouseEnter($event)"
+    (mouseleave)="onMouseLeave($event)">
+    <option
+      disabled
+      selected>
+      Opções
+    </option>
+    <option
+      *ngFor="let option of options"
+      [value]="option.value">
+      {{ option.label }}
+    </option>
+  </select>
+
+  <ng-content select="[after]"></ng-content>
+</form>

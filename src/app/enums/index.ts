@@ -1,1 +1,1 @@
-export { FieldTypeEnum } from './field-type.enum'
+export { VrgFieldType } from './vrg-field-type.enum'

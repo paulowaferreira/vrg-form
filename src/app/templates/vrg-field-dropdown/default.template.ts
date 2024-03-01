@@ -1,10 +1,11 @@
 import { ValidatorFn, Validators } from '@angular/forms'
-import { FieldTypeEnum } from 'src/app/enums'
-import { PropsModel } from 'src/app/models'
 
-export const DEFAULT_DROPDOWN_PROPS: PropsModel = {
+import { VrgFieldType } from 'src/app/enums'
+import { VrgFieldProps } from 'src/app/interfaces/vrg-field-props.interface'
+
+export const DEFAULT_DROPDOWN_PROPS: VrgFieldProps = {
   initialValue: 'Opções',
-  type: FieldTypeEnum.DROPDOWN
+  type: VrgFieldType.DROPDOWN
 }
 
 export const DEFAULT_DROPDOWN_VALIDATORS: ValidatorFn[] = [Validators.required]
