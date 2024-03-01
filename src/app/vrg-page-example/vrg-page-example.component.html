@@ -6,13 +6,14 @@
         [autofocus]="field.autofocus"
         [fieldControlName]="field.fieldControlName"
         [id]="field.id"
+        [labelText]="field.labelText"
         [name]="field.fieldControlName"
         [controller]="vrgForm.controller"
         [placeholder]="field.placeholder">
         <label before>Nome</label>
       </vrg-field-text>
 
-      <vrg-field-password
+      <!-- <vrg-field-password
         *ngSwitchCase="fieldType.PASSWORD"
         [id]="field.id"
         [fieldControlName]="field.fieldControlName"
@@ -88,7 +89,7 @@
         [controller]="vrgForm.controller"
         [placeholder]="field.placeholder">
         <label [for]="field.fieldControlName" before>Qual sua nota para o novo form?</label>
-      </vrg-field-dropdown>
+      </vrg-field-dropdown> -->
     </ng-container>
   </ng-container>
 </form>

@@ -12,6 +12,7 @@ export interface VrgField {
   disabled?: boolean
   id?: string
   initialValue?: any
+  labelText?: string
   name?: string
   placeholder?: string
   options?: VrgFieldOption[]

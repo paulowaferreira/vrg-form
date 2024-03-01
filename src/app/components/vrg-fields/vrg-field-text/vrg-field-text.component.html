@@ -1,0 +1,44 @@
+<div
+  [formGroup]="controller"
+  class="vrg-field-text">
+  <vrg-label
+    class="vrg-field-text__label"
+    [fieldName]="name"
+    [text]="labelText">
+  </vrg-label>
+
+  <div class="vrg-field-text__content">
+    <input
+      autocomplete="off"      
+      type="text"
+      [autofocus]="autofocus"
+      [formControlName]="fieldControlName"
+      [id]="id"
+      [name]="fieldControlName"
+      [ngClass]="'text-content__input' + ngClass"
+      [ngStyle]="ngStyle"
+      [placeholder]="placeholder"
+      [(ngModel)]="value"
+      (blur)="onBlur($event)"
+      (change)="onChange($event)"
+      (focus)="onFocus($event)"
+      (input)="onInput($event)"
+      (keyup)="onKeyup($event)"
+      (search)="onSearch($event)"
+      (click)="onClick($event)"
+      (submit)="onSubmit($event)"
+      (click)="onClick($event)"
+      (dblclick)="onDoubleClick($event)"
+      (mouseover)="onMouseOver($event)"
+      (mouseout)="onMouseOut($event)"
+      (mouseenter)="onMouseEnter($event)"
+      (mouseleave)="onMouseLeave($event)" />
+
+      <span
+        *ngIf="value && !disabled"
+        class="text-content__clear"
+        (click)="clearInput()">
+        X
+      </span>
+    </div>
+</div>

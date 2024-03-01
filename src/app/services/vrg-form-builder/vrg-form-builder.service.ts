@@ -10,7 +10,7 @@ import {
   providedIn: 'root'
 })
 export class VrgFormBuilder {
-  private propsToRemove: string[] = ['disabled', 'initialValue', 'validators']
+  private propsToRemove: string[] = ['initialValue', 'validators']
 
   constructor(private formBuilder: FormBuilder) {}
 

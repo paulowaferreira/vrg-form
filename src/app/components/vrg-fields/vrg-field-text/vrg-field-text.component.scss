@@ -1,0 +1,64 @@
+@import "./src/styles.scss";
+
+.vrg-field-text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__label {
+    font-weight: 400;
+    font-size: $font-size-small;
+    line-height: 18px;
+    color: $primary-input-text;
+  }
+
+  &__content {
+    display: flex;
+    width: 100%;
+
+    .text-content {
+      &__input {
+        display: block;
+        font-weight: 400;
+        font-size: $font-size-normal;
+        line-height: 1.5;
+        height: 40px;
+        width: 100%;
+        padding: 6px 12px;
+        border: $primary-input-border solid 1px;
+        color: $primary-input-text;
+        background-color: $default-white;
+        background-clip: padding-box;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        box-sizing: border-box;
+
+        &:focus {
+          border-color: $primary-input-border-active;
+          box-shadow: none;
+          outline: none;
+        }
+
+        &:disabled {
+          background-color: $primary-input-disabled;
+          opacity: 0.9;
+        }
+      }
+  
+      &__clear {
+        position: absolute;
+        display: inline-block;
+        top: 30px;
+        right: 8px;
+        height: 24px;
+        width: 24px;
+        font-size: 18px;
+        line-height: 1;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: $primary-input-close-icon;
+      }
+    }
+  }
+}

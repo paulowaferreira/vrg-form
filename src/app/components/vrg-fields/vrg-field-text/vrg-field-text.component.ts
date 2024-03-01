@@ -7,8 +7,10 @@ import { VrgFieldBase } from '../base-class/vrg-field-base.class'
   templateUrl: './vrg-field-text.component.html',
   styleUrls: ['./vrg-field-text.component.scss']
 })
-export class VrgFieldTextComponent extends VrgFieldBase implements OnInit {
+export class VrgFieldTextComponent extends VrgFieldBase {
   @Input() value: string = ''
 
-  ngOnInit() {}
+  clearInput(): void {
+    this.value = '';
+  }
 }

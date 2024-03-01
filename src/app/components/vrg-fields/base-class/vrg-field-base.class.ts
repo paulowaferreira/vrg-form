@@ -7,8 +7,9 @@ export class VrgFieldBase {
   @Input() disabled: boolean = false
   @Input() fieldControlName: string
   @Input() id: string
+  @Input() labelText: string
   @Input() name: string
-  @Input() ngClass: string
+  @Input() ngClass: string = ''
   @Input() ngStyle: string
   @Input() controller: FormGroup
   @Input() placeholder: string
