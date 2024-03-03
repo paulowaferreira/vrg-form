@@ -1,22 +1,24 @@
 import { EventEmitter, Input, Output } from '@angular/core'
-import { FormGroup } from '@angular/forms'
+import { FormControl, FormGroup } from '@angular/forms'
 
 export class VrgFieldBase {
   @Input() autocomplete: string
   @Input() autofocus: boolean = false
+  @Input() control: FormControl
+  @Input() controlName: string
   @Input() disabled: boolean = false
-  @Input() fieldControlName: string
+  @Input() errorClass: string
+  @Input() formGroup: FormGroup
   @Input() id: string
+  @Input() isFilled: boolean = true
   @Input() labelText: string
   @Input() name: string
   @Input() ngClass: string = ''
   @Input() ngStyle: string
-  @Input() controller: FormGroup
   @Input() placeholder: string
   @Input() readOnly: boolean = false
   @Input() spellcheck: boolean
   @Input() tabindex: number
-  @Input() value: any
 
   @Output() blur: EventEmitter<any> = new EventEmitter<any>()
   @Output() change: EventEmitter<any> = new EventEmitter<any>()

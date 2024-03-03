@@ -18,7 +18,7 @@ describe(`${VrgFieldPhoneComponent.name}`, () => {
     fixture = TestBed.createComponent(VrgFieldPhoneComponent)
     component = fixture.componentInstance
     component.controller = new FormGroup({
-      [component.fieldControlName]: new FormControl()
+      [component.controlName]: new FormControl()
     })
     fixture.detectChanges()
   })

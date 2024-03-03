@@ -1,14 +1,15 @@
-<form [formGroup]="vrgForm.controller">
+<form [formGroup]="vrgForm.formGroup">
   <ng-container *ngFor="let field of vrgForm.fields">
     <ng-container [ngSwitch]="field.type">
       <vrg-field-text
         *ngSwitchCase="fieldType.TEXT"
         [autofocus]="field.autofocus"
-        [fieldControlName]="field.fieldControlName"
+        [control]="field.control"
+        [controlName]="field.controlName"
+        [formGroup]="vrgForm.formGroup"
         [id]="field.id"
         [labelText]="field.labelText"
-        [name]="field.fieldControlName"
-        [controller]="vrgForm.controller"
+        [name]="field.controlName"
         [placeholder]="field.placeholder">
       </vrg-field-text>
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core'
 
 import { VrgFieldType } from '../enums'
 import { VrgReactiveForm } from '../interfaces'
-import { VrgFormBuilder } from '../services/vrg-form-builder/vrg-form-builder.service'
+import { VrgFormService } from '../services/vrg-form/vrg-form.service'
 import { TEMPLATE_FORM_DATA } from '../templates/vrg-form-data/vrg-form-data.template'
 
 @Component({
@@ -14,7 +14,7 @@ export class VrgPageExampleComponent implements OnInit {
   vrgForm: VrgReactiveForm
   fieldType = VrgFieldType
 
-  constructor(private formService: VrgFormBuilder) {}
+  constructor(private formService: VrgFormService) {}
 
   ngOnInit() {
     this.createForm()
@@ -22,13 +22,12 @@ export class VrgPageExampleComponent implements OnInit {
   }
 
   onChange() {
-    this.vrgForm.controller.valueChanges.subscribe(values => {
-      console.log(values, this.vrgForm.controller.valid)
+    this.vrgForm.formGroup.valueChanges.subscribe(values => {
+      console.log(values, this.vrgForm.formGroup.valid)
     })
   }
 
   createForm() {
-    this.vrgForm = 
-      this.formService.createForm(TEMPLATE_FORM_DATA)
+    this.vrgForm = this.formService.buildForm(TEMPLATE_FORM_DATA)
   }
 }

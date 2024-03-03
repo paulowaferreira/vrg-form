@@ -6,24 +6,24 @@ export const TEMPLATE_FORM_DATA: VrgField[] = [
     ...DEFAULT_TEXT_PROPS,
     validators: DEFAULT_TEXT_VALIDATORS,
     autofocus: true,
-    fieldControlName: 'name',
+    controlName: 'name',
     id: 'name',
     name: 'name',
     placeholder: 'Digite seu nome',
     labelText: 'Nome',
     disabled: false
   },
-  {
-    ...DEFAULT_TEXT_PROPS,
-    validators: DEFAULT_TEXT_VALIDATORS,
-    autofocus: true,
-    fieldControlName: 'lastname',
-    id: 'lastname',
-    name: 'lastname',
-    placeholder: 'Digite seu sobrenome',
-    labelText: 'Sobrenome',
-    disabled: true
-  },
+  // {
+  //   ...DEFAULT_TEXT_PROPS,
+  //   validators: DEFAULT_TEXT_VALIDATORS,
+  //   autofocus: true,
+  //   fieldControlName: 'lastname',
+  //   id: 'lastname',
+  //   name: 'lastname',
+  //   placeholder: 'Digite seu sobrenome',
+  //   labelText: 'Sobrenome',
+  //   disabled: true
+  // },
   // {
   //   ...DEFAULT_NUMBER_PROPS,
   //   validators: DEFAULT_NUMBER_VALIDATORS,

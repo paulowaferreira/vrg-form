@@ -18,7 +18,7 @@ describe(`${VrgFieldRadioComponent.name}`, () => {
     fixture = TestBed.createComponent(VrgFieldRadioComponent)
     component = fixture.componentInstance
     component.controller = new FormGroup({
-      [component.fieldControlName]: new FormControl()
+      [component.controlName]: new FormControl()
     })
     fixture.detectChanges()
   })

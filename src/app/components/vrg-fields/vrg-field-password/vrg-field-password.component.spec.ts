@@ -18,7 +18,7 @@ describe(`${VrgFieldPasswordComponent.name}`, () => {
     fixture = TestBed.createComponent(VrgFieldPasswordComponent)
     component = fixture.componentInstance
     component.controller = new FormGroup({
-      [component.fieldControlName]: new FormControl()
+      [component.controlName]: new FormControl()
     })
     fixture.detectChanges()
   })

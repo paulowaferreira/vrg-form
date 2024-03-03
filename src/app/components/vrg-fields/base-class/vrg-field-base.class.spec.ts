@@ -126,8 +126,8 @@ describe(`${VrgFieldBase.name}`, () => {
 
   it('should set and get controlName property', () => {
     const value = 'testControl'
-    vrgFieldBase.fieldControlName = value
-    expect(vrgFieldBase.fieldControlName).toEqual(value)
+    vrgFieldBase.controlName = value
+    expect(vrgFieldBase.controlName).toEqual(value)
   })
 
   it('should set and get disabled property', () => {

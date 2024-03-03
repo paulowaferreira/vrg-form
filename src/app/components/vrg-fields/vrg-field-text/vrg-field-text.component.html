@@ -1,5 +1,5 @@
-<div
-  [formGroup]="controller"
+<ng-container
+  [formGroup]="formGroup"
   class="vrg-field-text">
   <vrg-label
     class="vrg-field-text__label"
@@ -9,16 +9,16 @@
 
   <div class="vrg-field-text__content">
     <input
+      #inputField
       autocomplete="off"      
       type="text"
       [autofocus]="autofocus"
-      [formControlName]="fieldControlName"
+      [formControlName]="controlName"
       [id]="id"
-      [name]="fieldControlName"
-      [ngClass]="'text-content__input' + ngClass"
+      [name]="controlName"
+      [ngClass]="ngClass"
       [ngStyle]="ngStyle"
       [placeholder]="placeholder"
-      [(ngModel)]="value"
       (blur)="onBlur($event)"
       (change)="onChange($event)"
       (focus)="onFocus($event)"
@@ -35,10 +35,10 @@
       (mouseleave)="onMouseLeave($event)" />
 
       <span
-        *ngIf="value && !disabled"
-        class="text-content__clear"
+        *ngIf="isFilled && !disabled"
+        class="vrg-field-text__content__clear"
         (click)="clearInput()">
         X
       </span>
     </div>
-</div>
+</ng-container>
