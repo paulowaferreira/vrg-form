@@ -11,15 +11,17 @@ import { VrgFieldValidators } from 'src/app/interfaces/vrg-field-validators.inte
   providedIn: 'root'
 })
 export class VrgFormService {
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder) { }
 
   buildForm(fields: VrgField[]): VrgReactiveForm {
     const controls = {}
     fields.forEach(field => {
       const { controlName, initialValue, validators } = field
-      const newControl = new FormControl(initialValue, this.prepareValidators(validators))
+      const validatorsFormatted = this.prepareValidators(validators)
+      field.required = !!validatorsFormatted.find(validator => validator.name === 'required')
+      const newControl = new FormControl(initialValue, validatorsFormatted)
       field.control = newControl
-      if(field.disabled) newControl.disable()
+      if (field.disabled) newControl.disable()
       controls[controlName] = newControl
     })
     return {
@@ -29,10 +31,12 @@ export class VrgFormService {
   }
 
   private prepareValidators(validators: VrgFieldValidators): ValidatorFn[] {
-    return Object.entries(validators).map(([key, value]) => {
-      return typeof value === 'boolean'
-        ? Validators[key]
-        : Validators[key](value)
-    })
+    return Object.entries(validators)
+      .filter(([key, value]) => value !== false)
+      .map(([key, value]) => {
+        return value === true
+          ? Validators[key]
+          : Validators[key](value)
+      })
   }
 }

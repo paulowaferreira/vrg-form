@@ -1,23 +1,27 @@
-<ng-container
+<div
   [formGroup]="formGroup"
+  [ngClass]="classContainer"
+  [ngStyle]="styleContainer"
   class="vrg-field-text">
   <vrg-label
     class="vrg-field-text__label"
     [fieldName]="name"
-    [text]="labelText">
+    [text]="labelText"
+    [isRequired]="required"
+    [ngClass]="classLabel"
+    [ngStyle]="styleLabel">
   </vrg-label>
 
-  <div class="vrg-field-text__content">
+  <div class="vrg-field-text__content d-flex flex-column">
     <input
       #inputField
       autocomplete="off"      
       type="text"
       [autofocus]="autofocus"
       [formControlName]="controlName"
-      [id]="id"
+      [id]="'field-text__' + id"
       [name]="controlName"
-      [ngClass]="ngClass"
-      [ngStyle]="ngStyle"
+      [ngStyle]="styleInput"
       [placeholder]="placeholder"
       (blur)="onBlur($event)"
       (change)="onChange($event)"
@@ -34,11 +38,17 @@
       (mouseenter)="onMouseEnter($event)"
       (mouseleave)="onMouseLeave($event)" />
 
-      <span
-        *ngIf="isFilled && !disabled"
-        class="vrg-field-text__content__clear"
-        (click)="clearInput()">
-        X
-      </span>
-    </div>
-</ng-container>
+    <span
+      *ngIf="isFilled && !disabled"
+      class="vrg-field-text__content--clear"
+      (click)="clearInput()">
+      X
+    </span>
+
+    <span 
+      *ngIf="!!error"
+      class="field-validation-error">
+      {{error.message}}
+    </span>
+  </div>
+</div>

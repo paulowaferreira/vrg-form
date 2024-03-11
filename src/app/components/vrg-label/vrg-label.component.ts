@@ -8,4 +8,5 @@ import { Component, Input, OnInit } from '@angular/core'
 export class VrgLabelComponent {
   @Input() fieldName: string
   @Input() text: string
+  @Input() isRequired: boolean = false;
 }

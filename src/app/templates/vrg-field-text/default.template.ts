@@ -11,5 +11,6 @@ export const DEFAULT_TEXT_PROPS: VrgField = {
 
 export const DEFAULT_TEXT_VALIDATORS: VrgFieldValidators = {
   required: true,
-  minLength: 3
+  minLength: 3,
+  maxLength: 20
 }

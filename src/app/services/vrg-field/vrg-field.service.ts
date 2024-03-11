@@ -12,42 +12,44 @@ export class VrgFieldService {
     control: FormControl,
     controlName: string,
     element: ElementRef
-  ): VrgFieldValidationError[] {
-    const errors: VrgFieldValidationError[] = []
-    this.checkErrors(control) && this.handleErrors(control, controlName, errors)
-    this.handleClassError(errors.length, element)
-    return errors
+  ): VrgFieldValidationError {
+    if (!this.hasErrors(control)) return
+
+    const error: VrgFieldValidationError = this.handleErrors(control, controlName)
+    this.handleClassError(error, element)
+    return error
   }
-  
-  private checkErrors(control: FormControl): boolean {
+
+  private hasErrors(control: FormControl): boolean {
     return control.invalid && (control.dirty || control.touched) && !control.disabled
   }
-  
+
   private handleErrors(
     control: FormControl,
-    controlName: string,
-    errors: VrgFieldValidationError[]
-  ): void {
+    label: string
+  ): VrgFieldValidationError {
+    let error: VrgFieldValidationError
     for (const errorKey in control.errors) {
       if (control.errors.hasOwnProperty(errorKey)) {
         const errorValue = control.errors[errorKey]
-        const message = this.getErrorMessage(controlName, errorKey, errorValue)
-        errors.push({ name: errorKey, message })
+        const message = this.getErrorMessage(label, errorKey, errorValue)
+        error = { name: errorKey, message }
       }
     }
+    return error
   }
 
-  private getErrorMessage(controlName: string, errorKey: string, errorValue: any): string {
+  private getErrorMessage(label: string, errorKey: string, errorValue: any): string {
     const errorMessages = {
-      required: `${controlName} is required.`,
-      minlength: `${controlName} should be at least ${errorValue.requiredLength} characters long.`,
-      maxlength: `${controlName} should be up to ${errorValue.requiredLength} characters long.`,
+      required: `Campo obrigatório.`,
+      minlength: `O mínimo de caracteres é ${errorValue.requiredLength}.`,
+      maxlength: `O máximo de caracteres é ${errorValue.requiredLength}.`,
     }
 
-    return errorMessages[errorKey] || `${controlName} is invalid.`
+    return errorMessages[errorKey] || `${label} is invalid.`
   }
 
-  private handleClassError(errors: number, element: ElementRef): void {
-    element.nativeElement.classList[errors > 0 ? 'add' : 'remove']('--error')
+  private handleClassError(errors: VrgFieldValidationError, element: ElementRef): void {
+    element.nativeElement.classList[!!errors ? 'add' : 'remove']('--error')
   }
 }

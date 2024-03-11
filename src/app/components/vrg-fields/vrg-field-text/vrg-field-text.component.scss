@@ -35,15 +35,15 @@
       @include field-behavior;
     }
 
-    .--error {
+    &--error {
       border-color: $text-invalid-legacy;
     }
 
-    &__clear {
+    &--clear {
       position: absolute;
       display: inline-block;
-      top: 43px;
-      right: 8px;
+      top: 38px;
+      right: 0;
       height: 24px;
       width: 24px;
       font-size: 18px;

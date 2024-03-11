@@ -13,6 +13,10 @@ import { TEMPLATE_FORM_DATA } from '../templates/vrg-form-data/vrg-form-data.tem
 export class VrgPageExampleComponent implements OnInit {
   vrgForm: VrgReactiveForm
   fieldType = VrgFieldType
+  classInput = {
+    'className': 'batata',
+    'cssFilePath': 'componente-pai.component.css'
+  }
 
   constructor(private formService: VrgFormService) {}
 

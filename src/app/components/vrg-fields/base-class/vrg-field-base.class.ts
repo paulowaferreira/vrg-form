@@ -1,7 +1,7 @@
-import { EventEmitter, Input, Output } from '@angular/core'
+import { EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core'
 import { FormControl, FormGroup } from '@angular/forms'
 
-export class VrgFieldBase {
+export class VrgFieldBase implements OnInit, OnChanges {
   @Input() autocomplete: string
   @Input() autofocus: boolean = false
   @Input() control: FormControl
@@ -13,10 +13,14 @@ export class VrgFieldBase {
   @Input() isFilled: boolean = true
   @Input() labelText: string
   @Input() name: string
-  @Input() ngClass: string = ''
-  @Input() ngStyle: string
-  @Input() placeholder: string
+  @Input() classLabel: string = ''
+  @Input() styleLabel: string = ''
+  @Input() classContainer: string = ''
+  @Input() styleContainer: string = ''
+  @Input() styleInput: string = ''
+  @Input() placeholder: string = ''
   @Input() readOnly: boolean = false
+  @Input() required: boolean = false
   @Input() spellcheck: boolean
   @Input() tabindex: number
 
@@ -37,6 +41,13 @@ export class VrgFieldBase {
     new EventEmitter<MouseEvent>()
   @Output() mouseLeave: EventEmitter<MouseEvent> =
     new EventEmitter<MouseEvent>()
+
+  ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+  }
 
   onBlur(event: FocusEvent) {
     this.blur.emit(event)
