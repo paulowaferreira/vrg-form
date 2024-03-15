@@ -4,7 +4,7 @@ import { VrgFieldType } from '../enums'
 import { VrgReactiveForm } from '../interfaces'
 import { VrgFormService } from '../services/vrg-form/vrg-form.service'
 import { TEMPLATE_FORM_DATA } from '../templates/vrg-form-data/vrg-form-data.template'
-
+import { VrgFieldTextClassName } from '../enums/vrg-field-text-classname.enum'
 @Component({
   selector: 'vrg-page-example',
   templateUrl: './vrg-page-example.component.html',
@@ -13,6 +13,7 @@ import { TEMPLATE_FORM_DATA } from '../templates/vrg-form-data/vrg-form-data.tem
 export class VrgPageExampleComponent implements OnInit {
   vrgForm: VrgReactiveForm
   fieldType = VrgFieldType
+  textClassName = VrgFieldTextClassName
   classInput = {
     'className': 'batata',
     'cssFilePath': 'componente-pai.component.css'

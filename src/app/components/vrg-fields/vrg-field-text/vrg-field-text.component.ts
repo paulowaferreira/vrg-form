@@ -1,7 +1,6 @@
-import { Component, ElementRef, OnInit, ViewEncapsulation } from '@angular/core'
+import { Component, OnInit, ViewEncapsulation } from '@angular/core'
 
-import { VrgFieldService } from 'src/app/services/vrg-field/vrg-field.service'
-import { VrgFieldBase } from '../base-class/vrg-field-base.class'
+import { VrgFieldBase } from '../base-class/vrg-field-base.component'
 
 @Component({
   selector: 'vrg-field-text',
@@ -10,25 +9,10 @@ import { VrgFieldBase } from '../base-class/vrg-field-base.class'
   encapsulation: ViewEncapsulation.None
 })
 export class VrgFieldTextComponent extends VrgFieldBase implements OnInit {
-  constructor(
-    private fieldService: VrgFieldService,
-    private elementRef: ElementRef
-  ) {
-    super()
-  }
-
   ngOnInit(): void {
     this.handleValueChange()
-  }
-
-  private handleValueChange(): void {
-    this.control.valueChanges.subscribe(value => {
-      this.isFilled = !!value
-      this.error = this.fieldService.getFormErrors(
-        this.control,
-        this.labelText,
-        this.elementRef
-      )
-    })
+    this.handleCustomClassInput()
+    // this.buildCustomClass(this.customNgClassContainer, this.ngClassContainer)
+    // this.buildCustomClass(this.customNgClassLabel, this.ngClassLabel)
   }
 }

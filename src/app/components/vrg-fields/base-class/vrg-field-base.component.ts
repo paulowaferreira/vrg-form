@@ -1,8 +1,10 @@
-import { EventEmitter, Input, OnInit, Output } from '@angular/core'
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { FormControl, FormGroup } from '@angular/forms'
 
 import { VrgFieldValidationError } from 'src/app/interfaces/vrg-field-validator-error.interface'
+import { VrgFieldService } from 'src/app/services/vrg-field/vrg-field.service'
 
+@Component({ template: '' })
 export class VrgFieldBase implements OnInit {
   @Input() autocomplete: string
   @Input() autofocus: boolean = false
@@ -43,8 +45,41 @@ export class VrgFieldBase implements OnInit {
     new EventEmitter<MouseEvent>()
 
   protected error: VrgFieldValidationError
+  protected ngClassContainer: Object
+  protected ngClassInput: Object
+  protected ngClassLabel: Object
 
-  ngOnInit(): void {
+  constructor(
+    private fieldService: VrgFieldService,
+    private elementRef: ElementRef
+  ) { }
+
+  ngOnInit(): void { }
+
+  protected handleValueChange(): void {
+    this.control.valueChanges.subscribe(value => {
+      this.isFilled = !!value
+      this.error = this.fieldService.getFormErrors(
+        this.control,
+        this.labelText,
+        this.elementRef
+      )
+    })
+  }
+
+  protected handleCustomClassInput() {
+    this.ngClassInput = this.buildCustomClass(this.customNgClassInput, this.ngClassInput)
+  }
+
+  protected buildCustomClass(customNgClasses, ngClasses) {
+    if (!customNgClasses) return
+    (customNgClasses.split(' ') as string[]).forEach(customClass => {
+      ngClasses = {
+        ...ngClasses,
+        [customClass]: true
+      }
+    })
+    return ngClasses
   }
 
   onBlur(event: FocusEvent) {

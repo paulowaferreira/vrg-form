@@ -1,9 +1,9 @@
 <div
-  class="vrg-field-text"
-  [ngClass]="customNgClassContainer"
+  class="vrg-field-text-container"
+  [ngClass]="ngClassContainer"
   [formGroup]="formGroup">
   <vrg-label
-    [customNgClass]="customNgClassLabel"
+    [customNgClass]="ngClassLabel"
     [fieldName]="name"
     [text]="labelText"
     [isRequired]="required">
@@ -11,13 +11,15 @@
 
   <input
     #inputField
-    autocomplete="off"      
+    autocomplete="off"
+    class="vrg-field"     
     type="text"
     [autofocus]="autofocus"
     [formControlName]="controlName"
     [id]="'field-text__' + id"
     [name]="controlName"
-    [ngClass]="customNgClassInput"
+    [class.--error]="!!error"
+    [ngClass]="ngClassInput"
     [placeholder]="placeholder"
     (blur)="onBlur($event)"
     (change)="onChange($event)"

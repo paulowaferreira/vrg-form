@@ -1,33 +1,15 @@
 @import "./src/styles.scss";
 
-.vrg-field-text {
+.vrg-field-text-container {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
 
-  input {
-    display: block;
-    font-weight: 400;
-    font-size: $font-size-normal;
-    line-height: 1.5;
-    height: 40px;
-    width: 100%;
-    padding: 6px 12px;
-    border: $field-border solid 1px;
-    color: $field-text;
-    background-color: $white-main;
-    background-clip: padding-box;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    box-sizing: border-box;
+  input.vrg-field {
 
-    @include vrg-field-behavior;
-
-    &.--error {
-      border-color: $field-invalid;
-    }
-
-    &.width-half {
+    // custom class example
+    &.--half-width {
       width: 50%;
     }
   }
