@@ -6,52 +6,29 @@
   flex-direction: column;
   width: 100%;
 
-  &__label {
+  input {
+    display: block;
     font-weight: 400;
-    font-size: $font-size-small;
-    line-height: 18px;
-    color: $text-legacy;
-  }
-
-  &__content {
-    display: flex;
+    font-size: $font-size-normal;
+    line-height: 1.5;
+    height: 40px;
     width: 100%;
+    padding: 6px 12px;
+    border: $field-border solid 1px;
+    color: $field-text;
+    background-color: $white-main;
+    background-clip: padding-box;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    box-sizing: border-box;
 
-    input {
-      display: block;
-      font-weight: 400;
-      font-size: $font-size-normal;
-      line-height: 1.5;
-      height: 40px;
-      width: 100%;
-      padding: 6px 12px;
-      border: $text-border-legacy solid 1px;
-      color: $text-legacy;
-      background-color: $legacy-background;
-      background-clip: padding-box;
-      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-      box-sizing: border-box;
+    @include vrg-field-behavior;
 
-      @include field-behavior;
+    &.--error {
+      border-color: $field-invalid;
     }
 
-    &--error {
-      border-color: $text-invalid-legacy;
-    }
-
-    &--clear {
-      position: absolute;
-      display: inline-block;
-      top: 38px;
-      right: 0;
-      height: 24px;
-      width: 24px;
-      font-size: 18px;
-      line-height: 1;
-      cursor: pointer;
-      background: none;
-      border: none;
-      color: $text-close-legacy;
+    &.width-half {
+      width: 50%;
     }
   }
 }

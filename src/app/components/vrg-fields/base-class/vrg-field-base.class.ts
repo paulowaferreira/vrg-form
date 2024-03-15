@@ -1,11 +1,16 @@
-import { EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core'
+import { EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { FormControl, FormGroup } from '@angular/forms'
 
-export class VrgFieldBase implements OnInit, OnChanges {
+import { VrgFieldValidationError } from 'src/app/interfaces/vrg-field-validator-error.interface'
+
+export class VrgFieldBase implements OnInit {
   @Input() autocomplete: string
   @Input() autofocus: boolean = false
   @Input() control: FormControl
   @Input() controlName: string
+  @Input() customNgClassContainer: string
+  @Input() customNgClassInput: string
+  @Input() customNgClassLabel: string
   @Input() disabled: boolean = false
   @Input() errorClass: string
   @Input() formGroup: FormGroup
@@ -13,11 +18,6 @@ export class VrgFieldBase implements OnInit, OnChanges {
   @Input() isFilled: boolean = true
   @Input() labelText: string
   @Input() name: string
-  @Input() classLabel: string = ''
-  @Input() styleLabel: string = ''
-  @Input() classContainer: string = ''
-  @Input() styleContainer: string = ''
-  @Input() styleInput: string = ''
   @Input() placeholder: string = ''
   @Input() readOnly: boolean = false
   @Input() required: boolean = false
@@ -42,11 +42,9 @@ export class VrgFieldBase implements OnInit, OnChanges {
   @Output() mouseLeave: EventEmitter<MouseEvent> =
     new EventEmitter<MouseEvent>()
 
-  ngOnInit(): void {
-  }
+  protected error: VrgFieldValidationError
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
+  ngOnInit(): void {
   }
 
   onBlur(event: FocusEvent) {

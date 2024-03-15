@@ -7,7 +7,7 @@ describe(`${VrgFieldBase.name}`, () => {
 
   beforeEach(() => {
     vrgFieldBase = new VrgFieldBase()
-    vrgFieldBase.controller = new FormBuilder().group({})
+    vrgFieldBase.formGroup = new FormBuilder().group({})
   })
 
   it('should create', () => {
@@ -148,24 +148,6 @@ describe(`${VrgFieldBase.name}`, () => {
     expect(vrgFieldBase.name).toEqual(value)
   })
 
-  it('should set and get ngClass property', () => {
-    const value = 'custom-class'
-    vrgFieldBase.ngClass = value
-    expect(vrgFieldBase.ngClass).toEqual(value)
-  })
-
-  it('should set and get ngStyle property', () => {
-    const value = `{ 'font-size': '16px' }`
-    vrgFieldBase.ngStyle = value
-    expect(vrgFieldBase.ngStyle).toEqual(value)
-  })
-
-  it('should set and get reactiveController property', () => {
-    const value = new FormBuilder().group({})
-    vrgFieldBase.controller = value
-    expect(vrgFieldBase.controller).toEqual(value)
-  })
-
   it('should set and get placeholder property', () => {
     const value = 'Enter text'
     vrgFieldBase.placeholder = value
@@ -188,11 +170,5 @@ describe(`${VrgFieldBase.name}`, () => {
     const value = 1
     vrgFieldBase.tabindex = value
     expect(vrgFieldBase.tabindex).toEqual(value)
-  })
-
-  it('should set and get value property', () => {
-    const value = 'Test value'
-    vrgFieldBase.value = value
-    expect(vrgFieldBase.value).toEqual(value)
   })
 })

@@ -4,9 +4,11 @@
       <vrg-field-text
         *ngSwitchCase="fieldType.TEXT"
         [autofocus]="field.autofocus"
-        [classInput]="classInput"
         [control]="field.control"
         [controlName]="field.controlName"
+        [customNgClassInput]=""
+        [customNgClassLabel]=""
+        [customNgClassContainer]=""
         [formGroup]="vrgForm.formGroup"
         [id]="field.id"
         [labelText]="field.labelText"

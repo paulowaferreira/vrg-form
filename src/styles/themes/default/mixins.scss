@@ -1,0 +1,12 @@
+@mixin vrg-field-behavior {
+  &:focus {
+    border-color: $field-border-active;
+    box-shadow: none;
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: $field-disabled;
+    opacity: 0.9;
+  }
+}
