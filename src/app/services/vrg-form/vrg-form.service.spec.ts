@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing'
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms'
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms'
 
-import { VrgField } from 'src/app/interfaces'
 import { VrgFieldType } from 'src/app/enums'
+import { VrgField } from 'src/app/interfaces'
 import { VrgFormService } from './vrg-form.service'
 
 describe(`${VrgFormService.name}`, () => {

@@ -18,6 +18,7 @@ export interface VrgField {
   name?: string
   placeholder?: string
   options?: VrgFieldOption[]
+  required?: boolean
   rows?: number
   size?: number
   step?: number

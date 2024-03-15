@@ -17,7 +17,7 @@ describe(`${VrgFieldPasswordComponent.name}`, () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(VrgFieldPasswordComponent)
     component = fixture.componentInstance
-    component.controller = new FormGroup({
+    component.formGroup = new FormGroup({
       [component.controlName]: new FormControl()
     })
     fixture.detectChanges()
@@ -39,7 +39,7 @@ describe(`${VrgFieldPasswordComponent.name}`, () => {
     expect(component.showPassword).toBe(false)
   })
 
-  it('should have default passwordShowText set to "mostrar"', () => {
+  it('should have default passwordShowText set to \'mostrar\'', () => {
     expect(component.passwordShowText).toBe('mostrar')
   })
 

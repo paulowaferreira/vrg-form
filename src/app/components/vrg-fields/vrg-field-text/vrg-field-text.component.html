@@ -1,44 +1,42 @@
-<ng-container
-  [formGroup]="formGroup"
-  class="vrg-field-text">
+<div
+  class="vrg-field-text"
+  [ngClass]="customNgClassContainer"
+  [formGroup]="formGroup">
   <vrg-label
-    class="vrg-field-text__label"
+    [customNgClass]="customNgClassLabel"
     [fieldName]="name"
-    [text]="labelText">
+    [text]="labelText"
+    [isRequired]="required">
   </vrg-label>
 
-  <div class="vrg-field-text__content">
-    <input
-      #inputField
-      autocomplete="off"      
-      type="text"
-      [autofocus]="autofocus"
-      [formControlName]="controlName"
-      [id]="id"
-      [name]="controlName"
-      [ngClass]="ngClass"
-      [ngStyle]="ngStyle"
-      [placeholder]="placeholder"
-      (blur)="onBlur($event)"
-      (change)="onChange($event)"
-      (focus)="onFocus($event)"
-      (input)="onInput($event)"
-      (keyup)="onKeyup($event)"
-      (search)="onSearch($event)"
-      (click)="onClick($event)"
-      (submit)="onSubmit($event)"
-      (click)="onClick($event)"
-      (dblclick)="onDoubleClick($event)"
-      (mouseover)="onMouseOver($event)"
-      (mouseout)="onMouseOut($event)"
-      (mouseenter)="onMouseEnter($event)"
-      (mouseleave)="onMouseLeave($event)" />
+  <input
+    #inputField
+    autocomplete="off"      
+    type="text"
+    [autofocus]="autofocus"
+    [formControlName]="controlName"
+    [id]="'field-text__' + id"
+    [name]="controlName"
+    [ngClass]="customNgClassInput"
+    [placeholder]="placeholder"
+    (blur)="onBlur($event)"
+    (change)="onChange($event)"
+    (focus)="onFocus($event)"
+    (input)="onInput($event)"
+    (keyup)="onKeyup($event)"
+    (search)="onSearch($event)"
+    (click)="onClick($event)"
+    (submit)="onSubmit($event)"
+    (click)="onClick($event)"
+    (dblclick)="onDoubleClick($event)"
+    (mouseover)="onMouseOver($event)"
+    (mouseout)="onMouseOut($event)"
+    (mouseenter)="onMouseEnter($event)"
+    (mouseleave)="onMouseLeave($event)" />
 
-      <span
-        *ngIf="isFilled && !disabled"
-        class="vrg-field-text__content__clear"
-        (click)="clearInput()">
-        X
-      </span>
-    </div>
-</ng-container>
+  <span 
+    *ngIf="!!error"
+    class="field-validation-error">
+    {{error.message}}
+  </span>
+</div>

@@ -6,11 +6,15 @@
         [autofocus]="field.autofocus"
         [control]="field.control"
         [controlName]="field.controlName"
+        [customNgClassInput]=""
+        [customNgClassLabel]=""
+        [customNgClassContainer]=""
         [formGroup]="vrgForm.formGroup"
         [id]="field.id"
         [labelText]="field.labelText"
         [name]="field.controlName"
-        [placeholder]="field.placeholder">
+        [placeholder]="field.placeholder"
+        [required]="field.required">
       </vrg-field-text>
 
       <!-- <vrg-field-password
