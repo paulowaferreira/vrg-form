@@ -1,11 +1,11 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import { Component, ElementRef, EventEmitter, Input, Output } from '@angular/core'
 import { FormControl, FormGroup } from '@angular/forms'
 
 import { VrgFieldValidationError } from 'src/app/interfaces/vrg-field-validator-error.interface'
-import { VrgFieldService } from 'src/app/services/vrg-field/vrg-field.service'
+import { VrgFieldErrorService } from 'src/app/services/vrg-field-error/vrg-field-error.service'
 
 @Component({ template: '' })
-export class VrgFieldBase implements OnInit {
+export class VrgFieldBaseComponent {
   @Input() autocomplete: string
   @Input() autofocus: boolean = false
   @Input() control: FormControl
@@ -50,13 +50,11 @@ export class VrgFieldBase implements OnInit {
   protected ngClassLabel: Object
 
   constructor(
-    private fieldService: VrgFieldService,
+    private fieldService: VrgFieldErrorService,
     private elementRef: ElementRef
   ) { }
 
-  ngOnInit(): void { }
-
-  protected handleValueChange(): void {
+  handleValueChange(): void {
     this.control.valueChanges.subscribe(value => {
       this.isFilled = !!value
       this.error = this.fieldService.getFormErrors(
@@ -67,11 +65,11 @@ export class VrgFieldBase implements OnInit {
     })
   }
 
-  protected handleCustomClassInput() {
+  handleCustomClassInput() {
     this.ngClassInput = this.buildCustomClass(this.customNgClassInput, this.ngClassInput)
   }
 
-  protected buildCustomClass(customNgClasses, ngClasses) {
+  buildCustomClass(customNgClasses, ngClasses) {
     if (!customNgClasses) return
     (customNgClasses.split(' ') as string[]).forEach(customClass => {
       ngClasses = {

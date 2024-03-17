@@ -16,7 +16,7 @@
         [placeholder]="field.placeholder"
         [required]="field.required">
       </vrg-field-text>
-
+      
       <!-- <vrg-field-password
         *ngSwitchCase="fieldType.PASSWORD"
         [id]="field.id"
@@ -46,20 +46,27 @@
         [controller]="vrgForm.controller"
         [placeholder]="field.placeholder">
         <label [for]="field.fieldControlName" before>Celular</label>
-      </vrg-field-phone>
+      </vrg-field-phone> -->
 
       <vrg-field-textarea
         *ngSwitchCase="fieldType.TEXTAREA"
         [autocomplete]="field.autocomplete"
         [cols]="field.cols"
-        [fieldControlName]="field.fieldControlName"
+        [control]="field.control"
+        [controlName]="field.controlName"
+        [customNgClassInput]="textClassName.HALF_WIDTH "
+        [customNgClassLabel]=""
+        [customNgClassContainer]=""
+        [formGroup]="vrgForm.formGroup"
         [id]="field.id"
-        [controller]="vrgForm.controller"
+        [labelText]="field.labelText"
+        [name]="field.controlName"
         [placeholder]="field.placeholder"
-        [rows]="field.rows">
-        <label [for]="field.fieldControlName" before>Sobre mim</label>
+        [rows]="field.rows"
+        [required]="field.required">
       </vrg-field-textarea>
 
+      <!--
       <vrg-field-email 
         *ngSwitchCase="fieldType.EMAIL"
         [ngClass]="'vrg-field'"

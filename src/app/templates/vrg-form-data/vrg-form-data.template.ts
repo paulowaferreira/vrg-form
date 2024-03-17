@@ -1,5 +1,7 @@
-import { VrgField } from "src/app/interfaces";
-import { DEFAULT_TEXT_PROPS, DEFAULT_TEXT_VALIDATORS } from "../vrg-field-text/default.template";
+import { VrgField } from 'src/app/interfaces'
+
+import { DEFAULT_TEXT_PROPS, DEFAULT_TEXT_VALIDATORS } from '../vrg-field-text/default.template'
+import { DEFAULT_TEXTAREA_PROPS, DEFAULT_TEXTAREA_VALIDATORS } from '../vrg-field-textarea/default.template'
 
 export const TEMPLATE_FORM_DATA: VrgField[] = [
   {
@@ -39,14 +41,15 @@ export const TEMPLATE_FORM_DATA: VrgField[] = [
   //   id: 'password',
   //   name: 'password'
   // },
-  // {
-  //   ...DEFAULT_TEXTAREA_PROPS,
-  //   validators: DEFAULT_TEXTAREA_VALIDATORS,
-  //   fieldControlName: 'about',
-  //   id: 'about',
-  //   name: 'about',
-  //   placeholder: 'Escreva um pouco sobre voce'
-  // },
+  {
+    ...DEFAULT_TEXTAREA_PROPS,
+    validators: DEFAULT_TEXTAREA_VALIDATORS,
+    controlName: 'about',
+    id: 'about',
+    name: 'about',
+    labelText: 'Bio',
+    placeholder: 'Escreva um pouco sobre voce'
+  },
   // {
   //   ...DEFAULT_PHONE_PROPS,
   //   validators: DEFAULT_PHONE_VALIDATORS,

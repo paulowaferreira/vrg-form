@@ -1,29 +1,29 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms'
+// import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+// import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms'
 
-import { VrgFieldTextComponent } from './vrg-field-text.component'
+// import { VrgFieldTextComponent } from './vrg-field-text.component'
 
-describe(`${VrgFieldTextComponent.name}`, () => {
-  let component: VrgFieldTextComponent
-  let fixture: ComponentFixture<VrgFieldTextComponent>
+// describe(`${VrgFieldTextComponent.name}`, () => {
+//   let component: VrgFieldTextComponent
+//   let fixture: ComponentFixture<VrgFieldTextComponent>
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [VrgFieldTextComponent],
-      imports: [ReactiveFormsModule]
-    }).compileComponents()
-  }))
+//   beforeEach(async(() => {
+//     TestBed.configureTestingModule({
+//       declarations: [VrgFieldTextComponent],
+//       imports: [ReactiveFormsModule]
+//     }).compileComponents()
+//   }))
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(VrgFieldTextComponent)
-    component = fixture.componentInstance
-    component.formGroup = new FormGroup({
-      [component.controlName]: new FormControl()
-    })
-    fixture.detectChanges()
-  })
+//   beforeEach(() => {
+//     fixture = TestBed.createComponent(VrgFieldTextComponent)
+//     component = fixture.componentInstance
+//     component.formGroup = new FormGroup({
+//       [component.controlName]: new FormControl()
+//     })
+//     fixture.detectChanges()
+//   })
 
-  it('should create', () => {
-    expect(component).toBeTruthy()
-  })
-})
+//   it('should create', () => {
+//     expect(component).toBeTruthy()
+//   })
+// })

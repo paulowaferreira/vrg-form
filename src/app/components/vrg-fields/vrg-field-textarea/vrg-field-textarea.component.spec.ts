@@ -17,7 +17,7 @@ describe(`${VrgFieldTextareaComponent.name}`, () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(VrgFieldTextareaComponent)
     component = fixture.componentInstance
-    component.controller = new FormGroup({
+    component.formGroup = new FormGroup({
       [component.controlName]: new FormControl()
     })
     fixture.detectChanges()

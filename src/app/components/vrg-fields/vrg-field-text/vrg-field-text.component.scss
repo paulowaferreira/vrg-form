@@ -1,12 +1,12 @@
 @import "./src/styles.scss";
 
-.vrg-field-text-container {
+.field-text__container {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
 
-  input.vrg-field {
+  input.field-common {
 
     // custom class example
     &.--half-width {

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core'
 
-import { VrgFieldBase } from '../base-class/vrg-field-base.component'
+import { VrgFieldBaseComponent } from '../vrg-field-base/vrg-field-base.component'
 
 @Component({
   selector: 'vrg-field-text',
@@ -8,11 +8,11 @@ import { VrgFieldBase } from '../base-class/vrg-field-base.component'
   styleUrls: ['./vrg-field-text.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class VrgFieldTextComponent extends VrgFieldBase implements OnInit {
+export class VrgFieldTextComponent extends VrgFieldBaseComponent implements OnInit {
   ngOnInit(): void {
     this.handleValueChange()
     this.handleCustomClassInput()
-    // this.buildCustomClass(this.customNgClassContainer, this.ngClassContainer)
-    // this.buildCustomClass(this.customNgClassLabel, this.ngClassLabel)
+    this.buildCustomClass(this.customNgClassContainer, this.ngClassContainer)
+    this.buildCustomClass(this.customNgClassLabel, this.ngClassLabel)
   }
 }

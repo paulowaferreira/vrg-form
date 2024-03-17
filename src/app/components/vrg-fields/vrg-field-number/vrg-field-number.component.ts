@@ -1,13 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core'
 
-import { VrgFieldBase } from '../base-class/vrg-field-base.component'
+import { VrgFieldBaseComponent } from '../vrg-field-base/vrg-field-base.component'
 
 @Component({
   selector: 'vrg-field-number',
   templateUrl: './vrg-field-number.component.html',
   styleUrls: ['./vrg-field-number.component.scss']
 })
-export class VrgFieldNumberComponent extends VrgFieldBase implements OnInit {
+export class VrgFieldNumberComponent extends VrgFieldBaseComponent implements OnInit {
   @Input() value: number = 0
   @Input() step: number
 
