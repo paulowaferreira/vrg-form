@@ -1,20 +1,27 @@
-<form
-  [formGroup]="controller"
-  class="">
-  <ng-content select="[before]"></ng-content>
+<div class="field-number__container"
+  [ngClass]="ngClassContainer"
+  [formGroup]="formGroup">
+  <vrg-label
+    [customNgClass]="ngClassLabel"
+    [fieldName]="name"
+    [text]="labelText"
+    [isRequired]="required">
+  </vrg-label>
 
+  <div class="field-number__content">
   <input
     type="number"
     class=""
+    class="field-common"     
+    type="number"
+    autocomplete="off"
     [autofocus]="autofocus"
-    [formControlName]="fieldControlName"
-    [id]="id"
-    [name]="fieldControlName"
-    [ngClass]="ngClass"
-    [ngStyle]="ngStyle"
+    [formControlName]="controlName"
+    [id]="'field-number__' + id"
+    [name]="controlName"
+    [class.--error]="!!error"
+    [ngClass]="ngClassInput"
     [placeholder]="placeholder"
-    [step]="step"
-    [(value)]="value"
     (blur)="onBlur($event)"
     (change)="onChange($event)"
     (focus)="onFocus($event)"
@@ -29,6 +36,10 @@
     (mouseout)="onMouseOut($event)"
     (mouseenter)="onMouseEnter($event)"
     (mouseleave)="onMouseLeave($event)" />
-
-  <ng-content select="[after]"></ng-content>
-</form>
+  
+  <span 
+    *ngIf="!!error"
+    class="field-validation-error">
+    {{error.message}}
+  </span>
+</div>

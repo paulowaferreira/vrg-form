@@ -3,6 +3,7 @@ import { VrgField } from 'src/app/interfaces'
 import { DEFAULT_PASSWORD_PROPS, DEFAULT_PASSWORD_VALIDATORS } from '../vrg-field-password/default.template'
 import { DEFAULT_TEXT_PROPS, DEFAULT_TEXT_VALIDATORS } from '../vrg-field-text/default.template'
 import { DEFAULT_TEXTAREA_PROPS, DEFAULT_TEXTAREA_VALIDATORS } from '../vrg-field-textarea/default.template'
+import { DEFAULT_NUMBER_PROPS, DEFAULT_NUMBER_VALIDATORS } from '../vrg-field-number/default.template'
 
 export const TEMPLATE_FORM_DATA: VrgField[] = [
   {
@@ -27,14 +28,16 @@ export const TEMPLATE_FORM_DATA: VrgField[] = [
     labelText: 'Sobrenome',
     disabled: true
   },
-  // {
-  //   ...DEFAULT_NUMBER_PROPS,
-  //   validators: DEFAULT_NUMBER_VALIDATORS,
-  //   fieldControlName: 'age',
-  //   id: 'age',
-  //   name: 'age',
-  //   step: 5
-  // },
+  {
+    ...DEFAULT_NUMBER_PROPS,
+    validators: DEFAULT_NUMBER_VALIDATORS,
+    controlName: 'age',
+    id: 'age',
+    name: 'age',
+    step: 5,
+    placeholder: 'Sua idade',
+    labelText: 'Idade'
+  },
   {
     ...DEFAULT_PASSWORD_PROPS,
     validators: DEFAULT_PASSWORD_VALIDATORS,

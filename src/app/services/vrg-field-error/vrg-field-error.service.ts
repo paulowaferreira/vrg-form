@@ -44,6 +44,7 @@ export class VrgFieldErrorService {
       required: `Campo obrigatório.`,
       minlength: `O mínimo de caracteres é ${errorValue.requiredLength}.`,
       maxlength: `O máximo de caracteres é ${errorValue.requiredLength}.`,
+      min: `O valor mínimo para o campo é ${errorValue.min}.`,
       pattern: `O campo deve ter pelo menos 1 letra maiúscula, 1 número e 1 caractere especial.`
     }
 

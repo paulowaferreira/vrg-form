@@ -229,6 +229,15 @@ describe('VrgFieldTextComponent', () => {
     expect(component.keyup.emit).toHaveBeenCalledWith(event)
   })
 
+  it('should emit keydown event', () => {
+    const event = new KeyboardEvent('keydown')
+    spyOn(component.keyup, 'emit')
+
+    component.onKeyDown(event)
+
+    expect(component.keyup.emit).toHaveBeenCalledWith(event)
+  })
+
   it('should emit search event', () => {
     spyOn(component.search, 'emit')
     const event = new Event('search')

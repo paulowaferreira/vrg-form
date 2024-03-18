@@ -5,7 +5,7 @@
         *ngSwitchCase="fieldType.TEXT"
         [autofocus]="field.autofocus"
         [controlName]="field.controlName"
-        [customNgClassInput]="textClassName.HALF_WIDTH "
+        [customNgClassInput]="textClassName.HALF_WIDTH"
         [customNgClassLabel]=""
         [customNgClassContainer]=""
         [formGroup]="vrgForm.formGroup"
@@ -21,7 +21,7 @@
         [id]="field.id"
         [autofocus]="field.autofocus"
         [controlName]="field.controlName"
-        [customNgClassInput]="textClassName.HALF_WIDTH "
+        [customNgClassInput]="textClassName.HALF_WIDTH"
         [customNgClassLabel]=""
         [customNgClassContainer]=""
         [formGroup]="vrgForm.formGroup"
@@ -33,18 +33,24 @@
         [placeholder]="field.placeholder">
       </vrg-field-password>
 
-    <!--
       <vrg-field-number 
         *ngSwitchCase="fieldType.NUMBER"
-        [ngClass]="'vrg-field'"
-        [ngStyle]="{}"
         [id]="field.id"
-        [fieldControlName]="field.fieldControlName"
-        [step]="field.step"
-        [controller]="vrgForm.controller">
-        <label [for]="field.fieldControlName" before>Idade</label>
+        [autofocus]="field.autofocus"
+        [controlName]="field.controlName"
+        [customNgClassInput]="textClassName.HALF_WIDTH"
+        [customNgClassLabel]=""
+        [customNgClassContainer]=""
+        [formGroup]="vrgForm.formGroup"
+        [id]="field.id"
+        [labelText]="field.labelText"
+        [name]="field.controlName"
+        [placeholder]="field.placeholder"
+        [required]="field.required"
+        [placeholder]="field.placeholder">
       </vrg-field-number>
-
+    
+    <!--
       <vrg-field-phone 
         *ngSwitchCase="fieldType.TEL"
         [ngClass]="'vrg-field'"

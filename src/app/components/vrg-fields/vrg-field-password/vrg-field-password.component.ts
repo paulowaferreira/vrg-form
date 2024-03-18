@@ -1,8 +1,7 @@
-import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core'
+import { Component, ElementRef, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core'
+import { FormGroup } from '@angular/forms'
 
 import { VrgFieldType } from 'src/app/enums'
-import { VrgFieldBaseComponent } from '../vrg-field-base/vrg-field-base.component'
-import { FormGroup } from '@angular/forms'
 import { VrgFieldValidationError } from 'src/app/interfaces/vrg-field-validator-error.interface'
 import { VrgFieldErrorService } from 'src/app/services/vrg-field-error/vrg-field-error.service'
 

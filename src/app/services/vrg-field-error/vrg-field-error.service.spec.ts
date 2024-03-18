@@ -56,5 +56,4 @@ describe(`${VrgFieldErrorService.name}`, () => {
     service.getFormErrors(control, element)
     expect(element.nativeElement.classList.remove).toHaveBeenCalledWith('--error')
   })
-
 })

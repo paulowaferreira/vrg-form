@@ -228,6 +228,15 @@ describe(`${VrgFieldPasswordComponent.name}`, () => {
     expect(component.keyup.emit).toHaveBeenCalledWith(event)
   })
 
+  it('should emit keydown event', () => {
+    const event = new KeyboardEvent('keydown')
+    spyOn(component.keyup, 'emit')
+
+    component.onKeyDown(event)
+
+    expect(component.keyup.emit).toHaveBeenCalledWith(event)
+  })
+
   it('should emit search event', () => {
     spyOn(component.search, 'emit')
     const event = new Event('search')
@@ -298,5 +307,17 @@ describe(`${VrgFieldPasswordComponent.name}`, () => {
     component.onMouseLeave(event)
 
     expect(component.mouseLeave.emit).toHaveBeenCalledWith(event)
+  })
+
+  it('should toggle password visibility', () => {
+    expect(component.showPassword).toBe(false)
+
+    component.handlePasswordVisibility()
+
+    expect(component.showPassword).toBe(true)
+
+    component.handlePasswordVisibility()
+
+    expect(component.showPassword).toBe(false)
   })
 })
