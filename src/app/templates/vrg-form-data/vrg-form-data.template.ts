@@ -1,5 +1,6 @@
 import { VrgField } from 'src/app/interfaces'
 
+import { DEFAULT_PASSWORD_PROPS, DEFAULT_PASSWORD_VALIDATORS } from '../vrg-field-password/default.template'
 import { DEFAULT_TEXT_PROPS, DEFAULT_TEXT_VALIDATORS } from '../vrg-field-text/default.template'
 import { DEFAULT_TEXTAREA_PROPS, DEFAULT_TEXTAREA_VALIDATORS } from '../vrg-field-textarea/default.template'
 
@@ -15,17 +16,17 @@ export const TEMPLATE_FORM_DATA: VrgField[] = [
     labelText: 'Nome',
     disabled: false
   },
-  // {
-  //   ...DEFAULT_TEXT_PROPS,
-  //   validators: DEFAULT_TEXT_VALIDATORS,
-  //   autofocus: true,
-  //   fieldControlName: 'lastname',
-  //   id: 'lastname',
-  //   name: 'lastname',
-  //   placeholder: 'Digite seu sobrenome',
-  //   labelText: 'Sobrenome',
-  //   disabled: true
-  // },
+  {
+    ...DEFAULT_TEXT_PROPS,
+    validators: DEFAULT_TEXT_VALIDATORS,
+    autofocus: true,
+    controlName: 'lastname',
+    id: 'lastname',
+    name: 'lastname',
+    placeholder: 'Digite seu sobrenome',
+    labelText: 'Sobrenome',
+    disabled: true
+  },
   // {
   //   ...DEFAULT_NUMBER_PROPS,
   //   validators: DEFAULT_NUMBER_VALIDATORS,
@@ -34,13 +35,15 @@ export const TEMPLATE_FORM_DATA: VrgField[] = [
   //   name: 'age',
   //   step: 5
   // },
-  // {
-  //   ...DEFAULT_PASSWORD_PROPS,
-  //   validators: DEFAULT_PASSWORD_VALIDATORS,
-  //   fieldControlName: 'password',
-  //   id: 'password',
-  //   name: 'password'
-  // },
+  {
+    ...DEFAULT_PASSWORD_PROPS,
+    validators: DEFAULT_PASSWORD_VALIDATORS,
+    controlName: 'password',
+    id: 'password',
+    name: 'password',
+    labelText: 'Senha',
+    placeholder: 'Digite sua senha'
+  },
   {
     ...DEFAULT_TEXTAREA_PROPS,
     validators: DEFAULT_TEXTAREA_VALIDATORS,

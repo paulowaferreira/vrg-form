@@ -1,5 +1,5 @@
 import { ElementRef, Injectable } from '@angular/core'
-import { FormControl } from '@angular/forms'
+import { AbstractControl, FormControl } from '@angular/forms'
 
 import { VrgFieldValidationError } from 'src/app/interfaces/vrg-field-validator-error.interface'
 
@@ -9,35 +9,34 @@ import { VrgFieldValidationError } from 'src/app/interfaces/vrg-field-validator-
 export class VrgFieldErrorService {
 
   getFormErrors(
-    control: FormControl,
-    controlName: string,
+    control: AbstractControl,
     element: ElementRef
   ): VrgFieldValidationError {
     let error: VrgFieldValidationError
     if (this.hasErrors(control)) {
-      error = this.handleErrors(control, controlName)
+      error = this.handleErrors(control)
     }
 
     this.handleClassError(error, element)
     return error
   }
 
-  private hasErrors(control: FormControl): boolean {
+  private hasErrors(control: AbstractControl): boolean {
     return control.invalid && (control.dirty || control.touched) && !control.disabled
   }
 
   private handleErrors(
-    control: FormControl,
-    label: string
+    control: AbstractControl
   ): VrgFieldValidationError {
-    let error: VrgFieldValidationError
+    const errors: VrgFieldValidationError[] = []
     for (const errorKey in control.errors) {
       if (control.errors.hasOwnProperty(errorKey)) {
-        const message = this.getErrorMessage(label, errorKey)
-        error = { name: errorKey, message }
+        const message = this.getErrorMessage(errorKey, control.errors[errorKey])
+        errors.push({ name: errorKey, message })
       }
     }
-    return error
+
+    return this.handleErrorResult(errors)
   }
 
   private getErrorMessage(errorKey: string, errorValue: any): string {
@@ -45,6 +44,7 @@ export class VrgFieldErrorService {
       required: `Campo obrigatório.`,
       minlength: `O mínimo de caracteres é ${errorValue.requiredLength}.`,
       maxlength: `O máximo de caracteres é ${errorValue.requiredLength}.`,
+      pattern: `O campo deve ter pelo menos 1 letra maiúscula, 1 número e 1 caractere especial.`
     }
 
     return errorMessages[errorKey]
@@ -52,5 +52,11 @@ export class VrgFieldErrorService {
 
   private handleClassError(errors: VrgFieldValidationError, element: ElementRef): void {
     element.nativeElement.classList[!!errors ? 'add' : 'remove']('--error')
+  }
+
+  handleErrorResult(errors: VrgFieldValidationError[]): VrgFieldValidationError {
+    const hasPattern = errors.find(error => error.name === 'pattern')
+    if(hasPattern && errors.length > 1) return errors.find(error => error.name === 'pattern')
+    return errors[0]
   }
 }

@@ -19,8 +19,7 @@ export class VrgFormService {
       const { controlName, initialValue, validators } = field
       const validatorsFormatted = this.prepareValidators(validators)
       this.handleRequired(field, validatorsFormatted)
-      this.buildNewControl(field, initialValue, validatorsFormatted)
-      controls[controlName] = field.control
+      controls[controlName] = this.getNewControl(field, initialValue, validatorsFormatted)
     })
     return {
       formGroup: this.formBuilder.group(controls),
@@ -28,9 +27,10 @@ export class VrgFormService {
     }
   }
 
-  private buildNewControl(field: VrgField, initialValue: any, validatorsFormatted: ValidatorFn[]) {
-    field.control = new FormControl(initialValue, validatorsFormatted)
-    field.disabled && field.control.disable()
+  private getNewControl(field: VrgField, initialValue: any, validatorsFormatted: ValidatorFn[]) {
+    const newControl = new FormControl(initialValue, validatorsFormatted)
+    field.disabled && newControl.disable()
+    return newControl
   }
 
   private handleRequired(field: VrgField, validatorsFormatted: ValidatorFn[]): void {
