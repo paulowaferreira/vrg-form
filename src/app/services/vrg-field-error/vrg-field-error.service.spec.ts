@@ -21,7 +21,7 @@ describe(`${VrgFieldErrorService.name}`, () => {
   it('should return null if no errors', () => {
     const control = new FormControl('valid value')
     const element = { nativeElement: { classList: { remove: jasmine.createSpy(), add: jasmine.createSpy() } } } as unknown as ElementRef
-    const result = service.getFormErrors(control, 'Test Control', element)
+    const result = service.getFormErrors(control, element)
     expect(result).toBe(undefined)
   })
 
@@ -29,7 +29,7 @@ describe(`${VrgFieldErrorService.name}`, () => {
     const control = new FormControl('', [Validators.required])
     control.markAsTouched()
     const element = { nativeElement: { classList: { remove: jasmine.createSpy(), add: jasmine.createSpy() } } } as unknown as ElementRef
-    const result = service.getFormErrors(control, 'required', element)
+    const result = service.getFormErrors(control, element)
     expect(result).toEqual({ name: 'required', message: 'Campo obrigatório.' })
   })
 
@@ -37,7 +37,7 @@ describe(`${VrgFieldErrorService.name}`, () => {
     const control = new FormControl('', [Validators.required])
     control.markAsDirty()
     const element = { nativeElement: { classList: { remove: jasmine.createSpy(), add: jasmine.createSpy() } } } as unknown as ElementRef
-    const result = service.getFormErrors(control, 'required', element)
+    const result = service.getFormErrors(control, element)
     expect(result).toEqual({ name: 'required', message: 'Campo obrigatório.' })
   })
 
@@ -46,14 +46,14 @@ describe(`${VrgFieldErrorService.name}`, () => {
     control.markAsDirty()
     control.markAsTouched()
     const element = { nativeElement: { classList: { remove: jasmine.createSpy(), add: jasmine.createSpy() } } } as unknown as ElementRef
-    service.getFormErrors(control, 'Test Control', element)
+    service.getFormErrors(control, element)
     expect(element.nativeElement.classList.add).toHaveBeenCalledWith('--error')
   })
 
   it('should remove error class if there is no error', () => {
     const control = new FormControl('valid value')
     const element = { nativeElement: { classList: { remove: jasmine.createSpy(), add: jasmine.createSpy() } } } as unknown as ElementRef
-    service.getFormErrors(control, 'Test Control', element)
+    service.getFormErrors(control, element)
     expect(element.nativeElement.classList.remove).toHaveBeenCalledWith('--error')
   })
 

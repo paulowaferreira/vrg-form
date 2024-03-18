@@ -4,7 +4,6 @@
       <vrg-field-text
         *ngSwitchCase="fieldType.TEXT"
         [autofocus]="field.autofocus"
-        [control]="field.control"
         [controlName]="field.controlName"
         [customNgClassInput]="textClassName.HALF_WIDTH "
         [customNgClassLabel]=""
@@ -17,15 +16,24 @@
         [required]="field.required">
       </vrg-field-text>
       
-      <!-- <vrg-field-password
+      <vrg-field-password
         *ngSwitchCase="fieldType.PASSWORD"
         [id]="field.id"
-        [fieldControlName]="field.fieldControlName"
-        [controller]="vrgForm.controller"
-        [placeholder]="'senha'">
-        <label [for]="field.fieldControlName" before>Senha</label>
+        [autofocus]="field.autofocus"
+        [controlName]="field.controlName"
+        [customNgClassInput]="textClassName.HALF_WIDTH "
+        [customNgClassLabel]=""
+        [customNgClassContainer]=""
+        [formGroup]="vrgForm.formGroup"
+        [id]="field.id"
+        [labelText]="field.labelText"
+        [name]="field.controlName"
+        [placeholder]="field.placeholder"
+        [required]="field.required"
+        [placeholder]="field.placeholder">
       </vrg-field-password>
 
+    <!--
       <vrg-field-number 
         *ngSwitchCase="fieldType.NUMBER"
         [ngClass]="'vrg-field'"
@@ -52,7 +60,6 @@
         *ngSwitchCase="fieldType.TEXTAREA"
         [autocomplete]="field.autocomplete"
         [cols]="field.cols"
-        [control]="field.control"
         [controlName]="field.controlName"
         [customNgClassInput]="textClassName.HALF_WIDTH "
         [customNgClassLabel]=""

@@ -1,15 +1,10 @@
 <form
-  [formGroup]="controller"
+  [formGroup]="formGroup"
   class="">
   <ng-content select="[before]"></ng-content>
 
   <select
     class=""
-    [formControlName]="fieldControlName"
-    [ngClass]="ngClass"
-    [ngStyle]="ngStyle"
-    [id]="id"
-    [name]="fieldControlName"
     (blur)="onBlur($event)"
     (change)="onChange($event)"
     (focus)="onFocus($event)"

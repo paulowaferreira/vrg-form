@@ -6,8 +6,8 @@ import { Component, Input, OnInit } from '@angular/core'
   styleUrls: ['./vrg-label.component.scss']
 })
 export class VrgLabelComponent {
-  @Input() customNgClass: string
-  @Input() fieldName: string
+  @Input() customNgClass: string = ''
+  @Input() fieldName: string = ''
   @Input() isRequired: boolean = false
-  @Input() text: string
+  @Input() text: string = ''
 }

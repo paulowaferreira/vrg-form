@@ -8,7 +8,6 @@ export interface VrgField {
   autofocus?: boolean
   autocomplete?: boolean
   cols?: number
-  control?: FormControl
   controlName?: string
   disabled?: boolean
   formGroup?: FormGroup
