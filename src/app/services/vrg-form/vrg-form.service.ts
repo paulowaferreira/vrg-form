@@ -27,20 +27,6 @@ export class VrgFormService {
     }
   }
 
-  getControlName(control: AbstractControl): string | null {
-    let group = <FormGroup>control.parent
-    if (!group) return null
-
-    let name: string
-    Object.keys(group.controls).forEach(key => {
-      let childControl = group.get(key)
-      if (childControl !== control) return
-      name = key
-    })
-
-    return name
-  }
-
   private getNewControl(field: VrgField, initialValue: any, validatorsFormatted: ValidatorFn[]) {
     const newControl = new FormControl(initialValue, validatorsFormatted)
     field.disabled && newControl.disable()
