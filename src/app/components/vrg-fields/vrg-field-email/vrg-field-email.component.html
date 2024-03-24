@@ -1,19 +1,26 @@
-<form
-  [formGroup]="controller"
-  class="">
-  <ng-content select="[before]"></ng-content>
-
+<div class="field-email"
+  [ngClass]="ngClassContainer"
+  [formGroup]="formGroup">
+  <vrg-label
+    [customNgClass]="ngClassLabel"
+    [fieldName]="name"
+    [text]="labelText"
+    [isRequired]="required">
+  </vrg-label>
+  
   <input
-    class=""
     type="email"
+    class=""
+    class="field-common"     
+    type="email"
+    autocomplete="off"
     [autofocus]="autofocus"
-    [formControlName]="fieldControlName"
-    [id]="id"
-    [name]="fieldControlName"
-    [ngClass]="ngClass"
-    [ngStyle]="ngStyle"
+    [formControlName]="controlName"
+    [id]="'field-email__' + id"
+    [name]="controlName"
+    [class.--error]="!!error"
+    [ngClass]="ngClassInput"
     [placeholder]="placeholder"
-    [value]="value"
     (blur)="onBlur($event)"
     (change)="onChange($event)"
     (focus)="onFocus($event)"
@@ -29,5 +36,9 @@
     (mouseenter)="onMouseEnter($event)"
     (mouseleave)="onMouseLeave($event)" />
 
-  <ng-content select="[after]"></ng-content>
-</form>
+  <span 
+    *ngIf="!!error"
+    class="field-validation-error">
+    {{error.message}}
+  </span>
+</div>

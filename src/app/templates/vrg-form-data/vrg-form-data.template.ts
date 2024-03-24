@@ -4,6 +4,7 @@ import { DEFAULT_PASSWORD_PROPS, DEFAULT_PASSWORD_VALIDATORS } from '../vrg-fiel
 import { DEFAULT_TEXT_PROPS, DEFAULT_TEXT_VALIDATORS } from '../vrg-field-text/default.template'
 import { DEFAULT_TEXTAREA_PROPS, DEFAULT_TEXTAREA_VALIDATORS } from '../vrg-field-textarea/default.template'
 import { DEFAULT_NUMBER_PROPS, DEFAULT_NUMBER_VALIDATORS } from '../vrg-field-number/default.template'
+import { DEFAULT_EMAIL_PROPS, DEFAULT_EMAIL_VALIDATORS } from '../vrg-field-email/default.template'
 
 export const TEMPLATE_FORM_DATA: VrgField[] = [
   {
@@ -64,14 +65,15 @@ export const TEMPLATE_FORM_DATA: VrgField[] = [
   //   placeholder: 'Celular',
   //   name: 'phone'
   // },
-  // {
-  //   ...DEFAULT_EMAIL_PROPS,
-  //   validators: DEFAULT_EMAIL_VALIDATORS,
-  //   fieldControlName: 'email',
-  //   id: 'email',
-  //   name: 'email',
-  //   placeholder: 'seuemail@dominio.com'
-  // },
+  {
+    ...DEFAULT_EMAIL_PROPS,
+    validators: DEFAULT_EMAIL_VALIDATORS,
+    controlName: 'email',
+    id: 'email',
+    name: 'email',
+    labelText: 'Email',
+    placeholder: 'seuemail@dominio.com'
+  },
   // {
   //   ...DEFAULT_RADIO_PROPS,
   //   validators: DEFAULT_RADIO_VALIDATORS,

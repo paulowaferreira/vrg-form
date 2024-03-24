@@ -1,5 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core'
 import { FormGroup } from '@angular/forms'
+
 import { VrgFieldValidationError } from 'src/app/interfaces/vrg-field-validator-error.interface'
 import { VrgFieldErrorService } from 'src/app/services/vrg-field-error/vrg-field-error.service'
 
@@ -79,7 +80,7 @@ export class VrgFieldTextareaComponent implements OnChanges {
     return ngClasses
   }
 
-  handleCustomClassInput() {
+  handleCustomClassInput(): void {
     this.ngClassInput =
       this.buildCustomClass(this.customNgClassInput, this.ngClassInput)
   }
@@ -94,7 +95,6 @@ export class VrgFieldTextareaComponent implements OnChanges {
   }
 
   handleCustomNgClassLabelChanges(changes: SimpleChanges): void {
-    debugger
     if (
       changes['customNgClassLabel']
       && changes['customNgClassLabel'].currentValue
@@ -130,59 +130,59 @@ export class VrgFieldTextareaComponent implements OnChanges {
     }
   }
 
-  onBlur(event: FocusEvent) {
+  onBlur(event: FocusEvent): void {
     this.blur.emit(event)
   }
 
-  onClick(event: MouseEvent) {
+  onClick(event: MouseEvent): void {
     this.click.emit(event)
   }
 
-  onChange(event: Event) {
+  onChange(event: Event): void {
     this.change.emit(event)
   }
 
-  onDoubleClick(event: MouseEvent) {
+  onDoubleClick(event: MouseEvent): void {
     this.doubleClick.emit(event)
   }
 
-  onFocus(event: FocusEvent) {
+  onFocus(event: FocusEvent): void {
     this.focus.emit(event)
   }
 
-  onInput(event: Event) {
+  onInput(event: Event): void {
     this.input.emit(event)
   }
 
-  onKeyDown(event: KeyboardEvent) {
+  onKeyDown(event: KeyboardEvent): void {
     this.keyup.emit(event)
   }
 
-  onKeyup(event: KeyboardEvent) {
+  onKeyup(event: KeyboardEvent): void {
     this.keyup.emit(event)
   }
 
-  onMouseEnter(event: MouseEvent) {
+  onMouseEnter(event: MouseEvent): void {
     this.mouseEnter.emit(event)
   }
 
-  onMouseLeave(event: MouseEvent) {
+  onMouseLeave(event: MouseEvent): void {
     this.mouseLeave.emit(event)
   }
 
-  onMouseOut(event: MouseEvent) {
+  onMouseOut(event: MouseEvent): void {
     this.mouseOut.emit(event)
   }
 
-  onMouseOver(event: MouseEvent) {
+  onMouseOver(event: MouseEvent): void {
     this.mouseOver.emit(event)
   }
 
-  onSubmit(event: Event) {
+  onSubmit(event: Event): void {
     this.submit.emit(event)
   }
 
-  onSearch(event: Event) {
+  onSearch(event: Event): void {
     this.search.emit(event)
   }
 

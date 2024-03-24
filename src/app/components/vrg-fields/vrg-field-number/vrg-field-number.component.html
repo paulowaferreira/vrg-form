@@ -1,4 +1,4 @@
-<div class="field-number__container"
+<div class="field-number"
   [ngClass]="ngClassContainer"
   [formGroup]="formGroup">
   <vrg-label
@@ -8,7 +8,6 @@
     [isRequired]="required">
   </vrg-label>
 
-  <div class="field-number__content">
   <input
     type="number"
     class=""
@@ -36,7 +35,7 @@
     (mouseout)="onMouseOut($event)"
     (mouseenter)="onMouseEnter($event)"
     (mouseleave)="onMouseLeave($event)" />
-  
+
   <span 
     *ngIf="!!error"
     class="field-validation-error">

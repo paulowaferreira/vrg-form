@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { FormBuilder, FormControl, ValidatorFn, Validators } from '@angular/forms'
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms'
 
 import {
   VrgField,
@@ -25,6 +25,20 @@ export class VrgFormService {
       formGroup: this.formBuilder.group(controls),
       fields
     }
+  }
+
+  getControlName(control: AbstractControl): string | null {
+    let group = <FormGroup>control.parent
+    if (!group) return null
+
+    let name: string
+    Object.keys(group.controls).forEach(key => {
+      let childControl = group.get(key)
+      if (childControl !== control) return
+      name = key
+    })
+
+    return name
   }
 
   private getNewControl(field: VrgField, initialValue: any, validatorsFormatted: ValidatorFn[]) {

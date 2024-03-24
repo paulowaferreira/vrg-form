@@ -60,7 +60,6 @@ export class VrgFieldTextComponent implements OnChanges {
     private elementRef: ElementRef
   ) { }
 
-
   ngOnChanges(changes: SimpleChanges): void {
     this.handleFormGroupChanges(changes)
     this.handleCustomClassInput()
@@ -68,7 +67,63 @@ export class VrgFieldTextComponent implements OnChanges {
     this.handleCustomNgClassLabelChanges(changes)
   }
 
-  buildCustomClass(customNgClasses: string, ngClasses: Object): Object {
+  onBlur(event: FocusEvent): void {
+    this.blur.emit(event)
+  }
+
+  onClick(event: MouseEvent): void {
+    this.click.emit(event)
+  }
+
+  onChange(event: Event): void {
+    this.change.emit(event)
+  }
+
+  onDoubleClick(event: MouseEvent): void {
+    this.doubleClick.emit(event)
+  }
+
+  onFocus(event: FocusEvent): void {
+    this.focus.emit(event)
+  }
+
+  onInput(event: Event): void {
+    this.input.emit(event)
+  }
+
+  onKeyDown(event: KeyboardEvent): void {
+    this.keyup.emit(event)
+  }
+
+  onKeyup(event: KeyboardEvent): void {
+    this.keyup.emit(event)
+  }
+
+  onMouseEnter(event: MouseEvent): void {
+    this.mouseEnter.emit(event)
+  }
+
+  onMouseLeave(event: MouseEvent): void {
+    this.mouseLeave.emit(event)
+  }
+
+  onMouseOut(event: MouseEvent): void {
+    this.mouseOut.emit(event)
+  }
+
+  onMouseOver(event: MouseEvent): void {
+    this.mouseOver.emit(event)
+  }
+
+  onSubmit(event: Event): void {
+    this.submit.emit(event)
+  }
+
+  onSearch(event: Event): void {
+    this.search.emit(event)
+  }
+
+  private buildCustomClass(customNgClasses: string, ngClasses: Object): Object {
     if (!customNgClasses) return {} as Object
     (customNgClasses.split(' ') as string[]).forEach(customClass => {
       ngClasses = {
@@ -79,12 +134,7 @@ export class VrgFieldTextComponent implements OnChanges {
     return ngClasses
   }
 
-  handleCustomClassInput() {
-    this.ngClassInput =
-      this.buildCustomClass(this.customNgClassInput, this.ngClassInput)
-  }
-
-  handleCustomNgClassContainerChanges(changes: SimpleChanges): void {
+  private handleCustomNgClassContainerChanges(changes: SimpleChanges): void {
     if (
       changes['customNgClassContainer']
       && changes['customNgClassContainer'].currentValue
@@ -93,8 +143,12 @@ export class VrgFieldTextComponent implements OnChanges {
     }
   }
 
-  handleCustomNgClassLabelChanges(changes: SimpleChanges): void {
-    debugger
+  private handleCustomClassInput(): void {
+    this.ngClassInput =
+      this.buildCustomClass(this.customNgClassInput, this.ngClassInput)
+  }
+
+  private handleCustomNgClassLabelChanges(changes: SimpleChanges): void {
     if (
       changes['customNgClassLabel']
       && changes['customNgClassLabel'].currentValue
@@ -103,7 +157,7 @@ export class VrgFieldTextComponent implements OnChanges {
     }
   }
 
-  handleFormGroupChanges(changes: SimpleChanges): void {
+  private handleFormGroupChanges(changes: SimpleChanges): void {
     if (
       changes['formGroup']
       && changes['formGroup'].currentValue
@@ -117,7 +171,7 @@ export class VrgFieldTextComponent implements OnChanges {
     }
   }
 
-  handleValueChange(): void {
+  private handleValueChange(): void {
     const control = this.formGroup.get(this.controlName)
     if (control) {
       control.valueChanges.subscribe(value => {
@@ -130,63 +184,7 @@ export class VrgFieldTextComponent implements OnChanges {
     }
   }
 
-  onBlur(event: FocusEvent) {
-    this.blur.emit(event)
-  }
-
-  onClick(event: MouseEvent) {
-    this.click.emit(event)
-  }
-
-  onChange(event: Event) {
-    this.change.emit(event)
-  }
-
-  onDoubleClick(event: MouseEvent) {
-    this.doubleClick.emit(event)
-  }
-
-  onFocus(event: FocusEvent) {
-    this.focus.emit(event)
-  }
-
-  onInput(event: Event) {
-    this.input.emit(event)
-  }
-
-  onKeyDown(event: KeyboardEvent) {
-    this.keyup.emit(event)
-  }
-
-  onKeyup(event: KeyboardEvent) {
-    this.keyup.emit(event)
-  }
-
-  onMouseEnter(event: MouseEvent) {
-    this.mouseEnter.emit(event)
-  }
-
-  onMouseLeave(event: MouseEvent) {
-    this.mouseLeave.emit(event)
-  }
-
-  onMouseOut(event: MouseEvent) {
-    this.mouseOut.emit(event)
-  }
-
-  onMouseOver(event: MouseEvent) {
-    this.mouseOver.emit(event)
-  }
-
-  onSubmit(event: Event) {
-    this.submit.emit(event)
-  }
-
-  onSearch(event: Event) {
-    this.search.emit(event)
-  }
-
-  updateFormGroup(formGroup: FormGroup, controlName: string): void {
+  private updateFormGroup(formGroup: FormGroup, controlName: string): void {
     this.formGroup = formGroup
     this.controlName = controlName
     this.handleValueChange()

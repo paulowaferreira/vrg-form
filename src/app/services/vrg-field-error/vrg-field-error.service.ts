@@ -1,12 +1,15 @@
 import { ElementRef, Injectable } from '@angular/core'
-import { AbstractControl, FormControl } from '@angular/forms'
+import { AbstractControl, FormControl, FormGroup } from '@angular/forms'
 
 import { VrgFieldValidationError } from 'src/app/interfaces/vrg-field-validator-error.interface'
+import { VrgFormControlService } from '../vrg-form-control/vrg-form-control.service'
 
 @Injectable({
   providedIn: 'root'
 })
 export class VrgFieldErrorService {
+
+  constructor(private controlService: VrgFormControlService) { }
 
   getFormErrors(
     control: AbstractControl,
@@ -31,7 +34,8 @@ export class VrgFieldErrorService {
     const errors: VrgFieldValidationError[] = []
     for (const errorKey in control.errors) {
       if (control.errors.hasOwnProperty(errorKey)) {
-        const message = this.getErrorMessage(errorKey, control.errors[errorKey])
+        const controlName = this.controlService.getControlName(control)
+        const message = this.getErrorMessage(errorKey, control.errors[errorKey], controlName)
         errors.push({ name: errorKey, message })
       }
     }
@@ -39,13 +43,14 @@ export class VrgFieldErrorService {
     return this.handleErrorResult(errors)
   }
 
-  private getErrorMessage(errorKey: string, errorValue: any): string {
+  private getErrorMessage(errorKey: string, errorValue: any, controlName: string): string {
+    if (errorKey === 'pattern') return this.handlePatternError(controlName)
+
     const errorMessages = {
       required: `Campo obrigatório.`,
       minlength: `O mínimo de caracteres é ${errorValue.requiredLength}.`,
       maxlength: `O máximo de caracteres é ${errorValue.requiredLength}.`,
-      min: `O valor mínimo para o campo é ${errorValue.min}.`,
-      pattern: `O campo deve ter pelo menos 1 letra maiúscula, 1 número e 1 caractere especial.`
+      min: `O valor mínimo para o campo é ${errorValue.min}.`
     }
 
     return errorMessages[errorKey]
@@ -55,9 +60,18 @@ export class VrgFieldErrorService {
     element.nativeElement.classList[!!errors ? 'add' : 'remove']('--error')
   }
 
-  handleErrorResult(errors: VrgFieldValidationError[]): VrgFieldValidationError {
+  private handleErrorResult(errors: VrgFieldValidationError[]): VrgFieldValidationError {
     const hasPattern = errors.find(error => error.name === 'pattern')
-    if(hasPattern && errors.length > 1) return errors.find(error => error.name === 'pattern')
+    if (hasPattern && errors.length > 1) return errors.find(error => error.name === 'pattern')
     return errors[0]
+  }
+
+  private handlePatternError(controlName: string): string {
+    const patterns = {
+      email: 'E-mail inválido',
+      password: `O campo deve ter pelo menos 1 letra maiúscula, 1 número e 1 caractere especial.`
+    }
+
+    return patterns[controlName]
   }
 }

@@ -1,11 +1,11 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { VrgFieldPasswordComponent } from './vrg-field-password.component'
-import { VrgFieldErrorService } from 'src/app/services/vrg-field-error/vrg-field-error.service'
-import { VrgLabelModule } from '../../vrg-label/vrg-label.module'
 import { SimpleChange, SimpleChanges } from '@angular/core'
 import { VrgFieldValidationError } from 'src/app/interfaces/vrg-field-validator-error.interface'
+import { VrgFieldErrorService } from 'src/app/services/vrg-field-error/vrg-field-error.service'
+import { VrgLabelModule } from '../../vrg-label/vrg-label.module'
+import { VrgFieldPasswordComponent } from './vrg-field-password.component'
 
 describe(`${VrgFieldPasswordComponent.name}`, () => {
   let component: VrgFieldPasswordComponent
@@ -42,12 +42,13 @@ describe(`${VrgFieldPasswordComponent.name}`, () => {
   it('should handle custom class input', () => {
     component.customNgClassInput = 'custom-class'
 
-    component.handleCustomClassInput()
+    component['handleCustomClassInput']()
 
     expect(component.ngClassInput).toEqual({ 'custom-class': true })
   })
 
   it('should handle custom ng class container changes', () => {
+    //@ts-ignore
     spyOn(component, 'buildCustomClass').and.returnValue({ 'container-class': true })
     component.ngClassContainer = {}
     component.customNgClassContainer = 'container-class'
@@ -61,12 +62,13 @@ describe(`${VrgFieldPasswordComponent.name}`, () => {
       }
     }
 
-    component.handleCustomNgClassContainerChanges(changes)
+    component['handleCustomNgClassContainerChanges'](changes)
 
-    expect(component.buildCustomClass).toHaveBeenCalledWith('container-class', component.ngClassContainer)
+    expect(component['buildCustomClass']).toHaveBeenCalledWith('container-class', component.ngClassContainer)
   })
 
   it('should call buildCustomClass when customNgClassLabel changes', () => {
+    //@ts-ignore
     spyOn(component, 'buildCustomClass').and.returnValue({ 'test-label-class': true })
     component.ngClassLabel = {}
     component.customNgClassLabel = 'test-label-class'
@@ -80,9 +82,9 @@ describe(`${VrgFieldPasswordComponent.name}`, () => {
       }
     }
 
-    component.handleCustomNgClassLabelChanges(changes)
+    component['handleCustomNgClassLabelChanges'](changes)
 
-    expect(component.buildCustomClass).toHaveBeenCalledWith('test-label-class', component.ngClassLabel)
+    expect(component['buildCustomClass']).toHaveBeenCalledWith('test-label-class', component.ngClassLabel)
   })
 
   it('should not call buildCustomClass when customNgClassLabel is null', () => {
@@ -94,11 +96,13 @@ describe(`${VrgFieldPasswordComponent.name}`, () => {
         isFirstChange: () => false
       }
     }
+
+    //@ts-ignore
     spyOn(component, 'buildCustomClass')
 
-    component.handleCustomNgClassLabelChanges(changes)
+    component['handleCustomNgClassLabelChanges'](changes)
 
-    expect(component.buildCustomClass).not.toHaveBeenCalled()
+    expect(component['buildCustomClass']).not.toHaveBeenCalled()
   })
 
   it('should handle form group changes', () => {
@@ -110,11 +114,13 @@ describe(`${VrgFieldPasswordComponent.name}`, () => {
     component.formGroup = new FormGroup({ test: new FormControl('') })
     component.controlName = 'test'
     fixture.detectChanges()
+
+    //@ts-ignore
     spyOn(component, 'updateFormGroup')
 
-    component.handleFormGroupChanges(changes)
+    component['handleFormGroupChanges'](changes)
 
-    expect(component.updateFormGroup).toHaveBeenCalledWith(formGroup, 'testControl')
+    expect(component['updateFormGroup']).toHaveBeenCalledWith(formGroup, 'testControl')
   })
 
   it('should handle value change', () => {
@@ -124,7 +130,7 @@ describe(`${VrgFieldPasswordComponent.name}`, () => {
     component.controlName = 'testControl'
     fixture.detectChanges()
 
-    component.handleValueChange()
+    component['handleValueChange']()
 
     fixture.detectChanges()
     control.setValue('test value')
@@ -135,7 +141,7 @@ describe(`${VrgFieldPasswordComponent.name}`, () => {
   it('should update form group', () => {
     const formGroup = new FormGroup({ testControl: new FormBuilder().control('') })
 
-    component.updateFormGroup(formGroup, 'testControl')
+    component['updateFormGroup'](formGroup, 'testControl')
 
     expect(component.formGroup).toBe(formGroup)
     expect(component.controlName).toBe('testControl')
@@ -146,41 +152,48 @@ describe(`${VrgFieldPasswordComponent.name}`, () => {
       formGroup: new SimpleChange(null, new FormGroup({}), true),
       controlName: new SimpleChange(null, 'testControl', true)
     }
+
+    //@ts-ignore
     spyOn(component, 'handleFormGroupChanges')
 
     component.ngOnChanges(changes)
 
-    expect(component.handleFormGroupChanges).toHaveBeenCalledWith(changes)
+    expect(component['handleFormGroupChanges']).toHaveBeenCalledWith(changes)
   })
 
   it('should handle custom class input', () => {
+    //@ts-ignore
     spyOn(component, 'handleCustomClassInput')
 
     component.ngOnChanges({})
 
-    expect(component.handleCustomClassInput).toHaveBeenCalled()
+    expect(component['handleCustomClassInput']).toHaveBeenCalled()
   })
 
   it('should handle custom ng class container changes', () => {
     const changes: SimpleChanges = {
       customNgClassContainer: new SimpleChange(null, 'test-container-class', true)
     }
+
+    //@ts-ignore
     spyOn(component, 'handleCustomNgClassContainerChanges')
 
     component.ngOnChanges(changes)
 
-    expect(component.handleCustomNgClassContainerChanges).toHaveBeenCalledWith(changes)
+    expect(component['handleCustomNgClassContainerChanges']).toHaveBeenCalledWith(changes)
   })
 
   it('should handle custom ng class label changes', () => {
     const changes: SimpleChanges = {
       customNgClassLabel: new SimpleChange(null, 'test-label-class', true)
     }
+
+    //@ts-ignore
     spyOn(component, 'handleCustomNgClassLabelChanges')
 
     component.ngOnChanges(changes)
 
-    expect(component.handleCustomNgClassLabelChanges).toHaveBeenCalledWith(changes)
+    expect(component['handleCustomNgClassLabelChanges']).toHaveBeenCalledWith(changes)
   })
 
   it('should emit blur event', () => {

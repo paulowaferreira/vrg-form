@@ -1,13 +1,12 @@
 @import "./src/styles.scss";
 
-.field-number__container {
+.field-number {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
 
   input.field-common {
-
     // custom class example
     &.--half-width {
       width: 50%;

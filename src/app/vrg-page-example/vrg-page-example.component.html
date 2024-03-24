@@ -67,7 +67,7 @@
         [autocomplete]="field.autocomplete"
         [cols]="field.cols"
         [controlName]="field.controlName"
-        [customNgClassInput]="textClassName.HALF_WIDTH "
+        [customNgClassInput]="textClassName.HALF_WIDTH"
         [customNgClassLabel]=""
         [customNgClassContainer]=""
         [formGroup]="vrgForm.formGroup"
@@ -79,18 +79,22 @@
         [required]="field.required">
       </vrg-field-textarea>
 
-      <!--
       <vrg-field-email 
-        *ngSwitchCase="fieldType.EMAIL"
-        [ngClass]="'vrg-field'"
-        [ngStyle]="{}"
-        [id]="field.id"
-        [fieldControlName]="field.fieldControlName"
-        [controller]="vrgForm.controller"
-        [placeholder]="field.placeholder">
-        <label [for]="field.fieldControlName" before>Email</label>
-      </vrg-field-email>
-
+      *ngSwitchCase="fieldType.EMAIL"
+      [autocomplete]="field.autocomplete"
+      [controlName]="field.controlName"
+      [customNgClassInput]="textClassName.HALF_WIDTH"
+      [customNgClassLabel]=""
+      [customNgClassContainer]=""
+      [formGroup]="vrgForm.formGroup"
+      [id]="field.id"
+      [labelText]="field.labelText"
+      [name]="field.controlName"
+      [placeholder]="field.placeholder"
+      [required]="field.required">
+    </vrg-field-email>
+    
+    <!--
       <vrg-field-radio
         *ngSwitchCase="fieldType.RADIO"
         [ngClass]=""
