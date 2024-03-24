@@ -69,7 +69,8 @@ export class VrgFieldErrorService {
   private handlePatternError(controlName: string): string {
     const patterns = {
       email: 'E-mail inválido',
-      password: `O campo deve ter pelo menos 1 letra maiúscula, 1 número e 1 caractere especial.`
+      password: `O campo deve ter pelo menos 1 letra maiúscula, 1 número e 1 caractere especial.`,
+      phone: 'Número inválido'
     }
 
     return patterns[controlName]

@@ -49,18 +49,21 @@
         [required]="field.required"
         [placeholder]="field.placeholder">
       </vrg-field-number>
-    
-    <!--
+
       <vrg-field-phone 
         *ngSwitchCase="fieldType.TEL"
-        [ngClass]="'vrg-field'"
-        [ngStyle]="{}"
+        [autocomplete]="field.autocomplete"
+        [controlName]="field.controlName"
+        [customNgClassInput]="textClassName.HALF_WIDTH"
+        [customNgClassLabel]=""
+        [customNgClassContainer]=""
+        [formGroup]="vrgForm.formGroup"
         [id]="field.id"
-        [fieldControlName]="field.fieldControlName"
-        [controller]="vrgForm.controller"
-        [placeholder]="field.placeholder">
-        <label [for]="field.fieldControlName" before>Celular</label>
-      </vrg-field-phone> -->
+        [labelText]="field.labelText"
+        [name]="field.controlName"
+        [placeholder]="field.placeholder"
+        [required]="field.required">
+      </vrg-field-phone>
 
       <vrg-field-textarea
         *ngSwitchCase="fieldType.TEXTAREA"

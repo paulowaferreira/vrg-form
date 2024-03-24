@@ -5,6 +5,7 @@ import { DEFAULT_TEXT_PROPS, DEFAULT_TEXT_VALIDATORS } from '../vrg-field-text/d
 import { DEFAULT_TEXTAREA_PROPS, DEFAULT_TEXTAREA_VALIDATORS } from '../vrg-field-textarea/default.template'
 import { DEFAULT_NUMBER_PROPS, DEFAULT_NUMBER_VALIDATORS } from '../vrg-field-number/default.template'
 import { DEFAULT_EMAIL_PROPS, DEFAULT_EMAIL_VALIDATORS } from '../vrg-field-email/default.template'
+import { DEFAULT_PHONE_PROPS, DEFAULT_PHONE_VALIDATORS } from '../vrg-field-phone/default.template'
 
 export const TEMPLATE_FORM_DATA: VrgField[] = [
   {
@@ -57,14 +58,15 @@ export const TEMPLATE_FORM_DATA: VrgField[] = [
     labelText: 'Bio',
     placeholder: 'Escreva um pouco sobre voce'
   },
-  // {
-  //   ...DEFAULT_PHONE_PROPS,
-  //   validators: DEFAULT_PHONE_VALIDATORS,
-  //   fieldControlName: 'phone',
-  //   id: 'phone',
-  //   placeholder: 'Celular',
-  //   name: 'phone'
-  // },
+  {
+    ...DEFAULT_PHONE_PROPS,
+    validators: DEFAULT_PHONE_VALIDATORS,
+    controlName: 'phone',
+    id: 'phone',
+    placeholder: '(DDD) 9XXXXXXXX',
+    name: 'phone',
+    labelText: 'Celular'
+  },
   {
     ...DEFAULT_EMAIL_PROPS,
     validators: DEFAULT_EMAIL_VALIDATORS,
