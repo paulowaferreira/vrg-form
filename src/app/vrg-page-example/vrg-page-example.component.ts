@@ -28,7 +28,7 @@ export class VrgPageExampleComponent implements OnInit {
 
   onChange() {
     this.vrgForm.formGroup.valueChanges.subscribe(values => {
-      console.log(values, this.vrgForm.formGroup.valid)
+      console.log(values, 'form Valido: ', this.vrgForm.formGroup.valid)
     })
   }
 
