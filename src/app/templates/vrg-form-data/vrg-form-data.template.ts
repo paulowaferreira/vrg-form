@@ -6,6 +6,7 @@ import { DEFAULT_TEXTAREA_PROPS, DEFAULT_TEXTAREA_VALIDATORS } from '../vrg-fiel
 import { DEFAULT_NUMBER_PROPS, DEFAULT_NUMBER_VALIDATORS } from '../vrg-field-number/default.template'
 import { DEFAULT_EMAIL_PROPS, DEFAULT_EMAIL_VALIDATORS } from '../vrg-field-email/default.template'
 import { DEFAULT_PHONE_PROPS, DEFAULT_PHONE_VALIDATORS } from '../vrg-field-phone/default.template'
+import { DEFAULT_RADIO_PROPS, DEFAULT_RADIO_VALIDATORS } from '../vrg-field-radio/default.template'
 
 export const TEMPLATE_FORM_DATA: VrgField[] = [
   {
@@ -76,17 +77,20 @@ export const TEMPLATE_FORM_DATA: VrgField[] = [
     labelText: 'Email',
     placeholder: 'seuemail@dominio.com'
   },
-  // {
-  //   ...DEFAULT_RADIO_PROPS,
-  //   validators: DEFAULT_RADIO_VALIDATORS,
-  //   fieldControlName: 'question',
-  //   id: 'question',
-  //   name: 'question',
-  //   options: [
-  //     { label: 'Sim', value: true },
-  //     { label: 'Não', value: false }
-  //   ]
-  // },
+  {
+    ...DEFAULT_RADIO_PROPS,
+    validators: DEFAULT_RADIO_VALIDATORS,
+    controlName: 'question',
+    id: 'question',
+    name: 'question',
+    labelText: 'O que achou do novo form?',
+    options: [
+      { label: 'Excelente', value: 4 },
+      { label: 'Bom', value: 3 },
+      { label: 'Mais ou menos', value: 2 },
+      { label: 'Insatisfeito', value: 1 }
+    ]
+  },
   // {
   //   ...DEFAULT_DROPDOWN_PROPS,
   //   validators: DEFAULT_DROPDOWN_VALIDATORS,
