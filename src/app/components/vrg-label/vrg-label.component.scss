@@ -1,0 +1,9 @@
+@import "./src/styles.scss";
+
+label.vrg-label {
+  margin-bottom: 2px;
+  font-weight: 400;
+  font-size: $font-size-small;
+  line-height: 18px;
+  color: $field-label;
+}

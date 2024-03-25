@@ -1,34 +1,123 @@
-<div [formGroup]="parentForm">
-  <ng-container *ngFor="let field of fields">
+<form [formGroup]="vrgForm.formGroup">
+  <ng-container *ngFor="let field of vrgForm.fields">
     <ng-container [ngSwitch]="field.type">
       <vrg-field-text
-        *ngSwitchCase="'text'"
-        [name]="field.name"
-        [id]="field.id"
+        *ngSwitchCase="fieldType.TEXT"
+        [autofocus]="field.autofocus"
         [controlName]="field.controlName"
-        [parentForm]="parentForm"
-        [placeholder]="'seu nome aqui'">
+        [customNgClassInput]="textClassName.HALF_WIDTH"
+        [customNgClassLabel]=""
+        [customNgClassContainer]=""
+        [formGroup]="vrgForm.formGroup"
+        [id]="field.id"
+        [labelText]="field.labelText"
+        [name]="field.controlName"
+        [placeholder]="field.placeholder"
+        [required]="field.required">
       </vrg-field-text>
-
+      
       <vrg-field-password
-        *ngSwitchCase="'password'"
-        [name]="field.name"
+        *ngSwitchCase="fieldType.PASSWORD"
         [id]="field.id"
+        [autofocus]="field.autofocus"
         [controlName]="field.controlName"
-        [parentForm]="parentForm"
-        [placeholder]="'senha'">
+        [customNgClassInput]="textClassName.HALF_WIDTH"
+        [customNgClassLabel]=""
+        [customNgClassContainer]=""
+        [formGroup]="vrgForm.formGroup"
+        [id]="field.id"
+        [labelText]="field.labelText"
+        [name]="field.controlName"
+        [placeholder]="field.placeholder"
+        [required]="field.required"
+        [placeholder]="field.placeholder">
       </vrg-field-password>
 
       <vrg-field-number 
-        *ngSwitchCase="'number'"
-        [ngClass]="'vrg-field'"
-        [ngStyle]="{}"
-        [name]="field.name"
+        *ngSwitchCase="fieldType.NUMBER"
         [id]="field.id"
+        [autofocus]="field.autofocus"
         [controlName]="field.controlName"
-        [step]="field.step"
-        [parentForm]="parentForm">
+        [customNgClassInput]="textClassName.HALF_WIDTH"
+        [customNgClassLabel]=""
+        [customNgClassContainer]=""
+        [formGroup]="vrgForm.formGroup"
+        [id]="field.id"
+        [labelText]="field.labelText"
+        [name]="field.controlName"
+        [placeholder]="field.placeholder"
+        [required]="field.required"
+        [placeholder]="field.placeholder">
       </vrg-field-number>
+
+      <vrg-field-phone 
+        *ngSwitchCase="fieldType.TEL"
+        [autocomplete]="field.autocomplete"
+        [controlName]="field.controlName"
+        [customNgClassInput]="textClassName.HALF_WIDTH"
+        [customNgClassLabel]=""
+        [customNgClassContainer]=""
+        [formGroup]="vrgForm.formGroup"
+        [id]="field.id"
+        [labelText]="field.labelText"
+        [name]="field.controlName"
+        [placeholder]="field.placeholder"
+        [required]="field.required">
+      </vrg-field-phone>
+
+      <vrg-field-textarea
+        *ngSwitchCase="fieldType.TEXTAREA"
+        [autocomplete]="field.autocomplete"
+        [cols]="field.cols"
+        [controlName]="field.controlName"
+        [customNgClassInput]="textClassName.HALF_WIDTH"
+        [customNgClassLabel]=""
+        [customNgClassContainer]=""
+        [formGroup]="vrgForm.formGroup"
+        [id]="field.id"
+        [labelText]="field.labelText"
+        [name]="field.controlName"
+        [placeholder]="field.placeholder"
+        [rows]="field.rows"
+        [required]="field.required">
+      </vrg-field-textarea>
+
+      <vrg-field-email 
+        *ngSwitchCase="fieldType.EMAIL"
+        [autocomplete]="field.autocomplete"
+        [controlName]="field.controlName"
+        [customNgClassInput]="textClassName.HALF_WIDTH"
+        [customNgClassLabel]=""
+        [customNgClassContainer]=""
+        [formGroup]="vrgForm.formGroup"
+        [id]="field.id"
+        [labelText]="field.labelText"
+        [name]="field.controlName"
+        [placeholder]="field.placeholder"
+        [required]="field.required">
+      </vrg-field-email>
+
+      <vrg-field-radio
+        *ngSwitchCase="fieldType.RADIO"
+        [id]="field.id"
+        [options]="field.options"
+        [controlName]="field.controlName"
+        [formGroup]="vrgForm.formGroup"
+        [placeholder]="field.placeholder">
+      </vrg-field-radio>
+
+  <!--
+      <vrg-field-dropdown
+        *ngSwitchCase="fieldType.DROPDOWN"
+        [ngClass]=""
+        [ngStyle]="{}"
+        [id]="field.id"
+        [options]="field.options"
+        [fieldControlName]="field.fieldControlName"
+        [controller]="vrgForm.controller"
+        [placeholder]="field.placeholder">
+        <label [for]="field.fieldControlName" before>Qual sua nota para o novo form?</label>
+      </vrg-field-dropdown> -->
     </ng-container>
   </ng-container>
-</div>
+</form>

@@ -1,0 +1,45 @@
+<div
+  class="field-textarea"
+  [ngClass]="ngClassContainer"
+  [formGroup]="formGroup">
+  <vrg-label
+    [customNgClass]="ngClassLabel"
+    [fieldName]="name"
+    [text]="labelText"
+    [isRequired]="required">
+  </vrg-label>
+
+  <textarea
+    class="field-common"
+    [autofocus]="autofocus"
+    [cols]="cols"
+    [formControlName]="controlName"
+    [id]="'field-textarea__' + id"
+    [name]="controlName"
+    [class.--error]="!!error"
+    [ngClass]="ngClassInput"
+    [placeholder]="placeholder"
+    [rows]="rows"
+    [value]="value"
+    (blur)="onBlur($event)"
+    (change)="onChange($event)"
+    (focus)="onFocus($event)"
+    (input)="onInput($event)"
+    (keyup)="onKeyup($event)"
+    (search)="onSearch($event)"
+    (click)="onClick($event)"
+    (submit)="onSubmit($event)"
+    (click)="onClick($event)"
+    (dblclick)="onDoubleClick($event)"
+    (mouseover)="onMouseOver($event)"
+    (mouseout)="onMouseOut($event)"
+    (mouseenter)="onMouseEnter($event)"
+    (mouseleave)="onMouseLeave($event)">
+  </textarea>
+
+  <span 
+    *ngIf="!!error"
+    class="field-validation-error">
+    {{error.message}}
+  </span>
+</div>

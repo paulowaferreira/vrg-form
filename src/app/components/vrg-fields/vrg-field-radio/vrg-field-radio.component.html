@@ -1,0 +1,39 @@
+<div
+  class="field-radio"
+  [ngClass]="ngClassContainer"
+  [formGroup]="formGroup">
+  <ul class="field-radio__content">
+    <li 
+      *ngFor="let option of options; let i = index"
+      class="field-radio-item">
+      <label [ngClass]="{ disabled: formGroup.get(controlName).disabled == true }">
+        <input
+          type="radio"
+          [autofocus]="autofocus"
+          [disabled]="formGroup.get(controlName).disabled == true"
+          [checked]="option?.value == formGroup.get(controlName).value"
+          [formControlName]="controlName"
+          [id]="'field-radio-option-' + (i+1)"
+          [name]="controlName"
+          [value]="option?.value"
+          (blur)="onBlur($event)"
+          (change)="onChange($event)"
+          (focus)="onFocus($event)"
+          (input)="onInput($event)"
+          (keyup)="onKeyup($event)"
+          (search)="onSearch($event)"
+          (click)="onClick($event)"
+          (submit)="onSubmit($event)"
+          (click)="onClick($event)"
+          (dblclick)="onDoubleClick($event)"
+          (mouseover)="onMouseOver($event)"
+          (mouseout)="onMouseOut($event)"
+          (mouseenter)="onMouseEnter($event)"
+          (mouseleave)="onMouseLeave($event)"/>
+        <span>{{ option?.label }}</span>
+      </label>
+    </li>
+  </ul>
+
+  <span *ngIf="!!error" class="field-validation-error">{{error.message}}</span>
+</div>

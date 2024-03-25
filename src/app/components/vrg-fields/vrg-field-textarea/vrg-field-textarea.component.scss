@@ -1,0 +1,17 @@
+@import "./src/styles.scss";
+
+.field-textarea {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  textarea.field-common {
+    min-height: 55.6px;
+
+    // custom class example
+    &.--half-width {
+      width: 50%;
+    }
+  }
+}

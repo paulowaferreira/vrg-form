@@ -1,0 +1,41 @@
+@import "./src/styles.scss";
+
+.field-radio {
+  width: 100%;
+
+  ul.field-radio__content {
+    display: flex;
+    padding: 0;
+    margin: 0;
+
+    li.field-radio-item {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      position: relative;
+      height: 40px;
+    }
+
+    label {
+      cursor: pointer;
+      display: flex;
+      width: 100%;
+      align-items: center;
+      flex-wrap: nowrap;
+      margin: 0;
+
+      span {
+        font-size: 12px;
+        margin-left: 5px;
+      }
+
+      &.disabled {
+        cursor: not-allowed;
+
+        span {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
